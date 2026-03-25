@@ -1,0 +1,60 @@
+import React from "react"
+import type { Metadata, Viewport } from 'next'
+import { DM_Sans, Playfair_Display } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+
+const dmSans = DM_Sans({ 
+  subsets: ["latin"],
+  variable: '--font-dm-sans',
+  weight: ['300', '400', '500', '600']
+});
+
+const playfairDisplay = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700']
+});
+
+export const metadata: Metadata = {
+  title: 'Warpas Studio — Website & Undangan Digital Profesional',
+  description: 'Kami menyediakan solusi website profesional dan undangan digital elegan untuk bisnis dan acara Anda.',
+  generator: 'v0.app',
+  keywords: ['website', 'undangan digital', 'landing page', 'web design', 'digital agency', 'Indonesia'],
+  icons: {
+    icon: [
+      {
+        url: '/logo-warpas.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/logo-warpas.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/logo-warpas.png',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/logo-warpas.png',
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#F7F4EF',
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="id">
+      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
