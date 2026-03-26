@@ -1,25 +1,26 @@
 "use client"
 
 import { Globe, ShoppingCart, Heart } from "lucide-react"
+import Link from "next/link"
 
 const services = [
   {
     icon: Globe,
     title: "Website Company Profile",
     description: "Website profesional untuk memperkenalkan bisnis Anda dengan desain modern dan responsif",
-    link: "https://web.warpasdigital.com"
+    link: "/services/company-profile"
   },
   {
     icon: ShoppingCart,
     title: "Landing Page",
     description: "Halaman penjualan yang dioptimalkan untuk konversi tinggi",
-    link: "https://landing.warpasdigital.com"
+    link: "/services/landing-page"
   },
   {
     icon: Heart,
     title: "Undangan Digital",
     description: "Undangan elegan untuk pernikahan dan acara spesial Anda",
-    link: "https://wedding.warpasdigital.com"
+    link: "/services/undangan"
   }
 ]
 
@@ -60,15 +61,13 @@ export function ServicesGrid() {
                   </p>
                 </div>
 
-                {/* BUTTON */}
-                <a
+                {/* BUTTON (PAKAI LINK, BUKAN <a>) */}
+                <Link
                   href={service.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center text-sm px-5 py-2.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Lihat Detail
-                </a>
+                </Link>
               </div>
             )
           })}
