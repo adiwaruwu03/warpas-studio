@@ -50,7 +50,7 @@ export function Newsletter() {
           <div className="pt-4">
             {/* pt-4 untuk menyamakan posisi dengan header card yang punya py-4 */}
             <h2 className="font-serif text-4xl md:text-6xl text-gray-900 mb-6 leading-tight">
-              Wujudkan Acara Impian Anda
+              Wujudkan Produk Digital Impian Anda
             </h2>
 
             <p className="text-gray-700 mb-6 text-lg">

@@ -136,7 +136,7 @@ export function CartDrawer() {
                 className="w-full border border-border text-foreground py-4 rounded-full font-medium hover:bg-muted boty-transition"
               >
                 Continue Shopping
-              </button>
+              </button>;
             </DrawerClose>
           </DrawerFooter>
         )}

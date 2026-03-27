@@ -1,18 +1,47 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, MessageCircle } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { Menu, X } from "lucide-react"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
 
+  // Cek apakah di homepage
+  const isHomePage = pathname === "/"
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Navigasi items - jika di halaman detail, link ke homepage dengan hash
+  const navItems = [
+    { name: "Home", href: isHomePage ? "#home" : "/" },
+    { name: "Layanan", href: isHomePage ? "#layanan" : "/#layanan" },
+    { name: "Portfolio", href: isHomePage ? "#portfolio" : "/#portfolio" },
+    { name: "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
+  ]
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8 backdrop-blur-md rounded-xl bg-white/40 border border-white/30 shadow-[0_10px_50px_rgba(0,0,0,0.1)]">
+    <header className={`fixed top-0 left-0 right-0 z-50 px-4 transition-all duration-300 ${
+      scrolled || !isHomePage ? "pt-2" : "pt-4"
+    }`}>
+      <nav className={`max-w-7xl mx-auto px-6 lg:px-8 backdrop-blur-md rounded-xl border border-white/30 shadow-lg transition-all duration-300 ${
+        scrolled || !isHomePage 
+          ? "bg-background/95 shadow-md" 
+          : "bg-white/40"
+      }`}>
 
         <div className="flex items-center justify-between h-[68px]">
 
@@ -27,32 +56,28 @@ export function Header() {
 
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="#home" className="text-sm text-foreground/70 hover:text-foreground transition">
-              Home
-            </Link>
-
-            <Link href="#layanan" className="text-sm text-foreground/70 hover:text-foreground transition">
-              Layanan
-            </Link>
-
-            <Link href="#portfolio" className="text-sm text-foreground/70 hover:text-foreground transition">
-              Tentang
-            </Link>
-
-            <Link href="#kontak" className="text-sm text-foreground/70 hover:text-foreground transition">
-              Kontak
-            </Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm text-foreground/70 hover:text-foreground transition"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
-          {/* LOGO */}
-          <Link href="#home" className="absolute left-1/2 -translate-x-1/2">
+          {/* LOGO - Link ke Homepage */}
+          <Link 
+            href="/" 
+            className="absolute left-1/2 -translate-x-1/2"
+            onClick={closeMenu}
+          >
             <h1 className="font-serif text-2xl md:text-3xl tracking-wider text-foreground">
               Warpas Studio
             </h1>
           </Link>
 
-         
-          
         </div>
 
         {/* MOBILE MENU */}
@@ -62,31 +87,16 @@ export function Header() {
           }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border/50">
-
-            <Link href="#home" onClick={closeMenu} className="text-sm text-foreground/70 hover:text-foreground">
-              Home
-            </Link>
-
-            <Link href="#layanan" onClick={closeMenu} className="text-sm text-foreground/70 hover:text-foreground">
-              Layanan
-            </Link>
-
-            <Link href="#portfolio" onClick={closeMenu} className="text-sm text-foreground/70 hover:text-foreground">
-              Portfolio
-            </Link>
-
-            <Link href="#kontak" onClick={closeMenu} className="text-sm text-foreground/70 hover:text-foreground">
-              Kontak
-            </Link>
-
-            <a
-              href="https://wa.me/6283836098858"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-foreground/70 hover:text-foreground"
-            >
-              WhatsApp
-            </a>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={closeMenu}
+                className="text-sm text-foreground/70 hover:text-foreground"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </div>
 

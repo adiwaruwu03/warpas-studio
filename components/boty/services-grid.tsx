@@ -1,25 +1,19 @@
 "use client"
 
-import { Globe, ShoppingCart, Heart } from "lucide-react"
+import { ArrowRight, BriefcaseBusiness, Heart } from "lucide-react"
 import Link from "next/link"
 
 const services = [
   {
-    icon: Globe,
-    title: "Website Company Profile",
-    description: "Website profesional untuk memperkenalkan bisnis Anda dengan desain modern dan responsif",
+    icon: BriefcaseBusiness,
+    title: "Jasa Web UMKM",
+    description: "Website bisnis yang rapi, profesional, dan mobile friendly untuk membangun kepercayaan calon pelanggan.",
     link: "/services/company-profile"
   },
   {
-    icon: ShoppingCart,
-    title: "Landing Page",
-    description: "Halaman penjualan yang dioptimalkan untuk konversi tinggi",
-    link: "/services/landing-page"
-  },
-  {
     icon: Heart,
-    title: "Undangan Digital",
-    description: "Undangan elegan untuk pernikahan dan acara spesial Anda",
+    title: "Undangan Wedding Digital",
+    description: "Undangan digital elegan untuk momen pernikahan yang mudah dibagikan, nyaman dibuka, dan tampil berkesan.",
     link: "/services/undangan"
   }
 ]
@@ -38,35 +32,40 @@ export function ServicesGrid() {
           <h2 className="font-serif text-4xl md:text-6xl text-foreground">
             Solusi Digital
           </h2>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
+            Fokus pada layanan yang paling dibutuhkan bisnis dan momen spesial Anda.
+          </p>
         </div>
 
         {/* Cards */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div
                 key={index}
-                className="group p-8 rounded-2xl border border-border bg-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group flex flex-col justify-between rounded-[28px] border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div>
-                  <Icon className="w-8 h-8 text-primary mb-4" strokeWidth={1.5} />
+                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon className="h-7 w-7" strokeWidth={1.5} />
+                  </div>
 
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-2xl font-semibold text-foreground mb-3">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-muted-foreground mb-6">
+                  <p className="text-base leading-7 text-muted-foreground mb-8">
                     {service.description}
                   </p>
                 </div>
 
-                {/* BUTTON (PAKAI LINK, BUKAN <a>) */}
                 <Link
                   href={service.link}
-                  className="inline-flex items-center justify-center text-sm px-5 py-2.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                 >
                   Lihat Detail
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             )
