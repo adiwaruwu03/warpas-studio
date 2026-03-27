@@ -154,7 +154,7 @@ export default function CompanyProfilePage() {
       <div className="relative min-h-screen bg-background">
 
         {/* HERO SECTION with Image */}
-        <section id="home" className="relative h-[90vh] w-full overflow-hidden">
+        <section id="home" className="relative h-[78svh] min-h-[520px] w-full overflow-hidden sm:h-[90vh] sm:min-h-[620px]">
           <div className="absolute inset-0">
             <video
               autoPlay
@@ -171,10 +171,10 @@ export default function CompanyProfilePage() {
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white drop-shadow-lg leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white drop-shadow-lg leading-tight">
               Jasa Build Website UMKM
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-white/90 max-w-3xl">
+            <p className="mt-6 text-lg md:text-2xl text-white/90 max-w-3xl">
               Tingkatkan kepercayaan bisnis Anda dengan website modern, cepat, dan responsif yang dirancang khusus.
             </p>
           </div>

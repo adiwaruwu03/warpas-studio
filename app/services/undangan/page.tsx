@@ -224,7 +224,7 @@ export default function UndanganPage() {
       </Head>
 
       <div className="bg-background">
-        <section id="home" className="relative h-[90vh] w-full overflow-hidden">
+        <section id="home" className="relative h-[78svh] min-h-[520px] w-full overflow-hidden sm:h-[90vh] sm:min-h-[620px]">
           <div className="absolute inset-0">
             <video
               autoPlay
@@ -254,33 +254,12 @@ export default function UndanganPage() {
           </div>
 
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-            <span className="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-white/90 backdrop-blur-sm">
-              Warpas Studio
-            </span>
             <h1 className="text-4xl font-serif font-bold leading-tight text-white drop-shadow-lg md:text-6xl lg:text-7xl">
-              Jasa Undangan Digital
-              <span className="block text-secondary drop-shadow-lg">Elegan dan Berkesan</span>
+              Jasa Undangan Wedding Digital
             </h1>
             <p className="mt-6 max-w-3xl text-lg text-white/90 md:text-2xl">
               Solusi undangan digital yang praktis, cantik, dan nyaman dibagikan untuk momen pernikahan maupun acara spesial lainnya.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#catalog"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-7 py-3 font-semibold text-secondary-foreground transition hover:bg-secondary/90"
-              >
-                Lihat Katalog
-                <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="https://wa.me/6283836098858"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-background/10 px-7 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-background hover:text-foreground"
-              >
-                Konsultasi Sekarang
-              </a>
-            </div>
           </div>
         </section>
 
