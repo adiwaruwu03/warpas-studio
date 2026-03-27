@@ -17,12 +17,30 @@ import { Footer } from "@/components/boty/footer";
 
 // Data Features
 const features = [
-  { icon: "🌿", title: "Desain modern dan elegan", desc: "Tampilan yang memukau dan profesional dengan sentuhan alami" },
-  { icon: "📱", title: "Mobile responsive", desc: "Tampil sempurna di semua perangkat" },
-  { icon: "💬", title: "Integrasi WhatsApp", desc: "Koneksi langsung dengan pelanggan" },
-  { icon: "⚡", title: "Loading cepat", desc: "Optimalisasi performa website" },
-  { icon: "🔍", title: "Basic SEO", desc: "Mudah ditemukan di mesin pencari" },
-  { icon: "🎯", title: "Custom sesuai kebutuhan", desc: "Solusi tepat untuk bisnis Anda" },
+  {
+    title: "Desain modern dan elegan",
+    desc: "Tampilan website dibuat lebih rapi, profesional, dan enak dilihat agar bisnis Anda terlihat lebih meyakinkan di mata calon pelanggan.",
+  },
+  {
+    title: "Mobile responsive",
+    desc: "Website menyesuaikan ukuran layar HP, tablet, dan laptop, jadi pengunjung tetap nyaman membaca isi website dari perangkat apa pun.",
+  },
+  {
+    title: "Integrasi WhatsApp",
+    desc: "Kami tambahkan tombol atau alur menuju WhatsApp agar calon pelanggan bisa langsung menghubungi Anda tanpa bingung mencari kontak.",
+  },
+  {
+    title: "Loading cepat",
+    desc: "Struktur halaman dibuat lebih ringan supaya website terasa cepat dibuka, sehingga pengunjung tidak mudah keluar karena menunggu terlalu lama.",
+  },
+  {
+    title: "Basic SEO",
+    desc: "SEO adalah optimasi dasar agar website lebih mudah dikenali Google, seperti penataan judul halaman, deskripsi, dan struktur konten yang lebih rapi.",
+  },
+  {
+    title: "Custom sesuai kebutuhan",
+    desc: "Konten, struktur halaman, dan beberapa bagian visual bisa disesuaikan dengan jenis usaha Anda agar website terasa lebih relevan, bukan sekadar template umum.",
+  },
 ];
 
 const portfolio = [
@@ -154,21 +172,11 @@ export default function CompanyProfilePage() {
 
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white drop-shadow-lg leading-tight">
-              Jasa Website UMKM
-              <span className="block text-secondary drop-shadow-lg">dan Website Bisnis</span>
+              Jasa Build Website UMKM
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-white/90 max-w-3xl">
               Tingkatkan kepercayaan bisnis Anda dengan website modern, cepat, dan responsif yang dirancang khusus.
             </p>
-            <div className="mt-8 flex justify-center">
-              <a
-                href="#portfolio"
-                onClick={(e) => scrollToSection(e, "portfolio")}
-                className="px-8 py-4 border border-secondary/80 bg-background/10 text-white rounded-lg font-semibold backdrop-blur-sm hover:bg-background hover:text-foreground transition-all"
-              >
-                Lihat Portfolio
-              </a>
-            </div>
           </div>
         </section>
 
@@ -201,9 +209,8 @@ export default function CompanyProfilePage() {
                   key={f.title} 
                   className="group rounded-xl border border-border/70 bg-card p-6 shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1"
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{f.icon}</div>
                   <h3 className="text-xl font-semibold mb-2 text-foreground">{f.title}</h3>
-                  <p className="text-muted-foreground">{f.desc}</p>
+                  <p className="text-muted-foreground leading-7">{f.desc}</p>
                 </div>
               ))}
             </div>
