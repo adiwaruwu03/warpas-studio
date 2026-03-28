@@ -95,7 +95,7 @@ export function Hero() {
               animationFillMode: "forwards",
             }}
           >
-            <div className="hero-orb-shell mx-auto flex w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[2rem] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(8,17,29,0.96),rgba(10,24,42,0.9))] px-8 py-10 shadow-[0_18px_48px_rgba(2,8,23,0.34)]">
+            <div className="hero-orb-shell mx-auto flex w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/[0.008] bg-[linear-gradient(180deg,rgba(8,17,29,0.035),rgba(10,24,42,0.01))] px-8 py-10 shadow-[0_1px_2px_rgba(2,8,23,0.012)] backdrop-blur-[20px]">
               <div className="hero-loader-frame">
                 <svg className="hero-ring-text" viewBox="0 0 320 320" aria-hidden="true">
                   <defs>
@@ -144,8 +144,8 @@ export function Hero() {
           min-height: 360px;
           isolation: isolate;
           box-shadow:
-            0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-            0 20px 56px rgba(8, 15, 30, 0.34);
+            0 0 0 1px rgba(255, 255, 255, 0.003) inset,
+            0 1px 4px rgba(8, 15, 30, 0.012);
         }
 
         .hero-orb-shell::before {
@@ -153,10 +153,10 @@ export function Hero() {
           position: absolute;
           inset: 14px;
           border-radius: 1.5rem;
-          border: 1px solid rgba(103, 232, 249, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.003);
           background:
-            radial-gradient(circle at top, rgba(34, 211, 238, 0.1), transparent 34%),
-            linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 65%);
+            radial-gradient(circle at top, rgba(255, 255, 255, 0.005), transparent 34%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.002), transparent 65%);
           pointer-events: none;
         }
 
