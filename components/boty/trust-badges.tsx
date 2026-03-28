@@ -2,33 +2,34 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Zap, Palette, Smartphone, MessageSquare } from "lucide-react"
-
-const badges = [
-  {
-    icon: Zap,
-    title: "Pengerjaan Cepat",
-    description: "Selesai tepat waktu sesuai jadwal"
-  },
-  {
-    icon: Palette,
-    title: "Desain Premium",
-    description: "Estetika modern dan profesional"
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Friendly",
-    description: "Responsif di semua perangkat"
-  },
-  {
-    icon: MessageSquare,
-    title: "Support Ramah",
-    description: "Tim siap membantu Anda"
-  }
-]
+import { useLanguage } from "@/components/boty/language-context"
 
 export function TrustBadges() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { language } = useLanguage()
+  const badges = [
+    {
+      icon: Zap,
+      title: language === "en" ? "Fast Delivery" : "Pengerjaan Cepat",
+      description: language === "en" ? "Delivered on schedule" : "Selesai tepat waktu sesuai jadwal"
+    },
+    {
+      icon: Palette,
+      title: language === "en" ? "Premium Design" : "Desain Premium",
+      description: language === "en" ? "Modern and professional aesthetics" : "Estetika modern dan profesional"
+    },
+    {
+      icon: Smartphone,
+      title: language === "en" ? "Mobile Friendly" : "Mobile Friendly",
+      description: language === "en" ? "Responsive on every device" : "Responsif di semua perangkat"
+    },
+    {
+      icon: MessageSquare,
+      title: language === "en" ? "Friendly Support" : "Support Ramah",
+      description: language === "en" ? "Our team is ready to help" : "Tim siap membantu Anda"
+    }
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(

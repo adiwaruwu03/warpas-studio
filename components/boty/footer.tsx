@@ -2,8 +2,21 @@
 
 import Link from "next/link"
 import { Instagram, Linkedin, Phone, Mail } from "lucide-react"
+import { useLanguage } from "@/components/boty/language-context"
 
 export function Footer() {
+  const { language } = useLanguage()
+  const copy = {
+    brandDescription:
+      language === "en"
+        ? "Professional digital solutions for your business and events. We help create modern and elegant digital experiences."
+        : "Solusi digital profesional untuk bisnis dan acara Anda. Kami membantu menciptakan pengalaman digital yang modern dan elegan.",
+    socialMedia: language === "en" ? "Social Media" : "Sosial Media",
+    contact: language === "en" ? "Contact" : "Kontak",
+    privacy: language === "en" ? "Privacy Policy" : "Kebijakan Privasi",
+    terms: language === "en" ? "Terms of Service" : "Syarat Layanan",
+  }
+
   return (
     <footer className="bg-primary pt-20 pb-10 relative overflow-hidden">
 
@@ -27,15 +40,14 @@ export function Footer() {
               Warpas Studio
             </h2>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">
-              Solusi digital profesional untuk bisnis dan acara Anda.
-              Kami membantu menciptakan pengalaman digital yang modern dan elegan.
+              {copy.brandDescription}
             </p>
           </div>
 
           {/* SOCIAL MEDIA */}
           <div className="flex flex-col items-center">
             <h3 className="text-sm font-semibold text-white mb-4">
-              Sosial Media
+              {copy.socialMedia}
             </h3>
 
             <div className="flex gap-4">
@@ -71,7 +83,7 @@ export function Footer() {
           {/* CONTACT */}
           <div className="flex flex-col items-center">
             <h3 className="text-sm font-semibold text-white mb-4">
-              Kontak
+              {copy.contact}
             </h3>
 
             <div className="flex gap-4">
@@ -100,11 +112,11 @@ export function Footer() {
           <p className="text-sm text-white/50">
             © {new Date().getFullYear()} Warpas Studio. All rights reserved. •{" "}
             <Link href="/" className="hover:text-white/70 transition">
-              Privacy Policy
+              {copy.privacy}
             </Link>{" "}
             •{" "}
             <Link href="/" className="hover:text-white/70 transition">
-              Terms of Service
+              {copy.terms}
             </Link>
           </p>
         </div>

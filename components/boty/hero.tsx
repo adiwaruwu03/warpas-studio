@@ -1,9 +1,18 @@
 "use client"
 
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { useLanguage } from "@/components/boty/language-context"
 
 export function Hero() {
+  const { language } = useLanguage()
+  const copy = {
+    top: language === "en" ? "Website Services" : "Jasa Website",
+    bottom: language === "en" ? "Digital Products" : "Produk Digital",
+    description:
+      language === "en"
+        ? "We create professional websites and stunning digital invitations for your business and special events."
+        : "Kami menciptakan website profesional dan undangan digital yang memukau untuk bisnis dan acara Anda.",
+  }
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#e3e1e2]">
 
@@ -36,7 +45,7 @@ export function Hero() {
 
             <span className="block animate-blur-in opacity-0 font-light"
               style={{ animationDelay: "0.4s", animationFillMode: "forwards", textShadow: "3px 3px 6px rgba(0,0,0,0.6)" }}>
-              Jasa Website
+              {copy.top}
             </span>
 
             <span className="block animate-blur-in opacity-0 font-light text-2xl md:text-3xl lg:text-4xl xl:text-5xl my-1"
@@ -46,7 +55,7 @@ export function Hero() {
 
             <span className="block animate-blur-in opacity-0 font-bold"
               style={{ animationDelay: "0.6s", animationFillMode: "forwards", textShadow: "4px 4px 8px rgba(0,0,0,0.7)" }}>
-              Produk Digital
+              {copy.bottom}
             </span>
 
           </h1>
@@ -60,7 +69,7 @@ export function Hero() {
               textShadow: "1px 1px 3px rgba(0,0,0,0.4)",
             }}
           >
-            Kami menciptakan website profesional dan undangan digital yang memukau untuk bisnis dan acara Anda.
+            {copy.description}
           </p>
 
         </div>

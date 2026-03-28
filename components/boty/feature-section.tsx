@@ -3,32 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Zap, Palette, Code, Users } from "lucide-react"
-
-
-
-
-const features = [
-  {
-    icon: Zap,
-    title: "Cepat & Efisien",
-    description: "Pengerjaan tepat waktu tanpa mengorbankan kualitas"
-  },
-  {
-    icon: Palette,
-    title: "Desain Premium",
-    description: "Estetika modern yang mencerminkan brand Anda"
-  },
-  {
-    icon: Code,
-    title: "Teknologi Terkini",
-    description: "Menggunakan framework dan tools terbaru"
-  },
-  {
-    icon: Users,
-    title: "Support Dedicated",
-    description: "Tim profesional siap membantu kapan saja"
-  }
-]
+import { useLanguage } from "@/components/boty/language-context"
 
 export function FeatureSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -37,6 +12,39 @@ export function FeatureSection() {
   const bentoRef = useRef<HTMLDivElement>(null)
   const videoSectionRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
+  const { language } = useLanguage()
+  const isEnglish = language === "en"
+
+  const features = [
+    {
+      icon: Zap,
+      title: isEnglish ? "Fast & Efficient" : "Cepat & Efisien",
+      description: isEnglish
+        ? "Delivered on time without compromising quality"
+        : "Pengerjaan tepat waktu tanpa mengorbankan kualitas"
+    },
+    {
+      icon: Palette,
+      title: isEnglish ? "Premium Design" : "Desain Premium",
+      description: isEnglish
+        ? "Modern aesthetics that reflect your brand"
+        : "Estetika modern yang mencerminkan brand Anda"
+    },
+    {
+      icon: Code,
+      title: isEnglish ? "Modern Technology" : "Teknologi Terkini",
+      description: isEnglish
+        ? "Built with modern frameworks and tools"
+        : "Menggunakan framework dan tools terbaru"
+    },
+    {
+      icon: Users,
+      title: "Support Dedicated",
+      description: isEnglish
+        ? "A professional team ready to help anytime"
+        : "Tim profesional siap membantu kapan saja"
+    }
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,10 +131,12 @@ export function FeatureSection() {
                 </div>
                 <div>
                   <h3 className="text-xl text-foreground mb-2 font-medium">
-                    Pengerjaan <span className="">Cepat</span>
+                    {isEnglish ? "Fast" : "Pengerjaan"} <span>{isEnglish ? "Delivery" : "Cepat"}</span>
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Kami menyelesaikan project tepat waktu dengan kualitas profesional dan detail sempurna.
+                    {isEnglish
+                      ? "We complete projects on schedule with professional quality and careful attention to detail."
+                      : "Kami menyelesaikan project tepat waktu dengan kualitas profesional dan detail sempurna."}
                   </p>
                 </div>
               </div>
@@ -143,7 +153,7 @@ export function FeatureSection() {
             {/* Background Image */}
            <Image
               src="https://images.unsplash.com/photo-1773764262796-606a14e49314?q=80&w=875&auto=format&fit=crop"
-              alt="Interior aesthetic"
+              alt={isEnglish ? "Premium design showcase" : "Tampilan desain premium"}
               fill
               className="object-cover"
             />
@@ -151,16 +161,16 @@ export function FeatureSection() {
             
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl text-white mb-2">
-                Desain Premium
+                {isEnglish ? "Premium Design" : "Desain Premium"}
               </h3>
               <h3 className="text-2xl md:text-3xl text-white/70 mb-4">
-                Profesional
+                {isEnglish ? "Professional" : "Profesional"}
               </h3>
               
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-white/90 text-sm">
                   <Palette className="w-4 h-4 flex-shrink-0" />
-                  <span>Modern & Elegan</span>
+                  <span>{isEnglish ? "Modern & Elegant" : "Modern & Elegan"}</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/90 text-sm">
                   <Zap className="w-4 h-4 flex-shrink-0" />
@@ -168,7 +178,7 @@ export function FeatureSection() {
                 </div>
                 <div className="flex items-center gap-2 text-white/90 text-sm">
                   <Code className="w-4 h-4 flex-shrink-0" />
-                  <span>Teknologi Terkini</span>
+                  <span>{isEnglish ? "Modern Technology" : "Teknologi Terkini"}</span>
                 </div>
               </div>
             </div>
@@ -199,10 +209,10 @@ export function FeatureSection() {
                 <Users className="w-8 h-8 text-black" />
               </div>
               <h3 className="font-sans text-base mb-1 text-black">
-                Tim Profesional
+                {isEnglish ? "Professional Team" : "Tim Profesional"}
               </h3>
               <h3 className="text-2xl md:text-3xl mb-2 text-black">
-                Berpengalaman
+                {isEnglish ? "Experienced" : "Berpengalaman"}
               </h3>
             </div>
           </div>
@@ -238,14 +248,15 @@ export function FeatureSection() {
             style={{ transitionDelay: '100ms' }}
           >
             <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-              Mengapa Warpas
+              {isEnglish ? "Why Warpas" : "Mengapa Warpas"}
             </span>
             <h2 className={`font-serif text-4xl leading-tight text-foreground mb-6 text-balance md:text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-              Kepercayaan Klien.
+              {isEnglish ? "Client Trust." : "Kepercayaan Klien."}
             </h2>
             <p className={`text-lg text-muted-foreground leading-relaxed mb-10 max-w-md ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
-              Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan layanan terbaik. 
-              Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda.
+              {isEnglish
+                ? "We are committed to delivering high-quality digital solutions with excellent service. Every project is handled with care and full dedication to support your business success."
+                : "Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan layanan terbaik. Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda."}
             </p>
 
             {/* Feature Cards */}

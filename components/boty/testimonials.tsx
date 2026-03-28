@@ -1,84 +1,17 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Star } from "lucide-react"
+import { useLanguage } from "@/components/boty/language-context"
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Bina & Andi",
-    location: "Jakarta",
-    rating: 5,
-    text: "Undangan digitalnya sangat elegan dan semua tamu sangat terkesan. Proses pembuatan juga sangat cepat dan responsif.",
-    product: "Undangan Digital"
-  },
-  {
-    id: 2,
-    name: "Imelda Salon",
-    location: "Bandung",
-    rating: 5,
-    text: "Website profesional yang benar-benar meningkatkan penjualan kami. Tim Warpas sangat memahami kebutuhan bisnis salon.",
-    product: "Website Company"
-  },
-  {
-    id: 3,
-    name: "Event Manager Surabaya",
-    location: "Surabaya",
-    rating: 5,
-    text: "Landing page untuk event kami convert dengan sangat baik. Design-nya modern dan user experience-nya luar biasa.",
-    product: "Landing Page"
-  },
-  {
-    id: 4,
-    name: "UMKM Craft Jakarta",
-    location: "Jakarta",
-    rating: 5,
-    text: "Website toko online kami jadi lebih profesional. Admin panel-nya mudah digunakan dan support team sangat responsif.",
-    product: "Website UMKM"
-  },
-  {
-    id: 5,
-    name: "Wedding Consultant",
-    location: "Medan",
-    rating: 5,
-    text: "Undangan digital kami menjadi trending di social media. Terimakasih Warpas Studio atas karya luar biasanya.",
-    product: "Undangan Digital"
-  },
-  {
-    id: 6,
-    name: "PT Konsultan",
-    location: "Yogyakarta",
-    rating: 5,
-    text: "Website company profile kami sekarang lebih memukau calon klien. Investasi terbaik untuk bisnis kami.",
-    product: "Website Company"
-  },
-  {
-    id: 7,
-    name: "Entrepreneur Muda",
-    location: "Bandung",
-    rating: 5,
-    text: "Dari konsultasi hingga launching website, Warpas sangat profesional. Hasilnya melebihi ekspektasi saya.",
-    product: "Landing Page"
-  },
-  {
-    id: 8,
-    name: "Online Shop Owner",
-    location: "Bali",
-    rating: 5,
-    text: "Website e-commerce kami sudah meningkatkan traffic dan penjualan. Terima kasih atas dedikasi tim Warpas.",
-    product: "Website UMKM"
-  },
-  {
-    id: 9,
-    name: "Event Organizer",
-    location: "Surabaya",
-    rating: 5,
-    text: "Undangan digital dengan custom animation yang kami minta berhasil dibuat sempurna. Rekomendasikan Warpas!",
-    product: "Undangan Digital"
-  }
-]
+type Testimonial = {
+  id: number
+  name: string
+  location: string
+  text: string
+  product: string
+}
 
-const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
   <div className="rounded-3xl p-6 bg-white mb-4 flex-shrink-0"
     style={{
       boxShadow: "rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px"
@@ -108,6 +41,92 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 export function Testimonials() {
   const [headerVisible, setHeaderVisible] = useState(false)
   const headerRef = useRef<HTMLDivElement>(null)
+  const { language } = useLanguage()
+  const isEnglish = language === "en"
+
+  const testimonials: Testimonial[] = [
+    {
+      id: 1,
+      name: "Bina & Andi",
+      location: "Jakarta",
+      text: isEnglish
+        ? "The digital invitation was very elegant and left a great impression on all our guests. The process was also fast and responsive."
+        : "Undangan digitalnya sangat elegan dan semua tamu sangat terkesan. Proses pembuatan juga sangat cepat dan responsif.",
+      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+    },
+    {
+      id: 2,
+      name: "Imelda Salon",
+      location: "Bandung",
+      text: isEnglish
+        ? "A professional website that truly boosted our sales. The Warpas team really understood our salon business needs."
+        : "Website profesional yang benar-benar meningkatkan penjualan kami. Tim Warpas sangat memahami kebutuhan bisnis salon.",
+      product: isEnglish ? "Company Website" : "Website Company"
+    },
+    {
+      id: 3,
+      name: "Event Manager Surabaya",
+      location: "Surabaya",
+      text: isEnglish
+        ? "Our event landing page converted really well. The design was modern and the user experience was outstanding."
+        : "Landing page untuk event kami convert dengan sangat baik. Design-nya modern dan user experience-nya luar biasa.",
+      product: "Landing Page"
+    },
+    {
+      id: 4,
+      name: "UMKM Craft Jakarta",
+      location: "Jakarta",
+      text: isEnglish
+        ? "Our online store website looks much more professional now. The admin panel is easy to use and the support team is very responsive."
+        : "Website toko online kami jadi lebih profesional. Admin panel-nya mudah digunakan dan support team sangat responsif.",
+      product: isEnglish ? "SME Website" : "Website UMKM"
+    },
+    {
+      id: 5,
+      name: "Wedding Consultant",
+      location: "Medan",
+      text: isEnglish
+        ? "Our digital invitation started trending on social media. Thank you Warpas Studio for the amazing work."
+        : "Undangan digital kami menjadi trending di social media. Terimakasih Warpas Studio atas karya luar biasanya.",
+      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+    },
+    {
+      id: 6,
+      name: "PT Konsultan",
+      location: "Yogyakarta",
+      text: isEnglish
+        ? "Our company profile website now impresses potential clients much more. One of the best investments for our business."
+        : "Website company profile kami sekarang lebih memukau calon klien. Investasi terbaik untuk bisnis kami.",
+      product: isEnglish ? "Company Website" : "Website Company"
+    },
+    {
+      id: 7,
+      name: "Entrepreneur Muda",
+      location: "Bandung",
+      text: isEnglish
+        ? "From consultation to website launch, Warpas was highly professional. The result exceeded my expectations."
+        : "Dari konsultasi hingga launching website, Warpas sangat profesional. Hasilnya melebihi ekspektasi saya.",
+      product: "Landing Page"
+    },
+    {
+      id: 8,
+      name: "Online Shop Owner",
+      location: "Bali",
+      text: isEnglish
+        ? "Our e-commerce website has already improved traffic and sales. Thank you for the team's dedication."
+        : "Website e-commerce kami sudah meningkatkan traffic dan penjualan. Terima kasih atas dedikasi tim Warpas.",
+      product: isEnglish ? "SME Website" : "Website UMKM"
+    },
+    {
+      id: 9,
+      name: "Event Organizer",
+      location: "Surabaya",
+      text: isEnglish
+        ? "The digital invitation with the custom animation we requested was delivered perfectly. Highly recommend Warpas!"
+        : "Undangan digital dengan custom animation yang kami minta berhasil dibuat sempurna. Rekomendasikan Warpas!",
+      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+    }
+  ]
   
   const column1 = [testimonials[0], testimonials[3], testimonials[6]]
   const column2 = [testimonials[1], testimonials[4], testimonials[7]]
@@ -140,10 +159,10 @@ export function Testimonials() {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-            Testimoni Klien
+            {isEnglish ? "Client Testimonials" : "Testimoni Klien"}
           </span>
           <h2 className={`font-serif text-4xl leading-tight text-foreground text-balance md:text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-            Kepuasan Klien
+            {isEnglish ? "Client Satisfaction" : "Kepuasan Klien"}
           </h2>
         </div>
 

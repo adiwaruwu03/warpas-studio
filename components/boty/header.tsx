@@ -4,11 +4,13 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/components/boty/language-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { language, setLanguage } = useLanguage()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
@@ -27,10 +29,10 @@ export function Header() {
 
   // Navigasi items - jika di halaman detail, link ke homepage dengan hash
   const navItems = [
-    { name: "Home", href: isHomePage ? "#home" : "/" },
-    { name: "Layanan", href: isHomePage ? "#layanan" : "/#layanan" },
-    { name: "Portfolio", href: isHomePage ? "#portfolio" : "/#portfolio" },
-    { name: "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
+    { name: language === "en" ? "Home" : "Home", href: isHomePage ? "#home" : "/" },
+    { name: language === "en" ? "Services" : "Layanan", href: isHomePage ? "#layanan" : "/#layanan" },
+    { name: language === "en" ? "Portfolio" : "Portfolio", href: isHomePage ? "#portfolio" : "/#portfolio" },
+    { name: language === "en" ? "Contact" : "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
   ]
 
   return (
@@ -78,6 +80,35 @@ export function Header() {
             </h1>
           </Link>
 
+          <div className="hidden lg:flex items-center">
+            <div className="inline-flex rounded-full border border-border bg-background/80 p-1 shadow-sm">
+              <button
+                type="button"
+                onClick={() => setLanguage("id")}
+                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                  language === "id"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+                aria-pressed={language === "id"}
+              >
+                ID
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage("en")}
+                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                  language === "en"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+                aria-pressed={language === "en"}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+
         </div>
 
         {/* MOBILE MENU */}
@@ -97,6 +128,35 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <div className="pt-2">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-foreground/50">
+                {language === "en" ? "Language" : "Bahasa"}
+              </p>
+              <div className="inline-flex rounded-full border border-border bg-background/80 p-1 shadow-sm">
+                <button
+                  type="button"
+                  onClick={() => setLanguage("id")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                    language === "id"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
+                >
+                  Indonesia
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage("en")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                    language === "en"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
+                >
+                  English
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

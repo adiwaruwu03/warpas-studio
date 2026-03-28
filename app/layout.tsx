@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { DM_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LanguageProvider } from "@/components/boty/language-context"
 import './globals.css'
 
 const dmSans = DM_Sans({ 
@@ -52,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
     </html>

@@ -3,15 +3,19 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-
-const stats = [
-  { value: "2024", label: "Tahun Berdiri" },
-  { value: "10+", label: "Proyek Selesai" },
-  { value: "5+", label: "Klien Puas" },
-  { value: "100%", label: "Komitmen Kepuasan" },
-]
+import { useLanguage } from "@/components/boty/language-context"
 
 export function Portfolio() {
+  const { language } = useLanguage()
+  const isEnglish = language === "en"
+
+  const stats = [
+    { value: "2024", label: isEnglish ? "Founded" : "Tahun Berdiri" },
+    { value: "10+", label: isEnglish ? "Completed Projects" : "Proyek Selesai" },
+    { value: "5+", label: isEnglish ? "Happy Clients" : "Klien Puas" },
+    { value: "100%", label: isEnglish ? "Commitment to Satisfaction" : "Komitmen Kepuasan" },
+  ]
+
   const images = [
     {
       src: "/images/igss.jpeg",
@@ -64,27 +68,26 @@ export function Portfolio() {
           {/* LEFT CONTENT */}
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
-              Tentang Saya
+              {isEnglish ? "About Me" : "Tentang Saya"}
             </p>
 
             <h2 className="mt-3 font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl text-balance">
-              Menciptakan Identitas Digital yang Berkelas dan Berkesan
+              {isEnglish
+                ? "Crafting Digital Identities That Feel Refined and Memorable"
+                : "Menciptakan Identitas Digital yang Berkelas dan Berkesan"}
             </h2>
 
             <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base text-justify">
               <p>
-                Perkenalkan, saya Adi Putra Waruwu, seorang mahasiswa sekaligus frontend developer 
-                yang berfokus pada pembangunan identitas digital yang profesional dan berkelas. 
-                Saya percaya bahwa setiap individu dan brand memiliki potensi besar untuk tampil 
-                secara maksimal di dunia digital, namun tidak semua memiliki arah, strategi, dan 
-                pendekatan yang tepat untuk mewujudkannya.
+                {isEnglish
+                  ? "I am Adi Putra Waruwu, a university student and frontend developer focused on building professional and refined digital identities. I believe every individual and brand has strong potential to stand out in the digital world, but not everyone has the right direction, strategy, and approach to bring it to life."
+                  : "Perkenalkan, saya Adi Putra Waruwu, seorang mahasiswa sekaligus frontend developer yang berfokus pada pembangunan identitas digital yang profesional dan berkelas. Saya percaya bahwa setiap individu dan brand memiliki potensi besar untuk tampil secara maksimal di dunia digital, namun tidak semua memiliki arah, strategi, dan pendekatan yang tepat untuk mewujudkannya."}
               </p>
 
               <p>
-                Melalui pendekatan yang terstruktur dan perhatian terhadap detail, saya membantu 
-                menciptakan tampilan digital yang tidak hanya menarik secara visual, tetapi juga 
-                mampu membangun kepercayaan, memperkuat identitas, dan memberikan kesan yang 
-                berkelanjutan bagi setiap audiens yang melihatnya.
+                {isEnglish
+                  ? "Through a structured approach and strong attention to detail, I help create digital experiences that are not only visually appealing, but also able to build trust, strengthen identity, and leave a lasting impression on every audience that sees them."
+                  : "Melalui pendekatan yang terstruktur dan perhatian terhadap detail, saya membantu menciptakan tampilan digital yang tidak hanya menarik secara visual, tetapi juga mampu membangun kepercayaan, memperkuat identitas, dan memberikan kesan yang berkelanjutan bagi setiap audiens yang melihatnya."}
               </p>
             </div>
           </div>
@@ -149,7 +152,7 @@ export function Portfolio() {
                             {img.label}
                           </span>
                           <span className="text-white text-xs opacity-80 mt-1">
-                            Lihat Profil
+                            {isEnglish ? "View Profile" : "Lihat Profil"}
                           </span>
                         </div>
                       </div>
