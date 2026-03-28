@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Zap, Palette, Code, Users } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function FeatureSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -100,7 +101,8 @@ export function FeatureSection() {
   }, [])
 
   return (
-    <section className="py-24 bg-background" id="tentang">
+    <section className="relative overflow-hidden py-24 bg-[#07111f]" id="tentang">
+      <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Bento Grid */}
         <div 
@@ -124,16 +126,16 @@ export function FeatureSection() {
               <source src="https://www.pexels.com/download/video/7214641/" type="video/mp4" />
             </video>
             {/* Overlay Card */}
-            <div className="absolute bottom-8 left-8 right-8 bg-white p-6 shadow-lg rounded-xl">
+            <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-cyan-300/14 bg-[#0b1628]/92 p-6 shadow-lg backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl text-foreground mb-2 font-medium">
+                  <h3 className={`text-xl text-white mb-2 font-medium ${orbitron.className}`}>
                     {isEnglish ? "Fast" : "Pengerjaan"} <span>{isEnglish ? "Delivery" : "Cepat"}</span>
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className={`text-sm text-cyan-100/62 leading-relaxed ${spaceGrotesk.className}`}>
                     {isEnglish
                       ? "We complete projects on schedule with professional quality and careful attention to detail."
                       : "Kami menyelesaikan project tepat waktu dengan kualitas profesional dan detail sempurna."}
@@ -160,14 +162,14 @@ export function FeatureSection() {
 
             
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl text-white mb-2">
+              <h3 className={`text-3xl md:text-4xl text-white mb-2 ${orbitron.className}`}>
                 {isEnglish ? "Premium Design" : "Desain Premium"}
               </h3>
-              <h3 className="text-2xl md:text-3xl text-white/70 mb-4">
+              <h3 className={`text-2xl md:text-3xl text-white/70 mb-4 ${orbitron.className}`}>
                 {isEnglish ? "Professional" : "Profesional"}
               </h3>
               
-              <div className="space-y-2">
+              <div className={`space-y-2 ${spaceGrotesk.className}`}>
                 <div className="flex items-center gap-2 text-white/90 text-sm">
                   <Palette className="w-4 h-4 flex-shrink-0" />
                   <span>{isEnglish ? "Modern & Elegant" : "Modern & Elegan"}</span>
@@ -202,16 +204,16 @@ export function FeatureSection() {
               <source src="https://www.pexels.com/download/video/8776122/" type="video/mp4" />
             </video>
             {/* Overlay for text readability */}
-            <div className="absolute inset-0 bg-transparent" />
+            <div className="absolute inset-0 bg-black/10" />
             
             <div className="relative z-10 flex flex-col justify-center h-full text-left items-start">
               <div className="inline-flex items-center justify-center w-10 h-10 mb-3">
                 <Users className="w-8 h-8 text-black" />
               </div>
-              <h3 className="font-sans text-base mb-1 text-black">
+              <h3 className={`text-base mb-1 text-black ${spaceGrotesk.className}`}>
                 {isEnglish ? "Professional Team" : "Tim Profesional"}
               </h3>
-              <h3 className="text-2xl md:text-3xl mb-2 text-black">
+              <h3 className={`text-2xl md:text-3xl mb-2 text-black ${orbitron.className}`}>
                 {isEnglish ? "Experienced" : "Berpengalaman"}
               </h3>
             </div>
@@ -247,13 +249,13 @@ export function FeatureSection() {
             }`}
             style={{ transitionDelay: '100ms' }}
           >
-            <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
+            <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
               {isEnglish ? "Why Warpas" : "Mengapa Warpas"}
             </span>
-            <h2 className={`font-serif text-4xl leading-tight text-foreground mb-6 text-balance md:text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+            <h2 className={`text-4xl leading-tight text-white mb-6 text-balance md:text-7xl ${orbitron.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
               {isEnglish ? "Client Trust." : "Kepercayaan Klien."}
             </h2>
-            <p className={`text-lg text-muted-foreground leading-relaxed mb-10 max-w-md ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
+            <p className={`text-lg text-cyan-100/62 leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
               {isEnglish
                 ? "We are committed to delivering high-quality digital solutions with excellent service. Every project is handled with care and full dedication to support your business success."
                 : "Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan layanan terbaik. Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda."}
@@ -264,13 +266,13 @@ export function FeatureSection() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group p-5 boty-transition hover:scale-[1.02] rounded-md bg-white"
+                  className="group rounded-md border border-cyan-300/12 bg-[#0b1628]/90 p-5 boty-transition hover:scale-[1.02]"
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-primary/20 boty-transition bg-stone-50">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-cyan-300/20 boty-transition bg-cyan-300/10">
+                    <feature.icon className="w-5 h-5 text-cyan-300" />
                   </div>
-                  <h3 className="font-medium text-foreground mb-1">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  <h3 className={`font-medium text-white mb-1 ${orbitron.className}`}>{feature.title}</h3>
+                  <p className={`text-sm text-cyan-100/58 ${spaceGrotesk.className}`}>{feature.description}</p>
                 </div>
               ))}
             </div>

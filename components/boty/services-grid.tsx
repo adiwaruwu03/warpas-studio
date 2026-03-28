@@ -3,9 +3,16 @@
 import { ArrowRight, BriefcaseBusiness, Heart } from "lucide-react"
 import Link from "next/link"
 import { useLanguage } from "@/components/boty/language-context"
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function ServicesGrid() {
   const { language } = useLanguage()
+  const isEnglish = language === "en"
+  const matrixChars = (
+    "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン" +
+    "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ"
+  ).split("")
+  const matrixItems = Array.from({ length: 1400 }, (_, index) => matrixChars[index % matrixChars.length])
   const services = [
     {
       icon: BriefcaseBusiness,
@@ -28,22 +35,24 @@ export function ServicesGrid() {
   ]
 
   return (
-    <section id="layanan" className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="layanan" className="relative overflow-hidden bg-[#07111f] py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/45 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:38px_38px]" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-sm tracking-[0.3em] uppercase text-primary mb-4 block">
-            {language === "en" ? "Our Services" : "Layanan Kami"}
+        <div className="text-center mb-16 relative">
+          <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className}`}>
+            {isEnglish ? "Our Services" : "Layanan Kami"}
           </span>
 
-          <h2 className="font-serif text-4xl md:text-6xl text-foreground">
-            {language === "en" ? "Digital Solutions" : "Solusi Digital"}
+          <h2 className={`text-4xl md:text-6xl text-white ${orbitron.className}`}>
+            {isEnglish ? "Digital Solutions Engineered for Impact" : "Solusi Digital yang Dirancang Lebih Presisi"}
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-            {language === "en"
-              ? "Focused on the services your business and special moments need most."
-              : "Fokus pada layanan yang paling dibutuhkan bisnis dan momen spesial Anda."}
+          <p className={`mt-4 max-w-2xl mx-auto text-cyan-100/62 text-lg ${spaceGrotesk.className}`}>
+            {isEnglish
+              ? "Built to help brands look more credible online while keeping every touchpoint clean, intentional, and easy to use."
+              : "Dirancang untuk membantu brand terlihat lebih kredibel secara digital, dengan tampilan yang bersih, terarah, dan mudah digunakan."}
           </p>
         </div>
 
@@ -54,25 +63,26 @@ export function ServicesGrid() {
             return (
               <div
                 key={index}
-                className="group flex flex-col justify-between rounded-[28px] border border-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[28px] border border-cyan-300/12 bg-[#0b1628]/92 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_24px_60px_rgba(8,145,178,0.16)]"
               >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/55 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div>
-                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-300/16 bg-cyan-300/10 text-cyan-300 shadow-[0_0_0_1px_rgba(255,255,255,0.08)_inset]">
                     <Icon className="h-7 w-7" strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="text-2xl font-semibold text-foreground mb-3">
+                  <h3 className={`text-2xl text-white mb-3 ${orbitron.className}`}>
                     {service.title}
                   </h3>
 
-                  <p className="text-base leading-7 text-muted-foreground mb-8">
+                  <p className={`text-base leading-7 text-cyan-100/58 mb-8 ${spaceGrotesk.className}`}>
                     {service.description}
                   </p>
                 </div>
 
                 <Link
                   href={service.link}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-3 text-sm font-medium text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                  className={`inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/30 px-5 py-3 text-sm font-medium text-cyan-300 transition-all duration-300 hover:bg-cyan-300 hover:text-slate-950 ${spaceGrotesk.className}`}
                 >
                   {language === "en" ? "View Details" : "Lihat Detail"}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />

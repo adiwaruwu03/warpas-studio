@@ -6,6 +6,7 @@ import Link from "next/link"
 import { ShoppingBag, SlidersHorizontal, X } from "lucide-react"
 import { Header } from "@/components/boty/header"
 import { Footer } from "@/components/boty/footer"
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
 const products = [
   // Serums
@@ -195,30 +196,31 @@ export default function ShopPage() {
   }, [selectedCategory])
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#07111f] text-white">
       <Header />
       
-      <div className="pt-28 pb-20">
+      <div className="relative overflow-hidden pt-28 pb-20">
+        <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:38px_38px]" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <span className="text-sm tracking-[0.3em] uppercase text-primary mb-4 block">
+            <span className={`text-sm tracking-[0.3em] uppercase text-cyan-300 mb-4 block ${spaceGrotesk.className}`}>
               Our Collection
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 text-balance">
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl text-white mb-4 text-balance ${orbitron.className}`}>
               Shop All Products
             </h1>
-            <p className="text-lg text-muted-foreground max-w-md mx-auto">
+            <p className={`text-lg text-cyan-100/68 max-w-md mx-auto ${spaceGrotesk.className}`}>
               Discover our complete range of natural skincare essentials
             </p>
           </div>
 
           {/* Filter Bar */}
-          <div className="flex items-center justify-between mb-10 pb-6 border-b border-border/50">
+          <div className="flex items-center justify-between mb-10 pb-6 border-b border-cyan-300/12">
             <button
               type="button"
               onClick={() => setShowFilters(!showFilters)}
-              className="lg:hidden inline-flex items-center gap-2 text-sm text-foreground"
+              className={`lg:hidden inline-flex items-center gap-2 text-sm text-cyan-100 ${spaceGrotesk.className}`}
             >
               <SlidersHorizontal className="w-4 h-4" />
               Filters
@@ -231,10 +233,10 @@ export default function ShopPage() {
                   key={category}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition bg-popover ${
+                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition ${
                     selectedCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
+                      ? "bg-cyan-300 text-slate-950"
+                      : "border border-cyan-300/14 bg-[#0b1628] text-cyan-100/70 hover:text-cyan-100"
                   }`}
                 >
                   {category}
@@ -242,21 +244,21 @@ export default function ShopPage() {
               ))}
             </div>
 
-            <span className="text-sm text-muted-foreground">
+            <span className={`text-sm text-cyan-100/56 ${spaceGrotesk.className}`}>
               {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}
             </span>
           </div>
 
           {/* Mobile Filters */}
           {showFilters && (
-            <div className="lg:hidden fixed inset-0 z-50 bg-background">
+            <div className="lg:hidden fixed inset-0 z-50 bg-[#07111f]">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="font-serif text-2xl text-foreground">Filters</h2>
+                  <h2 className={`text-2xl text-white ${orbitron.className}`}>Filters</h2>
                   <button
                     type="button"
                     onClick={() => setShowFilters(false)}
-                    className="p-2 text-foreground/70 hover:text-foreground"
+                    className="p-2 text-cyan-100/70 hover:text-cyan-100"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -272,8 +274,8 @@ export default function ShopPage() {
                       }}
                       className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
                         selectedCategory === category
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground boty-shadow"
+                          ? "bg-cyan-300 text-slate-950"
+                          : "border border-cyan-300/14 bg-[#0b1628] text-cyan-100"
                       }`}
                     >
                       {category}
@@ -325,9 +327,9 @@ function ProductCard({
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="bg-card rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
+      <div className="bg-[#0b1628] border border-cyan-300/12 rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
         {/* Image */}
-        <div className="relative aspect-square bg-muted overflow-hidden">
+        <div className="relative aspect-square bg-[#08111d] overflow-hidden">
           {/* Skeleton */}
           <div 
             className={`absolute inset-0 bg-gradient-to-br from-muted via-muted/50 to-muted animate-pulse transition-opacity duration-500 ${
@@ -361,24 +363,24 @@ function ProductCard({
           {/* Quick add button */}
           <button
             type="button"
-            className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition boty-shadow"
+            className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-cyan-300/90 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition boty-shadow"
             onClick={(e) => {
               e.preventDefault()
             }}
             aria-label="Add to cart"
           >
-            <ShoppingBag className="w-5 h-5 text-foreground" />
+            <ShoppingBag className="w-5 h-5 text-slate-950" />
           </button>
         </div>
 
         {/* Info */}
         <div className="p-6">
-          <h3 className="font-serif text-xl text-foreground mb-1">{product.name}</h3>
-          <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
+          <h3 className={`text-xl text-white mb-1 ${orbitron.className}`}>{product.name}</h3>
+          <p className={`text-sm text-cyan-100/60 mb-4 ${spaceGrotesk.className}`}>{product.description}</p>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-medium text-foreground">${product.price}</span>
+            <span className={`text-lg font-medium text-cyan-300 ${orbitron.className}`}>${product.price}</span>
             {product.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
+              <span className={`text-sm text-cyan-100/40 line-through ${spaceGrotesk.className}`}>
                 ${product.originalPrice}
               </span>
             )}

@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState } from "react"
 import { Zap, Palette, Smartphone, MessageSquare } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function TrustBadges() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const { language } = useLanguage()
+  const isEnglish = language === "en"
   const badges = [
     {
       icon: Zap,
@@ -53,8 +55,15 @@ export function TrustBadges() {
   }, [])
 
   return (
-    <section className="py-20 bg-background">
+    <section className="relative overflow-hidden bg-[#07111f] py-20">
+      <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:34px_34px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.16),transparent_32%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <p className={`text-xs font-semibold uppercase tracking-[0.34em] text-primary/80 ${spaceGrotesk.className}`}>
+            {isEnglish ? "Core Signals" : "Sinyal Utama"}
+          </p>
+        </div>
         <div 
           ref={sectionRef}
           className="grid grid-cols-2 lg:grid-cols-4 gap-6"
@@ -62,16 +71,16 @@ export function TrustBadges() {
           {badges.map((badge, index) => (
             <div
               key={badge.title}
-              className={`bg-background p-6 lg:p-8 text-center rounded-xl border border-stone-200 transition-all duration-700 ease-out border-none ${
+            className={`rounded-2xl border border-cyan-300/12 bg-[#0b1628]/88 p-6 text-center backdrop-blur-sm transition-all duration-700 ease-out lg:p-8 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <badge.icon className="text-primary mb-4 mx-auto size-12" strokeWidth={1} />
-              <h3 className="font-serif text-foreground mb-2 text-2xl">{badge.title}</h3>
-              <p className="text-sm text-muted-foreground">{badge.description}</p>
+              <badge.icon className="text-cyan-300 mb-4 mx-auto size-12" strokeWidth={1} />
+              <h3 className={`text-white mb-2 text-xl ${orbitron.className}`}>{badge.title}</h3>
+              <p className={`text-sm text-cyan-100/60 ${spaceGrotesk.className}`}>{badge.description}</p>
             </div>
           ))}
         </div>

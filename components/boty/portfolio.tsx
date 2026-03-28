@@ -4,10 +4,13 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function Portfolio() {
   const { language } = useLanguage()
   const isEnglish = language === "en"
+  const matrixRows = 5
+  const matrixColumns = 24
 
   const stats = [
     { value: "2024", label: isEnglish ? "Founded" : "Tahun Berdiri" },
@@ -62,22 +65,44 @@ export function Portfolio() {
   }, [])
 
   return (
-    <section id="about" className="bg-card py-16 md:py-24">
+    <section id="about" className="relative overflow-hidden bg-[#02060d] py-16 md:py-24">
+      <div className="pointer-events-none absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:38px_38px]" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-55">
+        <div className="matrix-container">
+          {Array.from({ length: matrixRows }).map((_, rowIndex) => (
+            <div key={rowIndex} className="matrix-pattern" aria-hidden="true">
+              {Array.from({ length: matrixColumns }).map((_, columnIndex) => (
+                <div
+                  key={`${rowIndex}-${columnIndex}`}
+                  className="matrix-column"
+                  style={
+                    {
+                      "--matrix-left": `${columnIndex * 32}px`,
+                      "--matrix-delay": `${-((columnIndex % 8) * 0.45 + rowIndex * 0.35)}s`,
+                      "--matrix-duration": `${3 + ((columnIndex + rowIndex) % 6) * 0.35}s`,
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* LEFT CONTENT */}
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-primary">
+            <p className={`text-sm font-medium uppercase tracking-[0.3em] text-primary ${spaceGrotesk.className}`}>
               {isEnglish ? "About Me" : "Tentang Saya"}
             </p>
 
-            <h2 className="mt-3 font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl text-balance">
+            <h2 className={`mt-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl text-balance ${orbitron.className}`}>
               {isEnglish
                 ? "Crafting Digital Identities That Feel Refined and Memorable"
                 : "Menciptakan Identitas Digital yang Berkelas dan Berkesan"}
             </h2>
 
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base text-justify">
+            <div className={`mt-6 space-y-4 text-sm leading-relaxed text-cyan-100/62 sm:text-base text-justify ${spaceGrotesk.className}`}>
               <p>
                 {isEnglish
                   ? "I am Adi Putra Waruwu, a university student and frontend developer focused on building professional and refined digital identities. I believe every individual and brand has strong potential to stand out in the digital world, but not everyone has the right direction, strategy, and approach to bring it to life."
@@ -133,7 +158,7 @@ export function Portfolio() {
                       rel="noopener noreferrer"
                       className="block w-full h-full group"
                     >
-                      <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
+                      <div className="relative w-full h-full overflow-hidden rounded-2xl border border-cyan-300/12 shadow-2xl shadow-black/40">
                         {/* Dark gradient overlay for dramatic effect */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10 rounded-2xl pointer-events-none" />
                         
@@ -148,10 +173,10 @@ export function Portfolio() {
 
                         {/* Hover overlay with dark effect */}
                         <div className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center z-20 rounded-2xl">
-                          <span className="text-white text-base font-semibold">
+                          <span className={`text-white text-base font-semibold ${orbitron.className}`}>
                             {img.label}
                           </span>
-                          <span className="text-white text-xs opacity-80 mt-1">
+                          <span className={`text-white text-xs opacity-80 mt-1 ${spaceGrotesk.className}`}>
                             {isEnglish ? "View Profile" : "Lihat Profil"}
                           </span>
                         </div>
@@ -165,7 +190,7 @@ export function Portfolio() {
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-40 rounded-full bg-black/70 p-2 text-white hover:bg-black/90 transition backdrop-blur-sm shadow-lg"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-40 rounded-full border border-cyan-300/20 bg-[#08111d]/92 p-2 text-cyan-100 hover:bg-[#11203a] transition backdrop-blur-sm shadow-lg"
               aria-label="Previous image"
             >
               <ChevronLeft size={20} />
@@ -173,7 +198,7 @@ export function Portfolio() {
 
             <button
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-40 rounded-full bg-black/70 p-2 text-white hover:bg-black/90 transition backdrop-blur-sm shadow-lg"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-40 rounded-full border border-cyan-300/20 bg-[#08111d]/92 p-2 text-cyan-100 hover:bg-[#11203a] transition backdrop-blur-sm shadow-lg"
               aria-label="Next image"
             >
               <ChevronRight size={20} />
@@ -187,8 +212,8 @@ export function Portfolio() {
                   onClick={() => setCurrentIndex(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     idx === currentIndex
-                      ? "bg-primary w-6 shadow-lg shadow-primary/50"
-                      : "bg-white/60 w-2 hover:bg-white/80"
+                      ? "bg-cyan-300 w-6 shadow-lg shadow-cyan-300/40"
+                      : "bg-cyan-100/30 w-2 hover:bg-cyan-100/60"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -202,10 +227,10 @@ export function Portfolio() {
           <div className="grid grid-cols-2 gap-6 text-center sm:gap-10 md:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.value} className="group">
-                <div className="font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-4xl lg:text-5xl transition-all group-hover:scale-105 inline-block">
+                <div className={`text-2xl font-bold text-cyan-300 sm:text-3xl md:text-4xl lg:text-5xl transition-all group-hover:scale-105 inline-block ${orbitron.className}`}>
                   {stat.value}
                 </div>
-                <div className="mt-2 text-xs font-medium tracking-wide text-muted-foreground sm:text-sm">
+                <div className={`mt-2 text-xs font-medium tracking-wide text-cyan-100/55 sm:text-sm ${spaceGrotesk.className}`}>
                   {stat.label}
                 </div>
               </div>
@@ -214,6 +239,99 @@ export function Portfolio() {
         </div>
 
       </div>
+
+      <style jsx>{`
+        .matrix-container {
+          display: flex;
+          width: 100%;
+          height: 100%;
+        }
+
+        .matrix-pattern {
+          position: relative;
+          width: 820px;
+          height: 100%;
+          flex-shrink: 0;
+        }
+
+        .matrix-column {
+          position: absolute;
+          top: -120%;
+          left: var(--matrix-left);
+          width: 24px;
+          height: 140%;
+          overflow: hidden;
+          animation: matrix-fall var(--matrix-duration) linear infinite;
+          animation-delay: var(--matrix-delay);
+          opacity: 0.85;
+        }
+
+        .matrix-column::before {
+          content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+          position: absolute;
+          inset: 0;
+          writing-mode: vertical-rl;
+          text-orientation: upright;
+          font-size: 14px;
+          line-height: 1;
+          letter-spacing: 2px;
+          color: transparent;
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(167, 243, 208, 0.9) 8%,
+            rgba(34, 211, 238, 0.95) 18%,
+            rgba(34, 197, 94, 0.78) 38%,
+            rgba(22, 163, 74, 0.52) 62%,
+            rgba(6, 95, 70, 0.22) 84%,
+            transparent 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.24));
+        }
+
+        .matrix-column:nth-child(odd)::before {
+          content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッ123456789";
+        }
+
+        .matrix-column:nth-child(3n)::before {
+          content: "アカサタナハマヤラワイキシチニヒミリウクスツヌフムユルエケセテネヘメレオコソトノホモヨロヲン0987654321";
+        }
+
+        .matrix-column:nth-child(4n)::before {
+          content: "SYSTEMDATAINTERFACEWARPASSTUDIO010101011010";
+        }
+
+        @keyframes matrix-fall {
+          0% {
+            transform: translateY(-10%);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.95;
+          }
+          100% {
+            transform: translateY(180%);
+            opacity: 0;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .matrix-pattern {
+            width: 520px;
+          }
+
+          .matrix-column {
+            width: 18px;
+          }
+
+          .matrix-column::before {
+            font-size: 11px;
+            letter-spacing: 1px;
+          }
+        }
+      `}</style>
     </section>
   )
 }
