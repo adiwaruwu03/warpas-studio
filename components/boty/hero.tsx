@@ -46,7 +46,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 lg:px-8">
         <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
           <div className="max-w-4xl text-left">
-          <h1 className={`hero-title-float hero-title-robotic mb-6 leading-[1.06] text-white sm:leading-[1.1] ${orbitron.className}`}>
+          <h1 className={`hero-title-robotic mb-6 leading-[1.06] text-white sm:leading-[1.1] ${orbitron.className}`}>
             <span
               className="hero-line hero-line-1 block text-[1.9rem] font-medium sm:text-4xl md:text-5xl lg:text-[3.7rem] xl:text-[4.3rem]"
             >
@@ -95,7 +95,7 @@ export function Hero() {
               animationFillMode: "forwards",
             }}
           >
-            <div className="hero-orb-shell mx-auto flex w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[2rem] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(8,17,29,0.94),rgba(10,24,42,0.82))] px-8 py-10 shadow-[0_24px_80px_rgba(2,8,23,0.48)] backdrop-blur-sm">
+            <div className="hero-orb-shell mx-auto flex w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[2rem] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(8,17,29,0.96),rgba(10,24,42,0.9))] px-8 py-10 shadow-[0_18px_48px_rgba(2,8,23,0.34)]">
               <div className="hero-loader-frame">
                 <svg className="hero-ring-text" viewBox="0 0 320 320" aria-hidden="true">
                   <defs>
@@ -133,23 +133,19 @@ export function Hero() {
       </div>
 
       <style jsx>{`
-        .hero-title-float {
-          animation: hero-drift 6s ease-in-out infinite;
-          will-change: transform;
-        }
-
         .hero-title-robotic {
           text-shadow:
-            0 0 10px rgba(34, 211, 238, 0.16),
-            0 0 24px rgba(59, 130, 246, 0.14);
+            0 0 8px rgba(34, 211, 238, 0.1),
+            0 0 18px rgba(59, 130, 246, 0.08);
         }
 
         .hero-orb-shell {
           position: relative;
           min-height: 360px;
+          isolation: isolate;
           box-shadow:
             0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-            0 30px 90px rgba(8, 15, 30, 0.58);
+            0 20px 56px rgba(8, 15, 30, 0.34);
         }
 
         .hero-orb-shell::before {
@@ -159,7 +155,7 @@ export function Hero() {
           border-radius: 1.5rem;
           border: 1px solid rgba(103, 232, 249, 0.08);
           background:
-            radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 34%),
+            radial-gradient(circle at top, rgba(34, 211, 238, 0.1), transparent 34%),
             linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 65%);
           pointer-events: none;
         }
@@ -171,18 +167,21 @@ export function Hero() {
           width: min(100%, 360px);
           aspect-ratio: 1;
           border-radius: 50%;
+          contain: layout paint;
           background:
-            radial-gradient(circle at center, rgba(56, 189, 248, 0.22), transparent 45%),
-            radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.08), transparent 20%);
+            radial-gradient(circle at center, rgba(56, 189, 248, 0.16), transparent 45%),
+            radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.05), transparent 20%);
         }
 
         .hero-ring-text {
           position: absolute;
           inset: 0;
+          display: block;
           width: 100%;
           height: 100%;
           pointer-events: none;
-          animation: ring-spin 22s linear infinite;
+          transform-origin: 50% 50%;
+          opacity: 0.9;
         }
 
         .hero-ring-text text {
@@ -200,24 +199,26 @@ export function Hero() {
           border: 1px solid rgba(103, 232, 249, 0.12);
           box-shadow:
             0 0 0 1px rgba(255, 255, 255, 0.03) inset,
-            0 0 50px rgba(34, 211, 238, 0.1);
+            0 0 30px rgba(34, 211, 238, 0.06);
         }
 
         .hero-loader {
-          --color-one: #67e8f9;
-          --color-two: #2563eb;
-          --color-three: rgba(103, 232, 249, 0.5);
-          --color-four: rgba(37, 99, 235, 0.45);
-          --color-five: rgba(103, 232, 249, 0.2);
+          --color-one: #fb923c;
+          --color-two: #dc2626;
+          --color-three: rgba(251, 146, 60, 0.42);
+          --color-four: rgba(220, 38, 38, 0.38);
+          --color-five: rgba(249, 115, 22, 0.2);
           --time-animation: 2.8s;
           --size: 2.25;
           position: relative;
           border-radius: 50%;
-          transform: scale(var(--size));
+          transform: translateZ(0) scale(var(--size));
+          transform-origin: 50% 50%;
+          will-change: transform;
+          backface-visibility: hidden;
           box-shadow:
-            0 0 25px 0 var(--color-three),
-            0 20px 50px 0 var(--color-four);
-          animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
+            0 0 18px 0 var(--color-three),
+            0 12px 28px 0 var(--color-four);
         }
 
         .hero-loader::before {
@@ -246,11 +247,13 @@ export function Hero() {
 
         .hero-loader svg {
           position: absolute;
+          overflow: visible;
+          transform: translateZ(0);
+          backface-visibility: hidden;
         }
 
         .hero-loader svg #hero-clipping {
-          filter: contrast(15);
-          animation: roundness calc(var(--time-animation) / 2) linear infinite;
+          filter: contrast(12);
         }
 
         .hero-loader svg #hero-clipping polygon {
@@ -332,7 +335,7 @@ export function Hero() {
           0%,
           100% {
             transform: translate3d(0, 0, 0);
-            text-shadow: 0 0 10px rgba(34, 211, 238, 0.14);
+            text-shadow: 0 0 6px rgba(34, 211, 238, 0.08);
           }
           48% {
             transform: translate3d(0.5px, -1px, 0);
@@ -342,7 +345,7 @@ export function Hero() {
             text-shadow:
               1px 0 rgba(34, 211, 238, 0.5),
               -1px 0 rgba(255, 255, 255, 0.35),
-              0 0 18px rgba(34, 211, 238, 0.22);
+              0 0 10px rgba(34, 211, 238, 0.14);
           }
           52% {
             transform: translate3d(1px, 1px, 0);
@@ -353,14 +356,13 @@ export function Hero() {
           0%,
           100% {
             transform: translate3d(0, 0, 0);
-            filter: brightness(1);
+            filter: none;
           }
           38% {
             transform: translate3d(0, -1px, 0);
           }
           40% {
             transform: translate3d(2px, 0, 0);
-            filter: brightness(1.18);
           }
           42% {
             transform: translate3d(-1px, 1px, 0);
@@ -371,7 +373,7 @@ export function Hero() {
           0%,
           100% {
             transform: translate3d(0, 0, 0);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.08);
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
           }
           58% {
             transform: translate3d(-0.5px, 1px, 0);
@@ -381,7 +383,7 @@ export function Hero() {
             text-shadow:
               1px 0 rgba(34, 211, 238, 0.38),
               -1px 0 rgba(255, 255, 255, 0.22),
-              0 0 16px rgba(34, 211, 238, 0.16);
+              0 0 10px rgba(34, 211, 238, 0.1);
           }
           62% {
             transform: translate3d(0, -1px, 0);
@@ -397,57 +399,15 @@ export function Hero() {
           }
         }
 
-        @keyframes roundness {
-          0% {
-            filter: contrast(15);
-          }
-          20% {
-            filter: contrast(3);
-          }
-          40% {
-            filter: contrast(3);
-          }
-          60% {
-            filter: contrast(15);
-          }
-          100% {
-            filter: contrast(15);
-          }
-        }
-
-        @keyframes colorize {
-          0% {
-            filter: hue-rotate(0deg);
-          }
-          20% {
-            filter: hue-rotate(-12deg);
-          }
-          40% {
-            filter: hue-rotate(-24deg);
-          }
-          60% {
-            filter: hue-rotate(-38deg);
-          }
-          80% {
-            filter: hue-rotate(-18deg);
-          }
-          100% {
-            filter: hue-rotate(0deg);
-          }
-        }
-
-        @keyframes ring-spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
         @media (max-width: 1023px) {
           .hero-orb-shell {
             min-height: 280px;
+          }
+
+          .hero-line-1,
+          .hero-line-2,
+          .hero-line-3 {
+            animation: none;
           }
 
           .hero-loader {
@@ -456,16 +416,10 @@ export function Hero() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .hero-title-float {
-            animation: none;
-          }
-
           .hero-line-1,
           .hero-line-2,
           .hero-line-3,
           .hero-loader,
-          .hero-ring-text,
-          .hero-loader svg #hero-clipping,
           .hero-loader svg #hero-clipping polygon:nth-child(2),
           .hero-loader svg #hero-clipping polygon:nth-child(3),
           .hero-loader svg #hero-clipping polygon:nth-child(4),
