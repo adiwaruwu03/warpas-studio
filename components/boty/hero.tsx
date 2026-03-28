@@ -43,28 +43,29 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 py-24 text-center lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <h1 className={`hero-title-float hero-title-robotic mb-6 text-3xl leading-[1.12] text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.8rem] ${orbitron.className}`}>
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 lg:px-8">
+        <div className="grid items-start gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+          <div className="max-w-4xl text-left">
+          <h1 className={`hero-title-float hero-title-robotic mb-6 leading-[1.06] text-white sm:leading-[1.1] ${orbitron.className}`}>
             <span
-              className="hero-line hero-line-1 block font-medium"
+              className="hero-line hero-line-1 block text-[1.9rem] font-medium sm:text-4xl md:text-5xl lg:text-[3.7rem] xl:text-[4.3rem]"
             >
               {copy.top}
             </span>
             <span
-              className="hero-line hero-line-2 block bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-transparent"
+              className="hero-line hero-line-2 block text-[2.7rem] bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text text-transparent sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.2rem]"
             >
               {copy.middle}
             </span>
             <span
-              className="hero-line hero-line-3 block text-white/78"
+              className="hero-line hero-line-3 block text-[1.55rem] text-white/78 sm:text-3xl md:text-4xl lg:text-[3.1rem] xl:text-[3.6rem]"
             >
               {copy.bottom}
             </span>
           </h1>
 
           <p
-            className={`mx-auto max-w-2xl animate-blur-in text-base leading-8 text-white/82 opacity-0 md:text-lg ${spaceGrotesk.className}`}
+            className={`max-w-2xl animate-blur-in text-base leading-8 text-white/82 opacity-0 md:text-lg ${spaceGrotesk.className}`}
             style={{
               animationDelay: "0.9s",
               animationFillMode: "forwards",
@@ -72,6 +73,62 @@ export function Hero() {
           >
             {copy.description}
           </p>
+
+          <div
+            className={`mt-8 animate-blur-in opacity-0 ${spaceGrotesk.className}`}
+            style={{
+              animationDelay: "1.1s",
+              animationFillMode: "forwards",
+            }}
+          >
+            <div className="inline-flex items-center gap-3 rounded-full border border-cyan-300/18 bg-cyan-300/8 px-4 py-2 text-xs uppercase tracking-[0.28em] text-cyan-100/78">
+              <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.85)]" />
+              {isEnglish ? "Precise Design System" : "Sistem Desain Presisi"}
+            </div>
+          </div>
+          </div>
+
+          <div
+            className="self-start animate-blur-in opacity-0"
+            style={{
+              animationDelay: "0.7s",
+              animationFillMode: "forwards",
+            }}
+          >
+            <div className="hero-orb-shell mx-auto flex w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[2rem] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(8,17,29,0.94),rgba(10,24,42,0.82))] px-8 py-10 shadow-[0_24px_80px_rgba(2,8,23,0.48)] backdrop-blur-sm">
+              <div className="hero-loader-frame">
+                <svg className="hero-ring-text" viewBox="0 0 320 320" aria-hidden="true">
+                  <defs>
+                    <path
+                      id="hero-ring-path"
+                      d="M 160,160 m -118,0 a 118,118 0 1,1 236,0 a 118,118 0 1,1 -236,0"
+                    />
+                  </defs>
+                  <text>
+                    <textPath href="#hero-ring-path" startOffset="0%" textLength="740">
+                      TEKNOLOGI DIGITAL WARPAS STUDIO • TEKNOLOGI DIGITAL WARPAS STUDIO • TEKNOLOGI DIGITAL WARPAS STUDIO •
+                    </textPath>
+                  </text>
+                </svg>
+                <div className="hero-loader">
+                  <svg width={100} height={100} viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                      <mask id="hero-clipping">
+                        <polygon points="0,0 100,0 100,100 0,100" fill="black" />
+                        <polygon points="25,25 75,25 50,75" fill="white" />
+                        <polygon points="50,25 75,75 25,75" fill="white" />
+                        <polygon points="35,35 65,35 50,65" fill="white" />
+                        <polygon points="35,35 65,35 50,65" fill="white" />
+                        <polygon points="35,35 65,35 50,65" fill="white" />
+                        <polygon points="35,35 65,35 50,65" fill="white" />
+                      </mask>
+                    </defs>
+                  </svg>
+                  <div className="hero-loader-box" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -85,6 +142,157 @@ export function Hero() {
           text-shadow:
             0 0 10px rgba(34, 211, 238, 0.16),
             0 0 24px rgba(59, 130, 246, 0.14);
+        }
+
+        .hero-orb-shell {
+          position: relative;
+          min-height: 360px;
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+            0 30px 90px rgba(8, 15, 30, 0.58);
+        }
+
+        .hero-orb-shell::before {
+          content: "";
+          position: absolute;
+          inset: 14px;
+          border-radius: 1.5rem;
+          border: 1px solid rgba(103, 232, 249, 0.08);
+          background:
+            radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 34%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 65%);
+          pointer-events: none;
+        }
+
+        .hero-loader-frame {
+          position: relative;
+          display: grid;
+          place-items: center;
+          width: min(100%, 360px);
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background:
+            radial-gradient(circle at center, rgba(56, 189, 248, 0.22), transparent 45%),
+            radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.08), transparent 20%);
+        }
+
+        .hero-ring-text {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          animation: ring-spin 22s linear infinite;
+        }
+
+        .hero-ring-text text {
+          fill: rgba(207, 250, 254, 0.72);
+          font-size: 12px;
+          letter-spacing: 0.42em;
+          text-transform: uppercase;
+        }
+
+        .hero-loader-frame::before {
+          content: "";
+          position: absolute;
+          inset: 12%;
+          border-radius: 50%;
+          border: 1px solid rgba(103, 232, 249, 0.12);
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+            0 0 50px rgba(34, 211, 238, 0.1);
+        }
+
+        .hero-loader {
+          --color-one: #67e8f9;
+          --color-two: #2563eb;
+          --color-three: rgba(103, 232, 249, 0.5);
+          --color-four: rgba(37, 99, 235, 0.45);
+          --color-five: rgba(103, 232, 249, 0.2);
+          --time-animation: 2.8s;
+          --size: 2.25;
+          position: relative;
+          border-radius: 50%;
+          transform: scale(var(--size));
+          box-shadow:
+            0 0 25px 0 var(--color-three),
+            0 20px 50px 0 var(--color-four);
+          animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
+        }
+
+        .hero-loader::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border-top: solid 1px var(--color-one);
+          border-bottom: solid 1px var(--color-two);
+          background: linear-gradient(180deg, var(--color-five), var(--color-four));
+          box-shadow:
+            inset 0 10px 10px 0 var(--color-three),
+            inset 0 -10px 10px 0 var(--color-four);
+        }
+
+        .hero-loader-box {
+          width: 100px;
+          height: 100px;
+          background: linear-gradient(180deg, var(--color-one) 30%, var(--color-two) 70%);
+          mask: url(#hero-clipping);
+          -webkit-mask: url(#hero-clipping);
+        }
+
+        .hero-loader svg {
+          position: absolute;
+        }
+
+        .hero-loader svg #hero-clipping {
+          filter: contrast(15);
+          animation: roundness calc(var(--time-animation) / 2) linear infinite;
+        }
+
+        .hero-loader svg #hero-clipping polygon {
+          filter: blur(7px);
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(1) {
+          transform-origin: 75% 25%;
+          transform: rotate(90deg);
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(2) {
+          transform-origin: 50% 50%;
+          animation: rotation var(--time-animation) linear infinite reverse;
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(3) {
+          transform-origin: 50% 60%;
+          animation: rotation var(--time-animation) linear infinite;
+          animation-delay: calc(var(--time-animation) / -3);
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(4) {
+          transform-origin: 40% 40%;
+          animation: rotation var(--time-animation) linear infinite reverse;
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(5) {
+          transform-origin: 40% 40%;
+          animation: rotation var(--time-animation) linear infinite reverse;
+          animation-delay: calc(var(--time-animation) / -2);
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(6) {
+          transform-origin: 60% 40%;
+          animation: rotation var(--time-animation) linear infinite;
+        }
+
+        .hero-loader svg #hero-clipping polygon:nth-child(7) {
+          transform-origin: 60% 40%;
+          animation: rotation var(--time-animation) linear infinite;
+          animation-delay: calc(var(--time-animation) / -1.5);
         }
 
         .hero-line {
@@ -180,6 +388,73 @@ export function Hero() {
           }
         }
 
+        @keyframes rotation {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes roundness {
+          0% {
+            filter: contrast(15);
+          }
+          20% {
+            filter: contrast(3);
+          }
+          40% {
+            filter: contrast(3);
+          }
+          60% {
+            filter: contrast(15);
+          }
+          100% {
+            filter: contrast(15);
+          }
+        }
+
+        @keyframes colorize {
+          0% {
+            filter: hue-rotate(0deg);
+          }
+          20% {
+            filter: hue-rotate(-12deg);
+          }
+          40% {
+            filter: hue-rotate(-24deg);
+          }
+          60% {
+            filter: hue-rotate(-38deg);
+          }
+          80% {
+            filter: hue-rotate(-18deg);
+          }
+          100% {
+            filter: hue-rotate(0deg);
+          }
+        }
+
+        @keyframes ring-spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @media (max-width: 1023px) {
+          .hero-orb-shell {
+            min-height: 280px;
+          }
+
+          .hero-loader {
+            --size: 1.7;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .hero-title-float {
             animation: none;
@@ -187,7 +462,16 @@ export function Hero() {
 
           .hero-line-1,
           .hero-line-2,
-          .hero-line-3 {
+          .hero-line-3,
+          .hero-loader,
+          .hero-ring-text,
+          .hero-loader svg #hero-clipping,
+          .hero-loader svg #hero-clipping polygon:nth-child(2),
+          .hero-loader svg #hero-clipping polygon:nth-child(3),
+          .hero-loader svg #hero-clipping polygon:nth-child(4),
+          .hero-loader svg #hero-clipping polygon:nth-child(5),
+          .hero-loader svg #hero-clipping polygon:nth-child(6),
+          .hero-loader svg #hero-clipping polygon:nth-child(7) {
             animation: none;
           }
         }
