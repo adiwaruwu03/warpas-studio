@@ -9,12 +9,15 @@ import {
   BriefcaseBusiness,
   Building2,
   Check,
+  Cpu,
   ExternalLink,
   Gem,
+  Sparkles,
   Store,
 } from "lucide-react";
 import { Footer } from "@/components/boty/footer";
 import { useLanguage } from "@/components/boty/language-context";
+import { orbitron, spaceGrotesk } from "@/lib/tech-fonts";
 
 type ProductKey = "umkm" | "multi" | "professional";
 
@@ -104,6 +107,8 @@ export default function CompanyProfilePage() {
         : "Konten, struktur halaman, dan beberapa bagian visual bisa disesuaikan dengan jenis usaha Anda agar website terasa lebih relevan, bukan sekadar template umum.",
     },
   ];
+
+  const featureIcons = [Sparkles, Cpu, ArrowRight, Check, BriefcaseBusiness, Building2];
 
   const portfolio = [
     {
@@ -208,21 +213,32 @@ export default function CompanyProfilePage() {
         <link rel="canonical" href="https://warpas-studio.com/service/company-profile" />
       </Head>
 
-      <div className="relative min-h-screen bg-background">
+      <div className="relative min-h-screen overflow-hidden bg-[#07101c]">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.24),_transparent_30%),radial-gradient(circle_at_left_center,_rgba(34,211,238,0.16),_transparent_34%),linear-gradient(180deg,#07101c_0%,#091424_45%,#07101c_100%)]" />
+          <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:40px_40px]" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent" />
+        </div>
+
         <section id="home" className="relative h-[78svh] min-h-[520px] w-full overflow-hidden sm:h-[90vh] sm:min-h-[620px]">
           <div className="absolute inset-0">
             <video autoPlay muted loop playsInline preload="none" className="absolute inset-0 h-full w-full object-cover">
+              <source src="/animasi-uchiha.mp4" type="video/mp4" />
               <source src="/images/hero3.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-background via-background/25 to-transparent" />
+            <div className="absolute inset-0 bg-[#050c17]/78" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.24),_transparent_30%),radial-gradient(circle_at_left_bottom,_rgba(14,165,233,0.18),_transparent_30%)]" />
+            <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:42px_42px]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#07101c] via-[#07101c]/55 to-transparent" />
           </div>
 
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-            <h1 className="text-4xl font-serif font-bold leading-tight text-white drop-shadow-lg md:text-6xl lg:text-7xl">
+            
+            <h1 className={`max-w-5xl text-4xl leading-[1.04] text-white drop-shadow-lg md:text-6xl lg:text-7xl ${orbitron.className}`}>
               {copy.heroTitle}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg text-white/90 md:text-2xl">
+            <p className={`mt-6 max-w-3xl text-lg leading-8 text-cyan-100/78 md:text-2xl ${spaceGrotesk.className}`}>
               {copy.heroDescription}
             </p>
           </div>
@@ -231,10 +247,10 @@ export default function CompanyProfilePage() {
         <div className="fixed top-5 left-4 z-50">
           <Link
             href="/#layanan"
-            className="group inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/90 px-3 py-2 text-sm font-medium text-foreground shadow-lg shadow-black/10 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            className={`group inline-flex items-center gap-2 rounded-full border border-cyan-300/18 bg-[#08111d]/88 px-3 py-2 text-sm text-cyan-100 shadow-[0_16px_40px_rgba(2,12,27,0.45)] backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-[#0d1b30] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/40 ${spaceGrotesk.className}`}
             aria-label={copy.backAria}
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform group-hover:-translate-x-0.5">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-300 text-slate-950 transition-transform group-hover:-translate-x-0.5">
               <ArrowLeft className="h-3.5 w-3.5" />
             </span>
             <span className="hidden sm:inline">{copy.backLabel}</span>
@@ -244,30 +260,38 @@ export default function CompanyProfilePage() {
         <div className="mx-auto max-w-7xl space-y-24 px-6 py-20 lg:px-8">
           <section
             id="fitur"
-            className="scroll-mt-24 rounded-[32px] bg-gradient-to-b from-background via-[#f8f4ee] to-background px-6 py-16"
+            className="scroll-mt-24 rounded-[32px] border border-cyan-300/12 bg-[#091424]/88 px-6 py-16 shadow-[0_24px_80px_rgba(2,12,27,0.4)] backdrop-blur-sm"
           >
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-4xl font-serif font-bold text-foreground">{copy.featuresTitle}</h2>
-              <p className="text-xl text-muted-foreground">{copy.featuresDescription}</p>
+              <span className={`mb-4 block text-sm uppercase tracking-[0.3em] text-cyan-300 ${spaceGrotesk.className}`}>{isEnglish ? "Core Modules" : "Modul Inti"}</span>
+              <h2 className={`mb-4 text-4xl text-white md:text-5xl ${orbitron.className}`}>{copy.featuresTitle}</h2>
+              <p className={`text-xl text-cyan-100/62 ${spaceGrotesk.className}`}>{copy.featuresDescription}</p>
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
+              {features.map((feature, index) => {
+                const Icon = featureIcons[index % featureIcons.length];
+
+                return (
                 <div
                   key={feature.title}
-                  className="group rounded-[24px] border border-[#eadcc8] bg-gradient-to-br from-[#fffaf2] via-[#f8efe3] to-[#efe1cf] p-6 shadow-[0_12px_30px_rgba(42,31,14,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(42,31,14,0.14)]"
+                  className="group rounded-[24px] border border-cyan-300/12 bg-[linear-gradient(180deg,rgba(11,22,40,0.95),rgba(8,17,29,0.92))] p-6 shadow-[0_18px_50px_rgba(2,12,27,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/26 hover:shadow-[0_24px_70px_rgba(8,145,178,0.14)]"
                 >
-                  <h3 className="mb-2 text-xl font-semibold text-[#2f2417]">{feature.title}</h3>
-                  <p className="leading-7 text-[#6b5a45]">{feature.desc}</p>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/16 bg-cyan-300/10 text-cyan-300 shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className={`mb-2 text-xl text-white ${orbitron.className}`}>{feature.title}</h3>
+                  <p className={`leading-7 text-cyan-100/58 ${spaceGrotesk.className}`}>{feature.desc}</p>
                 </div>
-              ))}
+              )})}
             </div>
           </section>
 
           <section id="portfolio" className="scroll-mt-24">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 font-serif text-4xl font-bold text-foreground">{copy.portfolioTitle}</h2>
-              <p className="text-xl text-muted-foreground">{copy.portfolioDescription}</p>
+              <span className={`mb-4 block text-sm uppercase tracking-[0.3em] text-cyan-300 ${spaceGrotesk.className}`}>{isEnglish ? "Launch Archive" : "Arsip Launch"}</span>
+              <h2 className={`mb-4 text-4xl text-white md:text-5xl ${orbitron.className}`}>{copy.portfolioTitle}</h2>
+              <p className={`text-xl text-cyan-100/62 ${spaceGrotesk.className}`}>{copy.portfolioDescription}</p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
@@ -279,22 +303,23 @@ export default function CompanyProfilePage() {
                   rel="noopener noreferrer"
                   className="group block"
                 >
-                  <article className="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+                  <article className="overflow-hidden rounded-[28px] border border-cyan-300/12 bg-[#0b1628] shadow-[0_18px_50px_rgba(2,12,27,0.35)] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-cyan-300/28 group-hover:shadow-[0_24px_70px_rgba(8,145,178,0.18)]">
                     <div className="relative h-[380px] overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.owner}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/15 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
-                      <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/90 text-foreground shadow-md transition-transform duration-300 group-hover:scale-110">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/90 via-[#07101c]/35 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_26%)]" />
+                      <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-cyan-300/16 bg-[#08111d]/88 text-cyan-100 shadow-md transition-transform duration-300 group-hover:scale-110">
                         <ExternalLink className="h-4 w-4" />
                       </div>
-                      <div className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground">
-                        <p className="mb-2 text-xs uppercase tracking-[0.2em] text-primary-foreground/70">{project.role}</p>
-                        <h3 className="font-serif text-3xl">{project.owner}</h3>
-                        <p className="mt-2 text-sm text-primary-foreground/85">{project.brand}</p>
-                        <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-background/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground backdrop-blur-sm">
+                      <div className="absolute inset-x-0 bottom-0 p-6 text-cyan-50">
+                        <p className={`mb-2 text-xs uppercase tracking-[0.24em] text-cyan-100/62 ${spaceGrotesk.className}`}>{project.role}</p>
+                        <h3 className={`text-3xl text-white ${orbitron.className}`}>{project.owner}</h3>
+                        <p className={`mt-2 text-sm text-cyan-100/82 ${spaceGrotesk.className}`}>{project.brand}</p>
+                        <div className={`mt-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/14 bg-[#08111d]/64 px-4 py-2 text-xs uppercase tracking-[0.18em] text-cyan-100 backdrop-blur-sm ${spaceGrotesk.className}`}>
                           {copy.portfolioCta}
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                         </div>
@@ -308,93 +333,99 @@ export default function CompanyProfilePage() {
 
           <section className="scroll-mt-24 py-4">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              <div className="pt-4">
-                <span className="mb-4 inline-flex items-center rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+              <div className="relative p-1 pl-6 lg:pt-8 lg:pl-8">
+                <div className="pointer-events-none absolute left-0 top-3 h-28 w-px bg-gradient-to-b from-cyan-300 via-cyan-300/40 to-transparent" />
+                <div className="pointer-events-none absolute left-[-6px] top-2 h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.85)]" />
+                <span className={`mb-4 inline-flex items-center rounded-full border border-cyan-300/18 bg-cyan-300/10 px-4 py-1 text-sm text-cyan-100 ${spaceGrotesk.className}`}>
                   {copy.consultationBadge}
                 </span>
-                <h2 className="mb-6 font-serif text-4xl leading-tight text-foreground md:text-6xl">
-                  {copy.consultationTitle}
+                <h2 className={`mb-6 max-w-xl text-4xl leading-tight text-white md:text-5xl ${orbitron.className}`}>
+                  Pilih paket yang paling pas untuk bisnis Anda.
                 </h2>
-                <p className="mb-6 text-lg text-muted-foreground">{copy.consultationDescription}</p>
-                <p className="text-sm text-muted-foreground">{copy.consultationMeta}</p>
+                <p className={`mb-6 max-w-xl text-lg leading-8 text-cyan-100/74 ${spaceGrotesk.className}`}>
+                  Kami bantu arahkan pilihan mulai dari landing page sederhana sampai website company profile yang lebih lengkap dan premium.
+                </p>
+                <p className={`max-w-lg text-sm text-cyan-100/58 ${spaceGrotesk.className}`}>
+                  Respon cepat • Rekomendasi paket yang jelas • Bisa langsung lanjut ke WhatsApp
+                </p>
               </div>
 
               <div className="flex justify-center lg:justify-end">
-                <div className="w-full max-w-xl overflow-hidden rounded-2xl border border-border/70 bg-background shadow-xl">
-                  <div className="bg-primary px-5 py-4">
-                    <h3 className="text-lg font-bold text-primary-foreground">{copy.consultationCardTitle}</h3>
+                <div className="w-full max-w-xl overflow-hidden rounded-[2rem] border border-cyan-300/14 bg-[#0a1324]/95 shadow-[0_24px_80px_rgba(2,12,27,0.42)] backdrop-blur-xl">
+                  <div className="border-b border-cyan-300/12 bg-[#0d1b30] px-5 py-4">
+                    <h3 className={`text-lg text-white ${orbitron.className}`}>{copy.consultationCardTitle}</h3>
                   </div>
 
                   <div className="space-y-5 p-5">
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                       <button
                         onClick={() => setSelectedProduct("umkm")}
-                        className={`rounded-xl border px-4 py-4 text-left transition-all ${
+                        className={`rounded-2xl border px-4 py-4 text-left transition-all ${
                           selectedProduct === "umkm"
-                            ? "border-primary bg-primary text-primary-foreground shadow-md"
-                            : "border-border bg-card text-foreground hover:border-primary/40 hover:bg-muted"
+                            ? "border-cyan-300/20 bg-cyan-300 text-slate-950 shadow-md"
+                            : "border-cyan-300/14 bg-[#08111d] text-cyan-100 hover:border-cyan-300/34 hover:bg-[#11203a]"
                         }`}
                       >
                         <Store className="mb-3 h-5 w-5" />
-                        <div className="font-semibold">{productDetails.umkm.shortLabel}</div>
-                        <div className={`mt-1 text-sm ${selectedProduct === "umkm" ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                        <div className={`${orbitron.className} font-semibold`}>{productDetails.umkm.shortLabel}</div>
+                        <div className={`mt-1 text-sm ${spaceGrotesk.className} ${selectedProduct === "umkm" ? "text-slate-900/72" : "text-cyan-100/48"}`}>
                           {productDetails.umkm.subtitle}
                         </div>
-                        <div className="mt-3 text-sm font-semibold">Rp 400.000</div>
+                        <div className={`mt-3 text-sm font-semibold ${spaceGrotesk.className}`}>Rp 400.000</div>
                       </button>
 
                       <button
                         onClick={() => setSelectedProduct("multi")}
-                        className={`rounded-xl border px-4 py-4 text-left transition-all ${
+                        className={`rounded-2xl border px-4 py-4 text-left transition-all ${
                           selectedProduct === "multi"
-                            ? "border-primary bg-primary text-primary-foreground shadow-md"
-                            : "border-border bg-card text-foreground hover:border-primary/40 hover:bg-muted"
+                            ? "border-cyan-300/20 bg-cyan-300 text-slate-950 shadow-md"
+                            : "border-cyan-300/14 bg-[#08111d] text-cyan-100 hover:border-cyan-300/34 hover:bg-[#11203a]"
                         }`}
                       >
                         <Building2 className="mb-3 h-5 w-5" />
-                        <div className="font-semibold">{productDetails.multi.shortLabel}</div>
-                        <div className={`mt-1 text-sm ${selectedProduct === "multi" ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                        <div className={`${orbitron.className} font-semibold`}>{productDetails.multi.shortLabel}</div>
+                        <div className={`mt-1 text-sm ${spaceGrotesk.className} ${selectedProduct === "multi" ? "text-slate-900/72" : "text-cyan-100/48"}`}>
                           {productDetails.multi.subtitle}
                         </div>
-                        <div className="mt-3 text-sm font-semibold">Rp 700.000</div>
+                        <div className={`mt-3 text-sm font-semibold ${spaceGrotesk.className}`}>Rp 700.000</div>
                       </button>
 
                       <button
                         onClick={() => setSelectedProduct("professional")}
-                        className={`rounded-xl border px-4 py-4 text-left transition-all ${
+                        className={`rounded-2xl border px-4 py-4 text-left transition-all ${
                           selectedProduct === "professional"
-                            ? "border-primary bg-primary text-primary-foreground shadow-md"
-                            : "border-border bg-card text-foreground hover:border-primary/40 hover:bg-muted"
+                            ? "border-cyan-300/20 bg-cyan-300 text-slate-950 shadow-md"
+                            : "border-cyan-300/14 bg-[#08111d] text-cyan-100 hover:border-cyan-300/34 hover:bg-[#11203a]"
                         }`}
                       >
                         <Gem className="mb-3 h-5 w-5" />
-                        <div className="font-semibold">{productDetails.professional.shortLabel}</div>
-                        <div className={`mt-1 text-sm ${selectedProduct === "professional" ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                        <div className={`${orbitron.className} font-semibold`}>{productDetails.professional.shortLabel}</div>
+                        <div className={`mt-1 text-sm ${spaceGrotesk.className} ${selectedProduct === "professional" ? "text-slate-900/72" : "text-cyan-100/48"}`}>
                           {productDetails.professional.subtitle}
                         </div>
-                        <div className="mt-3 text-sm font-semibold">Rp 1.500.000</div>
+                        <div className={`mt-3 text-sm font-semibold ${spaceGrotesk.className}`}>Rp 1.500.000</div>
                       </button>
                     </div>
 
-                    <div className="rounded-xl border border-border bg-card p-5">
+                    <div className="rounded-[1.5rem] border border-cyan-300/12 bg-[#08111d] p-5">
                       <div className="mb-4 flex items-start justify-between gap-4">
                         <div>
-                          <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                          <div className={`mb-2 inline-flex items-center gap-2 rounded-full border border-cyan-300/14 bg-cyan-300/10 px-3 py-1 text-xs uppercase tracking-[0.18em] text-cyan-100 ${spaceGrotesk.className}`}>
                             <BriefcaseBusiness className="h-3.5 w-3.5" />
                             {copy.packageDetail}
                           </div>
-                          <h3 className="text-xl font-bold text-foreground">{selectedData.name}</h3>
+                          <h3 className={`text-xl text-white ${orbitron.className}`}>{selectedData.name}</h3>
                         </div>
                         <div className="text-right">
-                          <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{copy.startingFrom}</div>
-                          <div className="text-2xl font-bold text-primary">Rp {selectedData.price}</div>
+                          <div className={`text-xs uppercase tracking-[0.18em] text-cyan-100/42 ${spaceGrotesk.className}`}>{copy.startingFrom}</div>
+                          <div className={`text-2xl text-cyan-300 ${orbitron.className}`}>Rp {selectedData.price}</div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {selectedData.features.map((feature) => (
-                          <div key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary">
+                          <div key={feature} className={`flex items-start gap-2 text-sm text-cyan-100/62 ${spaceGrotesk.className}`}>
+                            <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-cyan-300/10 text-cyan-300">
                               <Check className="h-3.5 w-3.5" />
                             </span>
                             <span>{feature}</span>
@@ -405,13 +436,13 @@ export default function CompanyProfilePage() {
 
                     <button
                       onClick={handleWhatsApp}
-                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-base font-medium text-primary-foreground transition hover:bg-primary/90"
+                      className={`flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-300 py-3 text-base text-slate-950 transition hover:bg-cyan-200 ${spaceGrotesk.className}`}
                     >
                       {copy.whatsappButton}
                       <ArrowRight className="h-4 w-4" />
                     </button>
 
-                    <p className="text-center text-xs text-muted-foreground">{copy.whatsappNote}</p>
+                    <p className={`text-center text-xs text-cyan-100/42 ${spaceGrotesk.className}`}>{copy.whatsappNote}</p>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 export function Footer() {
   const { language } = useLanguage()
   const pathname = usePathname()
-  const isTechHome = pathname !== "/services/company-profile" && pathname !== "/services/undangan"
+  const isTechHome = pathname !== "/services/undangan"
   const copy = {
     brandDescription:
       language === "en"
@@ -23,11 +23,12 @@ export function Footer() {
 
   return (
     <footer className={`relative overflow-hidden pt-20 pb-10 ${isTechHome ? "bg-[#06111f]" : "bg-primary"}`}>
-
       {/* Background Text - Ukuran diperkecil agar tidak kepanjangan */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none z-0 overflow-hidden">
-        <div className="flex justify-center items-end h-full">
-          <span className={`${isTechHome ? `${orbitron.className} text-cyan-300/5 uppercase tracking-[0.16em]` : "font-serif text-white/5"} text-[80px] sm:text-[100px] md:text-[120px] lg:text-[140px] font-bold whitespace-nowrap leading-none`}>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 select-none overflow-hidden">
+        <div className="flex justify-center">
+          <span
+            className={`${isTechHome ? `${orbitron.className} text-cyan-300/5 uppercase tracking-[0.1em] sm:tracking-[0.12em]` : "font-serif text-white/5"} translate-y-[18%] text-[clamp(3.1rem,10vw,7.75rem)] font-bold leading-none whitespace-nowrap`}
+          >
             Warpas Studio
           </span>
         </div>
