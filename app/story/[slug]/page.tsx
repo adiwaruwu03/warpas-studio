@@ -2,14 +2,14 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Check, 
-  Lock, 
-  Zap, 
-  ShieldCheck, 
-  TrendingUp, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Lock,
+  Zap,
+  ShieldCheck,
+  TrendingUp,
   Cpu,
   MessageSquare,
   ExternalLink
@@ -36,23 +36,21 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="min-h-screen bg-[#020617] pt-[100px] md:pt-[120px]">
       <Header />
-      
+
       <main className="relative">
         {/* HERO SECTION */}
         <section className="relative max-w-screen-2xl mx-auto px-6 lg:px-8 pb-12">
           <div className="mb-12">
-            <Link 
+            <Link
               href="/#story"
               className={`inline-flex items-center gap-2 text-blue-400 mb-8 hover:gap-3 transition-all ${spaceGrotesk.className}`}
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Kembali ke Story</span>
             </Link>
-            
+
             <div className="space-y-4">
-              <span className={`px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-[10px] font-bold uppercase tracking-widest text-blue-400 inline-block ${spaceGrotesk.className}`}>
-                System Story
-              </span>
+
               <h1 className={`text-4xl md:text-7xl lg:text-8xl text-white tracking-tight ${orbitron.className}`}>
                 {project.name}
               </h1>
@@ -106,7 +104,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         {/* CONTENT SECTION */}
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 py-24">
           <div className="grid gap-20 lg:grid-cols-[1fr_0.4fr]">
-            
+
             <div className="space-y-24">
               {/* MASALAH & SOLUSI */}
               <div className="grid gap-12 sm:grid-cols-2">
@@ -184,7 +182,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                           Secure System
                         </div>
                       </div>
-                      
+
                       {/* Dashboard Image */}
                       <div className="relative aspect-[1885/901] w-full bg-black/40">
                         <Image
@@ -255,7 +253,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 Mari kita bangun sistem yang benar-benar memberikan dampak nyata.
               </p>
             </div>
-            
+
             <a
               href="https://wa.me/6283836098858"
               target="_blank"
@@ -265,7 +263,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               Yuk ngobrol
               <ArrowRight className="h-5 w-5" />
             </a>
-            
+
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-full bg-blue-500/10 blur-[120px] pointer-events-none" />
           </div>
