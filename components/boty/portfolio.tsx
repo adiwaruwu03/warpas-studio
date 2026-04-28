@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Instagram, Linkedin, Github } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
@@ -20,21 +20,16 @@ export function Portfolio() {
   ]
 
   const images = [
-    {
-      src: "/images/igss.jpeg",
-      link: "https://www.instagram.com/adi_waruwwu/?hl=id",
-      label: "Instagram",
-    },
-    {
-      src: "/images/linkind.jpeg",
-      link: "https://www.linkedin.com/in/adi-putra-waruwu-554391288/",
-      label: "LinkedIn",
-    },
-    {
-      src: "/images/github.jpeg",
-      link: "https://github.com/adiwaruwu03",
-      label: "GitHub",
-    },
+    { src: "/images/profile/IMG_0937-jukebox-bg-removed (1).png", label: "Profile 1" },
+    { src: "/images/profile/IMG_0940-jukebox-bg-removed.png", label: "Profile 2" },
+    { src: "/images/profile/LYAK9168[1]-jukebox-bg-removed.png", label: "Profile 3" },
+    { src: "/images/profile/XNZN5926[1]-jukebox-bg-removed.png", label: "Profile 4" },
+  ]
+
+  const socialLinks = [
+    { icon: Instagram, link: "https://www.instagram.com/adi_waruwwu/?hl=id", label: "Instagram" },
+    { icon: Linkedin, link: "https://www.linkedin.com/in/adi-putra-waruwu-554391288/", label: "LinkedIn" },
+    { icon: Github, link: "https://github.com/adiwaruwu03", label: "GitHub" },
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -65,7 +60,7 @@ export function Portfolio() {
   }, [])
 
   return (
-    <section id="about" className="relative overflow-hidden bg-[#02060d] py-16 md:py-24">
+    <section id="about" className="relative overflow-hidden bg-[#02060d] pt-16 md:pt-24 pb-32 md:pb-48">
       <div className="pointer-events-none absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:38px_38px]" />
       <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-55">
         <div className="matrix-container">
@@ -96,7 +91,7 @@ export function Portfolio() {
               {isEnglish ? "About Me" : "Tentang Saya"}
             </p>
 
-            <h2 className={`text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-balance ${orbitron.className}`}>
+            <h2 className={`text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] text-balance ${orbitron.className}`}>
               {isEnglish
                 ? "Crafting Digital Identities That Feel Refined and Memorable"
                 : "Menciptakan Identitas Digital yang Berkelas dan Berkesan"}
@@ -120,7 +115,7 @@ export function Portfolio() {
           {/* RIGHT IMAGE SLIDER - Portrait ratio 750:1220 = 75:122 */}
           <div className="relative w-full max-w-[300px] mx-auto md:max-w-[350px] lg:max-w-[420px]">
             {/* Container dengan rasio portrait 75:122 (750:1220) */}
-            <div className="relative aspect-[75/122] w-full overflow-visible">
+            <div className="relative aspect-[4/5] w-full overflow-visible flex items-end justify-center">
               {images.map((img, index) => {
                 const offset =
                   (index - currentIndex + images.length) % images.length
@@ -132,56 +127,45 @@ export function Portfolio() {
                   zIndex = 30
                 } else if (offset === 1) {
                   transform = isMobile
-                    ? "translateX(25%) scale(0.85) rotateY(-10deg)"
-                    : "translateX(40px) scale(0.9) rotateY(-15deg)"
+                    ? "translateX(35%) scale(0.8) rotateY(-15deg)"
+                    : "translateX(60px) scale(0.85) rotateY(-20deg)"
                   zIndex = 20
                 } else {
                   transform = isMobile
-                    ? "translateX(-25%) scale(0.85) rotateY(10deg)"
-                    : "translateX(-40px) scale(0.9) rotateY(15deg)"
+                    ? "translateX(-35%) scale(0.8) rotateY(15deg)"
+                    : "translateX(-60px) scale(0.85) rotateY(20deg)"
                   zIndex = 10
                 }
+
+                const needsScale = img.src.includes("XNZN5926") || img.src.includes("IMG_0940") || img.src.includes("IMG_0937")
 
                 return (
                   <div
                     key={img.src}
-                    className="absolute inset-0 transition-all duration-700 ease-out"
+                    className={`absolute inset-0 transition-all duration-700 ease-out flex items-end justify-center ${
+                      offset !== 0 ? "blur-[2px]" : "blur-0"
+                    }`}
                     style={{
                       transform,
                       zIndex,
-                      opacity: offset > 1 ? 0.4 : 1,
+                      opacity: offset === 0 ? 1 : 0.1,
                     }}
                   >
-                    <a
-                      href={img.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full h-full group"
-                    >
-                      <div className="relative w-full h-full overflow-hidden rounded-2xl border border-cyan-300/12 shadow-2xl shadow-black/40">
-                        {/* Dark gradient overlay for dramatic effect */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10 rounded-2xl pointer-events-none" />
-                        
-                        <Image
-                          src={img.src}
-                          alt={img.label}
-                          fill
-                          className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                          sizes="(max-width: 768px) 70vw, 360px"
-                          priority={offset === 0}
-                        />
-
-                        {/* Hover overlay with dark effect */}
-                        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center z-20 rounded-2xl">
-                          <span className={`text-white text-base font-semibold ${orbitron.className}`}>
-                            {img.label}
-                          </span>
-                          <span className={`text-white text-xs opacity-80 mt-1 ${spaceGrotesk.className}`}>
-                            {isEnglish ? "View Profile" : "Lihat Profil"}
-                          </span>
-                        </div>
-                      </div>
-                    </a>
+                    <div className="relative w-full h-[110%] overflow-visible group">
+                      {/* Glow effect floor for all images */}
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-12 bg-cyan-400/20 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      <Image
+                        src={img.src}
+                        alt={img.label}
+                        fill
+                        className={`object-contain object-bottom transition-all duration-500 hover:scale-110 drop-shadow-[0_10px_30px_rgba(34,211,238,0.25)] ${
+                          needsScale ? "scale-[1.65] origin-bottom" : "scale-100"
+                        }`}
+                        sizes="(max-width: 768px) 70vw, 500px"
+                        priority={offset === 0}
+                      />
+                    </div>
                   </div>
                 )
               })}
@@ -217,6 +201,25 @@ export function Portfolio() {
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
+              ))}
+            </div>
+
+            {/* Social Icons Row */}
+            <div className="relative mt-20 flex items-center justify-center gap-6 lg:mt-0 lg:absolute lg:-bottom-24 lg:left-1/2 lg:-translate-x-1/2 z-40">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-300/10 bg-[#08111d]/80 text-cyan-100/60 backdrop-blur-md transition-all hover:border-cyan-300/40 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                  aria-label={social.label}
+                >
+                  <social.icon size={22} className="transition-transform group-hover:scale-110" />
+                  <span className="absolute -top-10 scale-0 rounded bg-cyan-300 px-2 py-1 text-[10px] font-bold text-slate-950 transition-all group-hover:scale-100">
+                    {social.label}
+                  </span>
+                </a>
               ))}
             </div>
           </div>

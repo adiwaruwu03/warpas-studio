@@ -36,7 +36,7 @@ export function BottomNav() {
 
   return (
     <div className="fixed bottom-6 left-1/2 z-50 w-[92%] -translate-x-1/2 lg:hidden">
-      <nav className="flex items-center justify-around rounded-2xl border border-white/20 bg-background/80 px-2 py-3 shadow-2xl backdrop-blur-xl">
+      <nav className="flex items-center justify-around rounded-2xl border border-cyan-300/20 bg-[#08111d]/90 px-2 py-3 shadow-2xl backdrop-blur-xl">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = pathname === item.href || (isHomePage && item.href.startsWith("#"))
