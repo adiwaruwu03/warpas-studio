@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import { useLanguage } from "@/components/boty/language-context"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
@@ -18,7 +19,7 @@ export function Header() {
 
   // Cek apakah di homepage
   const isHomePage = pathname === "/"
-  const isTechHome = pathname !== "/services/company-profile" && pathname !== "/services/undangan"
+  const isTechHome = true // Always use tech theme now
 
   // Handle scroll effect
   useEffect(() => {
@@ -32,7 +33,7 @@ export function Header() {
   // Navigasi items - jika di halaman detail, link ke homepage dengan hash
   const navItems = [
     { name: language === "en" ? "Home" : "Home", href: isHomePage ? "#home" : "/" },
-    { name: language === "en" ? "Services" : "Layanan", href: isHomePage ? "#layanan" : "/#layanan" },
+    { name: language === "en" ? "Story" : "Story", href: isHomePage ? "#story" : "/#story" },
     { name: language === "en" ? "Portfolio" : "Portfolio", href: isHomePage ? "#portfolio" : "/#portfolio" },
     { name: language === "en" ? "Contact" : "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
   ]
@@ -41,7 +42,7 @@ export function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 px-4 transition-all duration-300 ${
       scrolled || !isHomePage ? "pt-2" : "pt-4"
     }`}>
-      <nav className={`relative max-w-7xl mx-auto px-6 lg:px-8 backdrop-blur-md rounded-xl border shadow-lg transition-all duration-300 ${
+      <nav className={`relative max-w-screen-2xl mx-auto px-6 lg:px-8 backdrop-blur-md rounded-xl border shadow-lg transition-all duration-300 ${
         isTechHome
           ? scrolled
             ? "border-cyan-300/15 bg-[#08111d]/92 shadow-[0_14px_40px_rgba(2,12,27,0.45)]"
@@ -64,14 +65,18 @@ export function Header() {
 
         <div className="relative z-10 flex items-center justify-between h-[68px]">
 
-          {/* MOBILE BUTTON */}
-          <button
-            onClick={toggleMenu}
-            className={`lg:hidden p-2 transition ${isTechHome ? "text-cyan-100/80 hover:text-cyan-200" : "text-foreground/80 hover:text-foreground"}`}
-            aria-label="Toggle Menu"
+          {/* MOBILE LOGO - Left Corner */}
+          <Link 
+            href="/" 
+            className="lg:hidden relative h-10 w-10 overflow-hidden rounded-full border border-cyan-300/20 shadow-sm"
           >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            <Image
+              src="/logo-warpas.png"
+              alt="Warpas Studio Logo"
+              fill
+              className="object-cover"
+            />
+          </Link>
 
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-5 xl:gap-6">
@@ -90,10 +95,10 @@ export function Header() {
             ))}
           </div>
 
-          {/* LOGO - Link ke Homepage */}
+          {/* LOGO - Hidden on mobile, shown on desktop */}
           <Link 
             href="/" 
-            className="absolute left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 -translate-x-1/2 hidden lg:block"
             onClick={closeMenu}
           >
             <h1 className={`${isTechHome ? `${orbitron.className} text-cyan-100 tracking-[0.26em] uppercase text-lg md:text-xl` : "font-serif text-2xl md:text-3xl tracking-wider text-foreground"}`}>
@@ -101,12 +106,13 @@ export function Header() {
             </h1>
           </Link>
 
-          <div className="hidden lg:flex items-center">
+          {/* LANGUAGE TOGGLE - Shown on both mobile and desktop */}
+          <div className="flex items-center">
             <div className={`inline-flex rounded-full p-1 shadow-sm ${isTechHome ? "border border-cyan-300/20 bg-[#0b1628]/90" : "border border-border bg-background/80"}`}>
               <button
                 type="button"
                 onClick={() => setLanguage("id")}
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                className={`rounded-full px-3 py-1.5 text-[10px] sm:text-xs font-semibold transition ${
                   language === "id"
                     ? isTechHome
                       ? `${spaceGrotesk.className} bg-cyan-300 text-slate-950`
@@ -122,7 +128,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setLanguage("en")}
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                className={`rounded-full px-3 py-1.5 text-[10px] sm:text-xs font-semibold transition ${
                   language === "en"
                     ? isTechHome
                       ? `${spaceGrotesk.className} bg-cyan-300 text-slate-950`
@@ -140,62 +146,7 @@ export function Header() {
 
         </div>
 
-        {/* MOBILE MENU */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMenuOpen ? "max-h-72 pb-6" : "max-h-0"
-          }`}
-        >
-          <div className={`relative z-10 flex flex-col gap-4 pt-4 ${isTechHome ? "border-t border-cyan-300/15" : "border-t border-border/50"}`}>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={closeMenu}
-                className={`text-sm ${isTechHome ? `${spaceGrotesk.className} uppercase tracking-[0.2em] text-cyan-100/75 hover:text-cyan-200` : "text-foreground/70 hover:text-foreground"}`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="pt-2">
-              <p className={`mb-2 text-xs font-semibold uppercase tracking-[0.2em] ${isTechHome ? `${spaceGrotesk.className} text-cyan-100/45` : "text-foreground/50"}`}>
-                {language === "en" ? "Language" : "Bahasa"}
-              </p>
-              <div className={`inline-flex rounded-full p-1 shadow-sm ${isTechHome ? "border border-cyan-300/20 bg-[#0b1628]/90" : "border border-border bg-background/80"}`}>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("id")}
-                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                    language === "id"
-                      ? isTechHome
-                        ? `${spaceGrotesk.className} bg-cyan-300 text-slate-950`
-                        : "bg-primary text-primary-foreground"
-                      : isTechHome
-                        ? `${spaceGrotesk.className} text-cyan-100/70 hover:text-cyan-200`
-                        : "text-foreground/70 hover:text-foreground"
-                  }`}
-                >
-                  Indonesia
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("en")}
-                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                    language === "en"
-                      ? isTechHome
-                        ? `${spaceGrotesk.className} bg-cyan-300 text-slate-950`
-                        : "bg-primary text-primary-foreground"
-                      : isTechHome
-                        ? `${spaceGrotesk.className} text-cyan-100/70 hover:text-cyan-200`
-                        : "text-foreground/70 hover:text-foreground"
-                  }`}
-                >
-                  English
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* MOBILE MENU - HIDDEN because of BottomNav */}
 
       </nav>
     </header>

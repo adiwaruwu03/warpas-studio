@@ -103,7 +103,7 @@ export function FeatureSection() {
   return (
     <section className="relative overflow-hidden py-24 bg-[#07111f]" id="tentang">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
         {/* Bento Grid */}
         <div 
           ref={bentoRef}
@@ -258,7 +258,7 @@ export function FeatureSection() {
             <p className={`text-lg text-cyan-100/62 leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
               {isEnglish
                 ? "We are committed to delivering high-quality digital solutions with excellent service. Every project is handled with care and full dedication to support your business success."
-                : "Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan layanan terbaik. Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda."}
+                : "Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan hasil terbaik. Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda."}
             </p>
 
             {/* Feature Cards */}

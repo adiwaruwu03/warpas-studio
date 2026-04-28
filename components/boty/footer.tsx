@@ -9,7 +9,7 @@ import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 export function Footer() {
   const { language } = useLanguage()
   const pathname = usePathname()
-  const isTechHome = pathname !== "/services/undangan"
+  const isTechHome = true
   const copy = {
     brandDescription:
       language === "en"
@@ -18,7 +18,7 @@ export function Footer() {
     socialMedia: language === "en" ? "Social Media" : "Sosial Media",
     contact: language === "en" ? "Contact" : "Kontak",
     privacy: language === "en" ? "Privacy Policy" : "Kebijakan Privasi",
-    terms: language === "en" ? "Terms of Service" : "Syarat Layanan",
+    terms: language === "en" ? "Terms & Conditions" : "Ketentuan",
   }
 
   return (
@@ -41,7 +41,7 @@ export function Footer() {
         </>
       )}
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
 
         {/* 3 COLUMN */}
         <div className="grid md:grid-cols-3 gap-10 mb-16 text-center">

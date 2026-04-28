@@ -59,7 +59,7 @@ export function Newsletter() {
         </div>
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(6,17,31,0.28),transparent_30%),linear-gradient(to_bottom,rgba(6,17,31,0.66),rgba(6,17,31,0.72))]" />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* items-start agar konten kiri sejajar dengan bagian atas card */}

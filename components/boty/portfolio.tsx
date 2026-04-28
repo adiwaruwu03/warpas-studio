@@ -88,21 +88,21 @@ export function Portfolio() {
           ))}
         </div>
       </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto max-w-screen-2xl px-6 sm:px-10 lg:px-16">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-32">
           {/* LEFT CONTENT */}
-          <div>
-            <p className={`text-sm font-medium uppercase tracking-[0.3em] text-primary ${spaceGrotesk.className}`}>
+          <div className="relative z-10">
+            <p className={`text-sm font-semibold uppercase tracking-[0.4em] text-primary mb-6 ${spaceGrotesk.className}`}>
               {isEnglish ? "About Me" : "Tentang Saya"}
             </p>
 
-            <h2 className={`mt-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl text-balance ${orbitron.className}`}>
+            <h2 className={`text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-balance ${orbitron.className}`}>
               {isEnglish
                 ? "Crafting Digital Identities That Feel Refined and Memorable"
                 : "Menciptakan Identitas Digital yang Berkelas dan Berkesan"}
             </h2>
 
-            <div className={`mt-6 space-y-4 text-sm leading-relaxed text-cyan-100/62 sm:text-base text-justify ${spaceGrotesk.className}`}>
+            <div className={`mt-10 space-y-6 text-base leading-relaxed text-cyan-100/70 sm:text-lg text-justify max-w-3xl ${spaceGrotesk.className}`}>
               <p>
                 {isEnglish
                   ? "I am Adi Putra Waruwu, a university student and frontend developer focused on building professional and refined digital identities. I believe every individual and brand has strong potential to stand out in the digital world, but not everyone has the right direction, strategy, and approach to bring it to life."
@@ -118,7 +118,7 @@ export function Portfolio() {
           </div>
 
           {/* RIGHT IMAGE SLIDER - Portrait ratio 750:1220 = 75:122 */}
-          <div className="relative w-full max-w-[280px] mx-auto md:max-w-[320px] lg:max-w-[360px]">
+          <div className="relative w-full max-w-[300px] mx-auto md:max-w-[350px] lg:max-w-[420px]">
             {/* Container dengan rasio portrait 75:122 (750:1220) */}
             <div className="relative aspect-[75/122] w-full overflow-visible">
               {images.map((img, index) => {

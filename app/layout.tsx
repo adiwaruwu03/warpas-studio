@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { DM_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from "@/components/boty/language-context"
+import { BottomNav } from "@/components/boty/bottom-nav"
 import './globals.css'
 
 const dmSans = DM_Sans({ 
@@ -52,8 +53,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
+      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased pb-24 lg:pb-0`}>
+        <LanguageProvider>
+          {children}
+          <BottomNav />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

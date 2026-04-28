@@ -58,7 +58,7 @@ export function TrustBadges() {
     <section className="relative overflow-hidden bg-[#07111f] py-20">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:34px_34px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.16),transparent_32%)]" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
         <div className="mb-8 text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.34em] text-primary/80 ${spaceGrotesk.className}`}>
             {isEnglish ? "Core Signals" : "Sinyal Utama"}

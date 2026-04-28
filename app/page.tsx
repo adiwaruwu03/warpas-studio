@@ -1,7 +1,7 @@
 import { Header } from "@/components/boty/header"
 import { Hero } from "@/components/boty/hero"
 import { TrustBadges } from "@/components/boty/trust-badges"
-import { ServicesGrid } from "@/components/boty/services-grid"
+import { StorySection } from "@/components/boty/story-section"
 import { Portfolio } from "@/components/boty/portfolio"
 import { FeatureSection } from "@/components/boty/feature-section"
 import { Testimonials } from "@/components/boty/testimonials"
@@ -21,9 +21,9 @@ export default function HomePage() {
 
       <TrustBadges />
 
-      {/* LAYANAN */}
-      <section id="layanan">
-        <ServicesGrid />
+      {/* STORY PROJEK */}
+      <section id="story">
+        <StorySection />
       </section>
 
       {/* PORTFOLIO */}
