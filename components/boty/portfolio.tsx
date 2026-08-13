@@ -90,11 +90,7 @@ export function Portfolio() {
               {isEnglish ? "About Me" : "Tentang Saya"}
             </p>
 
-            <h2 className={`text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.2] text-balance ${orbitron.className}`}>
-              {isEnglish
-                ? "Crafting Digital Identities That Feel Refined and Memorable"
-                : "Menciptakan Identitas Digital yang Berkelas dan Berkesan"}
-            </h2>
+
 
             <div className={`mt-8 space-y-4 text-base leading-7 text-cyan-100/70 text-justify max-w-3xl ${spaceGrotesk.className}`}>
               <p>
