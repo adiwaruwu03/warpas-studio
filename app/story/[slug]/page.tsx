@@ -14,10 +14,51 @@ import {
   MessageSquare,
   ExternalLink
 } from "lucide-react"
+import { Metadata } from "next"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 import { projects } from "@/lib/projects"
 import { Footer } from "@/components/boty/footer"
 import { Header } from "@/components/boty/header"
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
+
+  if (!project) {
+    return {
+      title: 'Project Not Found | Adi Putra Waruwu',
+    }
+  }
+
+  const title = `${project.name} | Portfolio Adi Putra Waruwu - Web Developer`
+  // We take a clean snippet from the problem description
+  const description = (project.problem || "").substring(0, 150).replace(/\n/g, ' ') + '...'
+
+  return {
+    title,
+    description,
+    keywords: [project.name, 'Web Developer', 'Frontend Developer', ...project.tech],
+    openGraph: {
+      title,
+      description,
+      url: `https://adi-putra-waruwu.vercel.app/story/${project.slug}`,
+      images: [
+        {
+          url: project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [project.thumbnail],
+    },
+  }
+}
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -33,8 +74,27 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     notFound()
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.name,
+    "description": project.story || project.problem,
+    "creator": {
+      "@type": "Person",
+      "name": "Adi Putra Waruwu",
+      "url": "https://adi-putra-waruwu.vercel.app"
+    },
+    "image": `https://adi-putra-waruwu.vercel.app${project.thumbnail}`,
+    "url": `https://adi-putra-waruwu.vercel.app/story/${project.slug}`,
+    "keywords": project.tech.join(", ")
+  }
+
   return (
     <div className="min-h-screen bg-[#020617] pt-[100px] md:pt-[120px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="relative">

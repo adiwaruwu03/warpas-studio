@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Instagram, Linkedin, Phone, Mail } from "lucide-react"
+import { Instagram, Linkedin, Phone, Mail, Github } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
@@ -64,19 +64,21 @@ export function Footer() {
 
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/adi_waruwwu/?hl=id"
+                href="https://www.instagram.com/adi_waruwwu/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-cyan-300/20 bg-cyan-300/10 hover:bg-cyan-300/20" : "bg-white/10 hover:bg-white/20"}`}
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
 
               <a
-                href="https://www.tiktok.com/@gido_daa?is_from_webapp=1&sender_device=pc"
+                href="https://www.tiktok.com/@halo_aku_adi?is_from_webapp=1&sender_device=pc"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-cyan-300/20 bg-cyan-300/10 hover:bg-cyan-300/20" : "bg-white/10 hover:bg-white/20"}`}
+                aria-label="TikTok"
               >
                 <span className="text-sm font-bold text-white">TT</span>
               </a>
@@ -84,10 +86,21 @@ export function Footer() {
               <a
                 href="https://www.linkedin.com/in/adi-putra-waruwu-554391288/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-cyan-300/20 bg-cyan-300/10 hover:bg-cyan-300/20" : "bg-white/10 hover:bg-white/20"}`}
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5 text-white" />
+              </a>
+
+              <a
+                href="https://github.com/adiwaruwu03"
+                target="_blank"
+                rel="noopener noreferrer me"
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-cyan-300/20 bg-cyan-300/10 hover:bg-cyan-300/20" : "bg-white/10 hover:bg-white/20"}`}
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>

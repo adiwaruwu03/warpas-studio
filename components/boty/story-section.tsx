@@ -24,7 +24,7 @@ export function StorySection() {
             Selected Projects
           </h2>
           <p className={`mt-4 max-w-2xl mx-auto text-slate-400 text-lg md:text-xl ${spaceGrotesk.className}`}>
-            Kumpulan proyek yang telah saya kembangkan, sebagai bagian dari perjalanan dan eksplorasi saya di dunia web development.
+            Kumpulan proyek yang telah saya kembangkan sebagai Frontend Developer dan Full Stack Developer. Eksplorasi dalam membangun website modern, responsif, dan SEO Friendly menggunakan Next.js, React, Laravel, dan TypeScript.
           </p>
         </div>
 

@@ -57,6 +57,14 @@ export function Hero() {
 
         </div>
 
+        {/* SEO Hidden Text */}
+        <div className="sr-only">
+          <h2>Adi Putra Waruwu - Web Developer & Frontend Developer Indonesia</h2>
+          <p>
+            Adi Putra Waruwu adalah Web Developer Indonesia yang membangun website modern, cepat, responsif, SEO Friendly, menggunakan Next.js, React, Laravel, TypeScript, dan teknologi web modern lainnya.
+          </p>
+        </div>
+
         {/* PORTFOLIO Text */}
         <div className="relative z-20 w-full flex justify-center items-center mt-[-40px] sm:mt-[-60px] md:mt-[-80px] lg:mt-[-100px]"
              style={{ animation: 'fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards', animationDelay: '0.4s', opacity: 0 }}>
