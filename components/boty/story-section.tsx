@@ -17,14 +17,14 @@ export function StorySection() {
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:40px_40px]" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className={`text-4xl md:text-6xl text-white mb-6 tracking-tight ${orbitron.className}`}>
-            Story Projek WarPas
+            Selected Projects
           </h2>
           <p className={`mt-4 max-w-2xl mx-auto text-slate-400 text-lg md:text-xl ${spaceGrotesk.className}`}>
-            Kami tidak hanya membuat website, kami membangun sistem yang membantu bisnis berkembang.
+            Kumpulan proyek yang telah saya kembangkan, sebagai bagian dari perjalanan dan eksplorasi saya di dunia web development.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export function StorySection() {
                 </p>
                 
                 <div className="flex items-center text-blue-400 text-xs font-semibold uppercase tracking-widest group-hover:gap-2 transition-all">
-                  Read Full Story
+                  View Project
                   <ArrowRight className="h-4 w-4 ml-1" />
                 </div>
               </div>
@@ -82,15 +82,13 @@ export function StorySection() {
           <div className="inline-block p-[1px] rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
             <div className="rounded-[15px] bg-[#020617] px-10 py-10 md:px-20">
               <h3 className={`text-2xl md:text-3xl text-white mb-6 ${orbitron.className}`}>
-                Bangun sistem seperti ini untuk bisnis Anda
+                Tertarik untuk berkolaborasi atau berdiskusi?
               </h3>
               <a
-                href="https://wa.me/6283836098858"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#kontak"
                 className={`inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-blue-500 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.4)] ${spaceGrotesk.className}`}
               >
-                Mulai Sekarang
+                Hubungi Saya
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

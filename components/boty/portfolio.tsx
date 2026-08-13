@@ -83,7 +83,7 @@ export function Portfolio() {
           ))}
         </div>
       </div>
-      <div className="mx-auto max-w-screen-2xl px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
         <div className="grid items-center gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-32">
           {/* LEFT CONTENT */}
           <div className="relative z-10">

@@ -39,11 +39,11 @@ export function Newsletter() {
     }
 
     const message =
-      `*${isEnglish ? "EVENT CONSULTATION" : "KONSULTASI ACARA"}*%0A%0A` +
+      `*${isEnglish ? "HELLO" : "HALO"}*%0A%0A` +
       `📌 ${isEnglish ? "Name" : "Nama"}: ${encodeURIComponent(formData.name)}%0A` +
       `📧 Email: ${encodeURIComponent(formData.email || "-")}%0A` +
       `📅 ${isEnglish ? "Date" : "Tanggal"}: ${encodeURIComponent(formData.date || "-")}%0A` +
-      `📝 ${isEnglish ? "Details" : "Detail"}:%0A${encodeURIComponent(formData.detail || "-")}`
+      `📝 ${isEnglish ? "Message" : "Pesan"}:%0A${encodeURIComponent(formData.detail || "-")}`
 
     const waUrl = `https://wa.me/6283836098858?text=${message}`
     window.open(waUrl, "_blank")
@@ -59,7 +59,7 @@ export function Newsletter() {
         </div>
       </div>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(6,17,31,0.28),transparent_30%),linear-gradient(to_bottom,rgba(6,17,31,0.66),rgba(6,17,31,0.72))]" />
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* items-start agar konten kiri sejajar dengan bagian atas card */}
@@ -68,19 +68,19 @@ export function Newsletter() {
           <div className="relative z-10 pt-4">
             {/* pt-4 untuk menyamakan posisi dengan header card yang punya py-4 */}
             <h2 className={`text-4xl md:text-6xl text-white mb-6 leading-tight ${orbitron.className}`}>
-              {language === "en" ? "Bring Your Digital Product Ideas to Life" : "Wujudkan Produk Digital Impian Anda"}
+              {language === "en" ? "Let's Connect." : "Mari Terhubung."}
             </h2>
 
             <p className={`text-cyan-100/72 mb-6 text-lg ${spaceGrotesk.className}`}>
               {language === "en"
-                ? "Discuss your needs with our professional team. We help from concept to execution with the best possible results."
-                : "Konsultasikan kebutuhan Anda bersama tim profesional kami. Kami bantu dari konsep hingga eksekusi dengan hasil terbaik."}
+                ? "I am open to job opportunities, collaborations, freelance work, or discussions about web development. Feel free to reach out if you'd like to talk or work together."
+                : "Saya terbuka untuk peluang kerja, kolaborasi, freelance, maupun diskusi mengenai pengembangan website. Jangan ragu untuk menghubungi saya jika ingin berdiskusi atau bekerja sama."}
             </p>
 
             <p className={`text-sm text-cyan-100/52 ${spaceGrotesk.className}`}>
               {language === "en"
-                ? "Fast response • Free initial consultation • Complete presentation • I am not a robot"
-                : "Respon cepat • Gratis konsultasi awal • Tampilan komplet • Saya bukan robot"}
+                ? "Fast response • I am not a robot"
+                : "Respon cepat • Saya bukan robot"}
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export function Newsletter() {
               {/* HEADER */}
               <div className="bg-cyan-300 px-5 py-4">
                 <h3 className={`text-lg font-bold text-slate-950 ${orbitron.className}`}>
-                  {language === "en" ? "Free Consultation" : "Konsultasi Gratis"}
+                  {language === "en" ? "Send Message" : "Kirim Pesan"}
                 </h3>
               </div>
 
@@ -130,7 +130,7 @@ export function Newsletter() {
                   value={formData.detail}
                   onChange={handleChange}
                   rows={3}
-                  placeholder={language === "en" ? "Project details..." : "Detail kebutuhan..."}
+                  placeholder={language === "en" ? "Message details..." : "Detail pesan..."}
                   className={`w-full resize-none rounded-lg border border-cyan-300/14 bg-[#08111d] px-4 py-2.5 text-cyan-50 outline-none placeholder:text-cyan-100/28 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300 ${spaceGrotesk.className}`}
                 />
 
@@ -153,7 +153,7 @@ export function Newsletter() {
                 </button>
 
                 <p className={`text-xs text-center text-cyan-100/42 ${spaceGrotesk.className}`}>
-                  {language === "en" ? "Your data will be sent directly to our team's WhatsApp" : "Data dikirim langsung ke WhatsApp tim kami"}
+                  {language === "en" ? "I will try to reply as soon as possible." : "Saya akan berusaha membalas pesan secepat mungkin."}
                 </p>
 
               </div>

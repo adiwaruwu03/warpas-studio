@@ -6,39 +6,37 @@ import { LanguageProvider } from "@/components/boty/language-context"
 import { BottomNav } from "@/components/boty/bottom-nav"
 import './globals.css'
 
-const dmSans = DM_Sans({ 
+const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '600']
 });
 
-const playfairDisplay = Playfair_Display({ 
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: '--font-playfair',
-  weight: ['400', '500', '600', '700']
 });
 
 export const metadata: Metadata = {
-  title: 'Warpas Studio — Website & Undangan Digital Profesional',
-  description: 'Kami menyediakan solusi website profesional dan undangan digital elegan untuk bisnis dan acara Anda.',
+  title: 'Adi Putra Waruwu — Frontend Developer',
+  description: 'Portofolio personal Adi Putra Waruwu, seorang Frontend Developer yang berfokus pada pengembangan website modern, responsif, dan berorientasi pada pengalaman pengguna.',
   generator: 'v0.app',
-  keywords: ['website', 'undangan digital', 'landing page', 'web design', 'digital agency', 'Indonesia'],
+  keywords: ['frontend developer', 'web developer', 'react', 'nextjs', 'portfolio', 'Adi Putra Waruwu'],
   icons: {
     icon: [
       {
-        url: '/logo-warpas.png',
+        url: '/adi.JPEG',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo-warpas.png',
+        url: '/adi.JPEG',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/logo-warpas.png',
+        url: '/adi.JPEG',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/logo-warpas.png',
+    apple: '/adi.JPEG',
   },
 }
 

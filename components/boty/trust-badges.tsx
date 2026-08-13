@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Zap, Palette, Smartphone, MessageSquare } from "lucide-react"
+import { Smartphone, Code, Zap, LayoutTemplate } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
@@ -12,24 +12,24 @@ export function TrustBadges() {
   const isEnglish = language === "en"
   const badges = [
     {
-      icon: Zap,
-      title: language === "en" ? "Fast Delivery" : "Pengerjaan Cepat",
-      description: language === "en" ? "Delivered on schedule" : "Selesai tepat waktu sesuai jadwal"
-    },
-    {
-      icon: Palette,
-      title: language === "en" ? "Premium Design" : "Desain Premium",
-      description: language === "en" ? "Modern and professional aesthetics" : "Estetika modern dan profesional"
-    },
-    {
       icon: Smartphone,
-      title: language === "en" ? "Mobile Friendly" : "Mobile Friendly",
-      description: language === "en" ? "Responsive on every device" : "Responsif di semua perangkat"
+      title: "Responsive Design",
+      description: language === "en" ? "Websites remain comfortable to use on desktop and mobile." : "Website tetap nyaman digunakan di desktop maupun smartphone."
     },
     {
-      icon: MessageSquare,
-      title: language === "en" ? "Friendly Support" : "Support Ramah",
-      description: language === "en" ? "Our team is ready to help" : "Tim siap membantu Anda"
+      icon: Code,
+      title: "Clean Code",
+      description: language === "en" ? "Neat, consistent, and maintainable code." : "Kode yang rapi, konsisten, dan mudah dikembangkan."
+    },
+    {
+      icon: Zap,
+      title: "Performance",
+      description: language === "en" ? "Prioritizing performance for fast and efficient websites." : "Mengutamakan performa agar website terasa cepat dan efisien."
+    },
+    {
+      icon: LayoutTemplate,
+      title: "Modern UI",
+      description: language === "en" ? "Simple, clean, and user-friendly interface." : "Antarmuka yang sederhana, bersih, dan nyaman digunakan."
     }
   ]
 
@@ -58,7 +58,7 @@ export function TrustBadges() {
     <section className="relative overflow-hidden bg-[#07111f] py-20">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:34px_34px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.16),transparent_32%)]" />
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-8 text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.34em] text-primary/80 ${spaceGrotesk.className}`}>
             {isEnglish ? "Core Signals" : "Sinyal Utama"}

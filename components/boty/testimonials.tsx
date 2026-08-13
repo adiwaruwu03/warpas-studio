@@ -48,84 +48,84 @@ export function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Bina & Andi",
-      location: "Jakarta",
+      name: "React & Next.js",
+      location: "Frontend Framework",
       text: isEnglish
-        ? "The digital invitation was very elegant and left a great impression on all our guests. The process was also fast and responsive."
-        : "Undangan digitalnya sangat elegan dan semua tamu sangat terkesan. Proses pembuatan juga sangat cepat dan responsif.",
-      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+        ? "Building interactive and scalable user interfaces with component-driven architecture."
+        : "Membangun antarmuka yang interaktif dan scalable dengan arsitektur berbasis komponen.",
+      product: "Core Stack"
     },
     {
       id: 2,
-      name: "Imelda Salon",
-      location: "Bandung",
+      name: "Tailwind CSS",
+      location: "Styling",
       text: isEnglish
-        ? "A professional website that truly boosted our sales. The Warpas team really understood our salon business needs."
-        : "Website profesional yang benar-benar meningkatkan penjualan kami. Tim Warpas sangat memahami kebutuhan bisnis salon.",
-      product: isEnglish ? "Company Website" : "Website Company"
+        ? "Creating beautiful, responsive designs rapidly with utility-first CSS."
+        : "Menciptakan desain yang indah dan responsif secara cepat menggunakan utility-first CSS.",
+      product: "Styling"
     },
     {
       id: 3,
-      name: "Event Manager Surabaya",
-      location: "Surabaya",
+      name: "TypeScript",
+      location: "Language",
       text: isEnglish
-        ? "Our event landing page converted really well. The design was modern and the user experience was outstanding."
-        : "Landing page untuk event kami convert dengan sangat baik. Design-nya modern dan user experience-nya luar biasa.",
-      product: "Landing Page"
+        ? "Ensuring type safety and reducing runtime errors for more reliable codebases."
+        : "Memastikan keamanan tipe data dan mengurangi error untuk kode yang lebih handal.",
+      product: "Language"
     },
     {
       id: 4,
-      name: "UMKM Craft Jakarta",
-      location: "Jakarta",
+      name: "Clean Code",
+      location: "Principle",
       text: isEnglish
-        ? "Our online store website looks much more professional now. The admin panel is easy to use and the support team is very responsive."
-        : "Website toko online kami jadi lebih profesional. Admin panel-nya mudah digunakan dan support team sangat responsif.",
-      product: isEnglish ? "SME Website" : "Website UMKM"
+        ? "Writing readable, maintainable code that other developers can easily understand and build upon."
+        : "Menulis kode yang mudah dibaca dan dipelihara agar mudah dipahami oleh developer lain.",
+      product: "Best Practice"
     },
     {
       id: 5,
-      name: "Wedding Consultant",
-      location: "Medan",
+      name: "Performance First",
+      location: "Principle",
       text: isEnglish
-        ? "Our digital invitation started trending on social media. Thank you Warpas Studio for the amazing work."
-        : "Undangan digital kami menjadi trending di social media. Terimakasih Warpas Studio atas karya luar biasanya.",
-      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+        ? "Optimizing loading times and rendering performance for the best user experience."
+        : "Mengoptimalkan waktu muat dan performa rendering demi pengalaman pengguna terbaik.",
+      product: "Optimization"
     },
     {
       id: 6,
-      name: "PT Konsultan",
-      location: "Yogyakarta",
+      name: "Git & GitHub",
+      location: "Version Control",
       text: isEnglish
-        ? "Our company profile website now impresses potential clients much more. One of the best investments for our business."
-        : "Website company profile kami sekarang lebih memukau calon klien. Investasi terbaik untuk bisnis kami.",
-      product: isEnglish ? "Company Website" : "Website Company"
+        ? "Managing code versions and collaborating efficiently across different environments."
+        : "Mengelola versi kode dan berkolaborasi secara efisien di berbagai lingkungan pengembangan.",
+      product: "Tools"
     },
     {
       id: 7,
-      name: "Entrepreneur Muda",
-      location: "Bandung",
+      name: "Responsive Design",
+      location: "Principle",
       text: isEnglish
-        ? "From consultation to website launch, Warpas was highly professional. The result exceeded my expectations."
-        : "Dari konsultasi hingga launching website, Warpas sangat profesional. Hasilnya melebihi ekspektasi saya.",
-      product: "Landing Page"
+        ? "Ensuring websites look and function perfectly across all device sizes and screen resolutions."
+        : "Memastikan website tampil dan berfungsi sempurna di berbagai ukuran layar dan resolusi.",
+      product: "UI/UX"
     },
     {
       id: 8,
-      name: "Online Shop Owner",
-      location: "Bali",
+      name: "Framer Motion",
+      location: "Animation",
       text: isEnglish
-        ? "Our e-commerce website has already improved traffic and sales. Thank you for the team's dedication."
-        : "Website e-commerce kami sudah meningkatkan traffic dan penjualan. Terima kasih atas dedikasi tim Warpas.",
-      product: isEnglish ? "SME Website" : "Website UMKM"
+        ? "Adding fluid animations and micro-interactions that bring web interfaces to life."
+        : "Menambahkan animasi mulus dan mikro-interaksi yang membuat antarmuka web terasa hidup.",
+      product: "Library"
     },
     {
       id: 9,
-      name: "Event Organizer",
-      location: "Surabaya",
+      name: "Continuous Learning",
+      location: "Mindset",
       text: isEnglish
-        ? "The digital invitation with the custom animation we requested was delivered perfectly. Highly recommend Warpas!"
-        : "Undangan digital dengan custom animation yang kami minta berhasil dibuat sempurna. Rekomendasikan Warpas!",
-      product: isEnglish ? "Digital Invitation" : "Undangan Digital"
+        ? "Always staying updated with the latest web technologies and best practices."
+        : "Selalu mengikuti perkembangan teknologi web terbaru dan praktik-praktik terbaik di industri.",
+      product: "Growth"
     }
   ]
   
@@ -157,14 +157,14 @@ export function Testimonials() {
   return (
     <section className="relative overflow-hidden bg-[#07111f] pb-24 pt-12 py-24">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-            {isEnglish ? "Client Testimonials" : "Testimoni Klien"}
+            {isEnglish ? "Tech Stack" : "Tech Stack"}
           </span>
           <h2 className={`text-4xl leading-tight text-white text-balance md:text-7xl ${orbitron.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-            {isEnglish ? "Client Satisfaction" : "Kepuasan Klien"}
+            {isEnglish ? "Development Principles" : "Prinsip Pengembangan"}
           </h2>
         </div>
 

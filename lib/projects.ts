@@ -33,7 +33,7 @@ export const projects: Project[] = [
       benefits: ["Manajemen Inventaris Cerdas", "Statistik Penjualan Harian", "Keamanan Data Private", "Optimasi Gambar Otomatis"],
       image: "/dasboard/blessing-admin.png"
     },
-    story: "Tantangan terbesar dalam projek ini adalah mengubah persepsi orang. Kami menghabiskan banyak waktu untuk menentukan tone warna dan tipografi yang tepat. \n\nHasilnya luar biasa: website ini berhasil membuat Blessing Store bukan sekadar toko jas biasa, melainkan destinasi fashion formal yang berkelas di mata pelanggannya. Ini membuktikan bahwa di dunia digital, cara Anda menyajikan cerita produk adalah segalanya.",
+    story: "Tantangan terbesar dalam projek ini adalah mengubah persepsi orang. Saya menghabiskan banyak waktu untuk menentukan tone warna dan tipografi yang tepat. \n\nHasilnya luar biasa: website ini berhasil membuat Blessing Store bukan sekadar toko jas biasa, melainkan destinasi fashion formal yang berkelas di mata pelanggannya. Ini membuktikan bahwa di dunia digital, cara Anda menyajikan cerita produk adalah segalanya.",
     impact: ["Transformasi Total Brand Image", "Peningkatan Conversion Rate", "Efisiensi Inventaris hingga 80%"],
     thumbnail: "/tampilan-web/blesing-store.png",
     accent: "from-blue-600 to-cyan-500"
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       benefits: ["Kontrol Operasional Terpusat", "Monitoring Peserta Real-time", "Export Laporan Otomatis", "Sistem Backup Terjamin"],
       image: "/dasboard/clapham-dasboard.png"
     },
-    story: "Projek ini mengajarkan saya bahwa teknologi yang baik adalah teknologi yang mempermudah hidup manusia. Kami mendesain antarmuka yang sangat fungsional namun tetap modern. \n\nMelihat sistem ini berjalan lancar di tengah hiruk-pikuk sebuah event besar adalah kepuasan tersendiri bagi seorang developer.",
+    story: "Projek ini mengajarkan saya bahwa teknologi yang baik adalah teknologi yang mempermudah hidup manusia. Saya mendesain antarmuka yang sangat fungsional namun tetap modern. \n\nMelihat sistem ini berjalan lancar di tengah hiruk-pikuk sebuah event besar adalah kepuasan tersendiri bagi seorang developer.",
     impact: ["Efisiensi Operasional Meningkat 60%", "Reduksi Human-error Signifikan", "Transparansi Data Terjamin"],
     thumbnail: "/tampilan-web/clapham-event.png",
     accent: "from-purple-600 to-pink-500"

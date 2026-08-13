@@ -13,8 +13,8 @@ export function Footer() {
   const copy = {
     brandDescription:
       language === "en"
-        ? "Professional digital solutions for your business and events. We help create modern and elegant digital experiences."
-        : "Solusi digital profesional untuk bisnis dan acara Anda. Kami membantu menciptakan pengalaman digital yang modern dan elegan.",
+        ? "Frontend Developer focused on building modern, responsive, and user-oriented websites."
+        : "Frontend Developer yang berfokus pada pengembangan website modern, responsif, dan berorientasi pada pengalaman pengguna.",
     socialMedia: language === "en" ? "Social Media" : "Sosial Media",
     contact: language === "en" ? "Contact" : "Kontak",
     privacy: language === "en" ? "Privacy Policy" : "Kebijakan Privasi",
@@ -29,7 +29,7 @@ export function Footer() {
           <span
             className={`${isTechHome ? `${orbitron.className} text-cyan-300/5 uppercase tracking-[0.1em] sm:tracking-[0.12em]` : "font-serif text-white/5"} translate-y-[18%] text-[clamp(3.1rem,10vw,7.75rem)] font-bold leading-none whitespace-nowrap`}
           >
-            Warpas Studio
+            Adi Putra
           </span>
         </div>
       </div>
@@ -41,7 +41,7 @@ export function Footer() {
         </>
       )}
 
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
         {/* 3 COLUMN */}
         <div className="grid md:grid-cols-3 gap-10 mb-16 text-center">
@@ -49,7 +49,7 @@ export function Footer() {
           {/* BRAND */}
           <div className="flex flex-col items-center">
             <h2 className={`${isTechHome ? `${orbitron.className} text-cyan-100 uppercase tracking-[0.18em] text-xl sm:text-2xl` : "font-serif text-3xl text-white"} mb-4`}>
-              Warpas Studio
+              Adi Putra Waruwu
             </h2>
             <p className={`${isTechHome ? `${spaceGrotesk.className} text-cyan-100/68` : "text-white/70"} text-sm leading-relaxed max-w-xs`}>
               {copy.brandDescription}
@@ -122,7 +122,7 @@ export function Footer() {
         {/* BOTTOM CENTER TEXT */}
         <div className={`pt-10 text-center ${isTechHome ? "border-t border-cyan-300/12" : "border-t border-white/10"}`}>
           <p className={`${isTechHome ? `${spaceGrotesk.className} text-cyan-100/48` : "text-white/50"} text-sm`}>
-            © {new Date().getFullYear()} Warpas Studio. All rights reserved. •{" "}
+            © {new Date().getFullYear()} Adi Putra Waruwu. Seluruh hak cipta dilindungi. •{" "}
             <Link href="/" className="hover:text-white/70 transition">
               {copy.privacy}
             </Link>{" "}

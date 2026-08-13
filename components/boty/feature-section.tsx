@@ -19,31 +19,31 @@ export function FeatureSection() {
   const features = [
     {
       icon: Zap,
-      title: isEnglish ? "Fast & Efficient" : "Cepat & Efisien",
+      title: isEnglish ? "Performance" : "Performa",
       description: isEnglish
-        ? "Delivered on time without compromising quality"
-        : "Pengerjaan tepat waktu tanpa mengorbankan kualitas"
+        ? "Optimizing speed and application performance"
+        : "Mengoptimalkan kecepatan dan performa aplikasi"
     },
     {
       icon: Palette,
-      title: isEnglish ? "Premium Design" : "Desain Premium",
+      title: isEnglish ? "UI Development" : "UI Development",
       description: isEnglish
-        ? "Modern aesthetics that reflect your brand"
-        : "Estetika modern yang mencerminkan brand Anda"
+        ? "Building modern and interactive interfaces"
+        : "Membangun antarmuka yang modern dan interaktif"
     },
     {
       icon: Code,
-      title: isEnglish ? "Modern Technology" : "Teknologi Terkini",
+      title: isEnglish ? "Clean Code" : "Kode Rapi",
       description: isEnglish
-        ? "Built with modern frameworks and tools"
-        : "Menggunakan framework dan tools terbaru"
+        ? "Writing readable and scalable code"
+        : "Menulis kode yang rapi, mudah dibaca, dan scalable"
     },
     {
       icon: Users,
-      title: "Support Dedicated",
+      title: "Problem Solving",
       description: isEnglish
-        ? "A professional team ready to help anytime"
-        : "Tim profesional siap membantu kapan saja"
+        ? "Solving technical challenges efficiently"
+        : "Menemukan solusi efisien untuk tantangan teknis"
     }
   ]
 
@@ -103,17 +103,16 @@ export function FeatureSection() {
   return (
     <section className="relative overflow-hidden py-24 bg-[#07111f]" id="tentang">
       <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Bento Grid */}
-        <div 
+        <div
           ref={bentoRef}
           className="grid md:grid-cols-4 mb-20 md:grid-rows-[300px_300px] gap-6"
         >
           {/* Left Large Block - Video with Overlay Card */}
-          <div 
-            className={`relative rounded-3xl overflow-hidden h-[500px] md:h-auto md:col-span-2 md:row-span-2 transition-all duration-700 ease-out ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`relative rounded-3xl overflow-hidden h-[500px] md:h-auto md:col-span-2 md:row-span-2 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
             style={{ transitionDelay: '0ms' }}
           >
             <video
@@ -123,7 +122,7 @@ export function FeatureSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="https://www.pexels.com/download/video/7214641/" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/38938701/" type="video/mp4" />
             </video>
             {/* Overlay Card */}
             <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-cyan-300/14 bg-[#0b1628]/92 p-6 shadow-lg backdrop-blur-sm">
@@ -133,12 +132,12 @@ export function FeatureSection() {
                 </div>
                 <div>
                   <h3 className={`text-xl text-white mb-2 font-medium ${orbitron.className}`}>
-                    {isEnglish ? "Fast" : "Pengerjaan"} <span>{isEnglish ? "Delivery" : "Cepat"}</span>
+                    {isEnglish ? "Fast" : "Pembelajar"} <span>{isEnglish ? "Learner" : "Cepat"}</span>
                   </h3>
                   <p className={`text-sm text-cyan-100/62 leading-relaxed ${spaceGrotesk.className}`}>
                     {isEnglish
-                      ? "We complete projects on schedule with professional quality and careful attention to detail."
-                      : "Kami menyelesaikan project tepat waktu dengan kualitas profesional dan detail sempurna."}
+                      ? "I am always enthusiastic about learning new technologies and applying them in real projects."
+                      : "Saya selalu antusias mempelajari teknologi baru dan menerapkannya dalam proyek nyata."}
                   </p>
                 </div>
               </div>
@@ -146,29 +145,28 @@ export function FeatureSection() {
           </div>
 
           {/* Top Right - 100% Natural */}
-          <div 
-            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center md:col-span-2 relative overflow-hidden transition-all duration-700 ease-out ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center md:col-span-2 relative overflow-hidden transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
             style={{ transitionDelay: '100ms' }}
           >
             {/* Background Image */}
-           <Image
+            <Image
               src="https://images.unsplash.com/photo-1773764262796-606a14e49314?q=80&w=875&auto=format&fit=crop"
               alt={isEnglish ? "Premium design showcase" : "Tampilan desain premium"}
               fill
               className="object-cover"
             />
 
-            
+
             <div className="relative z-10">
               <h3 className={`text-3xl md:text-4xl text-white mb-2 ${orbitron.className}`}>
-                {isEnglish ? "Premium Design" : "Desain Premium"}
+                {isEnglish ? "My Expertise" : "Keahlian Saya"}
               </h3>
               <h3 className={`text-2xl md:text-3xl text-white/70 mb-4 ${orbitron.className}`}>
-                {isEnglish ? "Professional" : "Profesional"}
+                {isEnglish ? "Frontend Dev" : "Frontend Dev"}
               </h3>
-              
+
               <div className={`space-y-2 ${spaceGrotesk.className}`}>
                 <div className="flex items-center gap-2 text-white/90 text-sm">
                   <Palette className="w-4 h-4 flex-shrink-0" />
@@ -187,10 +185,9 @@ export function FeatureSection() {
           </div>
 
           {/* Bottom Right - Eco-Friendly Packaging */}
-          <div 
-            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden md:col-span-2 transition-all duration-700 ease-out ${
-              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden md:col-span-2 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
             style={{ transitionDelay: '200ms' }}
           >
             {/* Background Video */}
@@ -201,34 +198,33 @@ export function FeatureSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover scale-[1.02]"
             >
-              <source src="https://www.pexels.com/download/video/8776122/" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/33315117/" type="video/mp4" />
             </video>
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-black/10" />
-            
+
             <div className="relative z-10 flex flex-col justify-center h-full text-left items-start">
               <div className="inline-flex items-center justify-center w-10 h-10 mb-3">
                 <Users className="w-8 h-8 text-black" />
               </div>
               <h3 className={`text-base mb-1 text-black ${spaceGrotesk.className}`}>
-                {isEnglish ? "Professional Team" : "Tim Profesional"}
+                {isEnglish ? "Collaboration" : "Kolaborasi"}
               </h3>
               <h3 className={`text-2xl md:text-3xl mb-2 text-black ${orbitron.className}`}>
-                {isEnglish ? "Experienced" : "Berpengalaman"}
+                {isEnglish ? "Team Player" : "Terbuka"}
               </h3>
             </div>
           </div>
         </div>
 
-        <div 
+        <div
           ref={videoSectionRef}
           className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center my-0 py-20"
         >
           {/* Video */}
-          <div 
-            className={`relative aspect-[4/5] rounded-3xl overflow-hidden boty-shadow transition-all duration-700 ease-out ${
-              isVideoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+          <div
+            className={`relative aspect-[4/5] rounded-3xl overflow-hidden boty-shadow transition-all duration-700 ease-out ${isVideoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
           >
             <video
               autoPlay
@@ -237,28 +233,27 @@ export function FeatureSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="https://www.pexels.com/download/video/6911828/" type="video/mp4" />
+              <source src="https://www.pexels.com/download/video/34771077/" type="video/mp4" />
             </video>
           </div>
 
           {/* Content */}
           <div
             ref={headerRef}
-            className={`transition-all duration-700 ease-out ${
-              isVideoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`transition-all duration-700 ease-out ${isVideoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
             style={{ transitionDelay: '100ms' }}
           >
             <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-              {isEnglish ? "Why Warpas" : "Mengapa Warpas"}
+              {isEnglish ? "About Me" : "Tentang Saya"}
             </span>
             <h2 className={`text-4xl leading-tight text-white mb-6 text-balance md:text-7xl ${orbitron.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-              {isEnglish ? "Client Trust." : "Kepercayaan Klien."}
+              {isEnglish ? "My Journey." : "Perjalanan Saya."}
             </h2>
             <p className={`text-lg text-cyan-100/62 leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
               {isEnglish
-                ? "We are committed to delivering high-quality digital solutions with excellent service. Every project is handled with care and full dedication to support your business success."
-                : "Kami berkomitmen menciptakan solusi digital berkualitas tinggi dengan hasil terbaik. Setiap proyek dikerjakan dengan detail dan dedikasi penuh untuk kesuksesan bisnis Anda."}
+                ? "I am a student and Frontend Developer passionate about building modern web interfaces. Every project is an opportunity for me to learn, grow, and deliver the best results."
+                : "Saya adalah seorang mahasiswa dan Frontend Developer yang bersemangat dalam membangun antarmuka web modern. Setiap proyek adalah kesempatan bagi saya untuk belajar dan berkembang memberikan hasil terbaik."}
             </p>
 
             {/* Feature Cards */}
