@@ -71,16 +71,16 @@ export function TrustBadges() {
           {badges.map((badge, index) => (
             <div
               key={badge.title}
-            className={`rounded-2xl border border-cyan-300/12 bg-[#0b1628]/88 p-6 text-center backdrop-blur-sm transition-all duration-700 ease-out lg:p-8 ${
+              className={`flex flex-col h-full justify-start items-center rounded-2xl border border-cyan-300/12 bg-[#0b1628]/88 p-4 sm:p-6 text-center backdrop-blur-sm transition-all duration-700 ease-out lg:p-8 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <badge.icon className="text-cyan-300 mb-4 mx-auto size-12" strokeWidth={1} />
-              <h3 className={`text-white mb-2 text-xl ${orbitron.className}`}>{badge.title}</h3>
-              <p className={`text-sm text-cyan-100/60 ${spaceGrotesk.className}`}>{badge.description}</p>
+              <badge.icon className="text-cyan-300 mb-3 sm:mb-4 mx-auto size-10 sm:size-12" strokeWidth={1} />
+              <h3 className={`text-white mb-2 text-lg sm:text-xl leading-tight ${orbitron.className}`}>{badge.title}</h3>
+              <p className={`text-xs sm:text-sm text-cyan-100/60 ${spaceGrotesk.className}`}>{badge.description}</p>
             </div>
           ))}
         </div>

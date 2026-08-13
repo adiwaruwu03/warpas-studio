@@ -48,18 +48,7 @@ export function Header() {
       `}</style>
       <nav className="relative w-full px-6 lg:px-12 flex items-center justify-between h-[68px]">
         
-        {/* MOBILE LOGO - Left Corner */}
-        <Link 
-          href="/" 
-          className="lg:hidden relative h-10 w-10 overflow-hidden rounded-full shadow-sm"
-        >
-          <Image
-            src="/logo-warpas.png"
-            alt="Logo"
-            fill
-            className="object-cover"
-          />
-        </Link>
+
 
         {/* DESKTOP NAV - Left Aligned */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-10">

@@ -60,7 +60,7 @@ export function Hero() {
         {/* PORTFOLIO Text */}
         <div className="relative z-20 w-full flex justify-center items-center mt-[-40px] sm:mt-[-60px] md:mt-[-80px] lg:mt-[-100px]"
              style={{ animation: 'fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards', animationDelay: '0.4s', opacity: 0 }}>
-          <h1 className={`text-[15vw] md:text-[13vw] lg:text-[12vw] font-black text-white tracking-normal uppercase select-none whitespace-nowrap leading-[0.75] ${orbitron.className}`}
+          <h1 className={`text-[9.5vw] sm:text-[11vw] md:text-[13vw] lg:text-[12vw] font-black text-white tracking-normal uppercase select-none whitespace-nowrap leading-[0.75] ${orbitron.className}`}
               style={{
                 textShadow: '0 0 50px rgba(255, 255, 255, 0.1)'
               }}>
