@@ -24,19 +24,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/adi.JPEG',
+        url: '/logo.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/adi.JPEG',
+        url: '/logo.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/adi.JPEG',
+        url: '/logo.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/adi.JPEG',
+    apple: '/logo.png',
   },
 }
 

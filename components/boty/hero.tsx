@@ -54,25 +54,7 @@ export function Hero() {
             />
           </div>
 
-          {/* Left Text */}
-          <div className="hidden md:flex absolute -left-[20%] lg:-left-[40%] top-[45%] -translate-y-1/2 flex-col gap-10 text-right"
-               style={{ animation: 'fade-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) forwards', animationDelay: '0.6s', opacity: 0 }}>
-            {["PENGENALAN", "PENGALAMAN", "ALAT"].map((text) => (
-              <span key={text} className={`text-xs tracking-[0.5em] text-white/70 font-light ${spaceGrotesk.className}`}>
-                {isEnglish ? (text === "PENGENALAN" ? "INTRO" : text === "PENGALAMAN" ? "EXPERIENCE" : "TOOLS") : text}
-              </span>
-            ))}
-          </div>
 
-          {/* Right Text */}
-          <div className="hidden md:flex absolute -right-[20%] lg:-right-[40%] top-[45%] -translate-y-1/2 flex-col gap-10 text-left"
-               style={{ animation: 'fade-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) forwards', animationDelay: '0.8s', opacity: 0 }}>
-            {["KEAHLIAN", "DOKUMENTASI", "PENCAPAIAN"].map((text) => (
-              <span key={text} className={`text-xs tracking-[0.5em] text-white/70 font-light ${spaceGrotesk.className}`}>
-                {isEnglish ? (text === "KEAHLIAN" ? "SKILLS" : text === "DOKUMENTASI" ? "DOCS" : "AWARDS") : text}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* PORTFOLIO Text */}
@@ -86,15 +68,7 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Mobile text fallback */}
-        <div className="md:hidden relative z-30 mt-6 w-full flex justify-center"
-             style={{ animation: 'fade-up 1s ease-out forwards', animationDelay: '1s', opacity: 0 }}>
-           <span className={`text-[9px] tracking-[0.3em] text-white/60 font-light text-center leading-loose max-w-[280px] ${spaceGrotesk.className}`}>
-             {isEnglish 
-                ? "INTRO • EXPERIENCE • TOOLS • SKILLS • DOCS • AWARDS"
-                : "PENGENALAN • PENGALAMAN • ALAT • KEAHLIAN • DOKUMENTASI • PENCAPAIAN"}
-           </span>
-        </div>
+
       </div>
 
       <style jsx>{`
