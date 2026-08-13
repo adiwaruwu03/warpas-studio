@@ -74,7 +74,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@halo_aku_adi?is_from_webapp=1&sender_device=pc"
+                href="https://www.tiktok.com/@halo_aku_adi"
                 target="_blank"
                 rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-cyan-300/20 bg-cyan-300/10 hover:bg-cyan-300/20" : "bg-white/10 hover:bg-white/20"}`}

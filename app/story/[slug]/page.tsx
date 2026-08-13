@@ -76,17 +76,53 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": project.name,
-    "description": project.story || project.problem,
-    "creator": {
-      "@type": "Person",
-      "name": "Adi Putra Waruwu",
-      "url": "https://adi-putra-waruwu.vercel.app"
-    },
-    "image": `https://adi-putra-waruwu.vercel.app${project.thumbnail}`,
-    "url": `https://adi-putra-waruwu.vercel.app/story/${project.slug}`,
-    "keywords": project.tech.join(", ")
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `https://adi-putra-waruwu.vercel.app/story/${project.slug}#creativework`,
+        "name": project.name,
+        "description": project.story || project.problem,
+        "creator": {
+          "@id": "https://adi-putra-waruwu.vercel.app/#person"
+        },
+        "image": `https://adi-putra-waruwu.vercel.app${project.thumbnail}`,
+        "url": `https://adi-putra-waruwu.vercel.app/story/${project.slug}`,
+        "keywords": project.tech.join(", ")
+      },
+      {
+        "@type": "WebPage",
+        "@id": `https://adi-putra-waruwu.vercel.app/story/${project.slug}#webpage`,
+        "url": `https://adi-putra-waruwu.vercel.app/story/${project.slug}`,
+        "name": `${project.name} | Portfolio Adi Putra Waruwu`,
+        "isPartOf": {
+          "@id": "https://adi-putra-waruwu.vercel.app/#website"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://adi-putra-waruwu.vercel.app/story/${project.slug}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://adi-putra-waruwu.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://adi-putra-waruwu.vercel.app/#story"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": project.name,
+            "item": `https://adi-putra-waruwu.vercel.app/story/${project.slug}`
+          }
+        ]
+      }
+    ]
   }
 
   return (
