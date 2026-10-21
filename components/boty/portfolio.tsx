@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, Instagram, Linkedin, Github } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
-import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
+import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function Portfolio() {
   const { language } = useLanguage()
@@ -59,9 +59,8 @@ export function Portfolio() {
   }, [])
 
   return (
-    <section id="about" className="relative overflow-hidden bg-[#02060d] min-h-screen flex items-center py-12 md:py-16">
-      <div className="pointer-events-none absolute inset-0 opacity-10 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:38px_38px]" />
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-55">
+    <section id="about" className="relative overflow-hidden bg-background min-h-screen flex items-center py-12 md:py-16">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-25">
         <div className="matrix-container">
           {Array.from({ length: matrixRows }).map((_, rowIndex) => (
             <div key={rowIndex} className="matrix-pattern" aria-hidden="true">
@@ -92,7 +91,7 @@ export function Portfolio() {
 
 
 
-            <div className={`mt-8 space-y-4 text-base leading-7 text-cyan-100/70 text-justify max-w-3xl ${spaceGrotesk.className}`}>
+            <div className={`mt-8 space-y-4 text-base leading-7 text-foreground/80 text-justify max-w-3xl ${spaceGrotesk.className}`}>
               <p>
                 {isEnglish
                   ? "I am Adi Putra Waruwu, a university student and frontend developer focused on building professional and refined digital identities. I believe every individual and brand has strong potential to stand out in the digital world, but not everyone has the right direction, strategy, and approach to bring it to life."
@@ -103,6 +102,12 @@ export function Portfolio() {
                 {isEnglish
                   ? "Through a structured approach and strong attention to detail, I help create digital experiences that are not only visually appealing, but also able to build trust, strengthen identity, and leave a lasting impression on every audience that sees them."
                   : "Melalui pendekatan yang terstruktur dan perhatian terhadap detail, saya membantu menciptakan tampilan digital yang tidak hanya menarik secara visual, tetapi juga mampu membangun kepercayaan, memperkuat identitas, dan memberikan kesan yang berkelanjutan bagi setiap audiens yang melihatnya."}
+              </p>
+
+              <p>
+                {isEnglish
+                  ? "Outside of code, people simply call me Adi, both at work and on campus. I love playing futsal and meeting new people. For me, the field and the workplace teach the same thing: good results come from teamwork, communication, and the will to keep improving."
+                  : "Di luar dunia koding, saya biasa dipanggil Adi, baik saat bekerja maupun saat kuliah. Saya hobi bermain futsal dan senang berteman dengan banyak orang. Bagi saya, lapangan dan dunia kerja mengajarkan hal yang sama: hasil terbaik lahir dari kerja sama tim, komunikasi yang baik, dan semangat untuk terus berkembang."}
               </p>
             </div>
           </div>
@@ -145,13 +150,13 @@ export function Portfolio() {
                   >
                     <div className="relative w-full h-full overflow-visible group">
                       {/* Glow effect floor for all images */}
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-cyan-400/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-primary/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                       <Image
                         src={img.src}
                         alt={img.label}
                         fill
-                        className="object-contain object-bottom transition-all duration-500 drop-shadow-[0_10px_30px_rgba(34,211,238,0.25)]"
+                        className="object-contain object-bottom transition-all duration-500 drop-shadow-[0_10px_30px_rgba(201,169,110,0.25)]"
                         sizes="(max-width: 768px) 70vw, 420px"
                         priority={offset === 0}
                       />
@@ -164,7 +169,7 @@ export function Portfolio() {
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-40 rounded-full border border-cyan-300/20 bg-[#08111d]/92 p-2 text-cyan-100 hover:bg-[#11203a] transition backdrop-blur-sm shadow-lg"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-40 rounded-full border border-primary/20 bg-card/92 p-2 text-foreground hover:bg-secondary transition backdrop-blur-sm shadow-lg"
               aria-label="Previous image"
             >
               <ChevronLeft size={20} />
@@ -172,7 +177,7 @@ export function Portfolio() {
 
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-40 rounded-full border border-cyan-300/20 bg-[#08111d]/92 p-2 text-cyan-100 hover:bg-[#11203a] transition backdrop-blur-sm shadow-lg"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-40 rounded-full border border-primary/20 bg-card/92 p-2 text-foreground hover:bg-secondary transition backdrop-blur-sm shadow-lg"
               aria-label="Next image"
             >
               <ChevronRight size={20} />
@@ -185,8 +190,8 @@ export function Portfolio() {
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                    ? "bg-cyan-300 w-6 shadow-lg shadow-cyan-300/40"
-                    : "bg-cyan-100/30 w-2 hover:bg-cyan-100/60"
+                    ? "bg-primary w-6 shadow-lg shadow-primary/40"
+                    : "bg-foreground/30 w-2 hover:bg-foreground/60"
                     }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -201,11 +206,11 @@ export function Portfolio() {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/10 bg-[#08111d]/80 text-cyan-100/60 backdrop-blur-md transition-all hover:border-cyan-300/40 hover:text-cyan-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                  className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-card/80 text-muted-foreground backdrop-blur-md transition-all hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_rgba(201,169,110,0.2)]"
                   aria-label={social.label}
                 >
                   <social.icon size={18} className="transition-transform group-hover:scale-110" />
-                  <span className="absolute -top-10 scale-0 rounded bg-cyan-300 px-2 py-1 text-[10px] font-bold text-slate-950 transition-all group-hover:scale-100">
+                  <span className="absolute -top-10 scale-0 rounded bg-primary px-2 py-1 text-[10px] font-bold text-primary-foreground transition-all group-hover:scale-100">
                     {social.label}
                   </span>
                 </a>
@@ -219,10 +224,10 @@ export function Portfolio() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat) => (
               <div key={stat.value} className="group">
-                <div className={`text-3xl font-bold text-cyan-300 md:text-4xl transition-all group-hover:scale-105 inline-block ${orbitron.className}`}>
+                <div className={`text-3xl font-bold text-primary md:text-4xl transition-all group-hover:scale-105 inline-block ${playfair.className}`}>
                   {stat.value}
                 </div>
-                <div className={`mt-2 text-xs font-medium tracking-wide text-cyan-100/55 md:text-sm ${spaceGrotesk.className}`}>
+                <div className={`mt-2 text-xs font-medium tracking-wide text-muted-foreground md:text-sm ${spaceGrotesk.className}`}>
                   {stat.label}
                 </div>
               </div>
@@ -269,17 +274,15 @@ export function Portfolio() {
           color: transparent;
           background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(167, 243, 208, 0.9) 8%,
-            rgba(34, 211, 238, 0.95) 18%,
-            rgba(34, 197, 94, 0.78) 38%,
-            rgba(22, 163, 74, 0.52) 62%,
-            rgba(6, 95, 70, 0.22) 84%,
+            rgba(235, 231, 223, 0.9) 0%,
+            rgba(201, 169, 110, 0.85) 18%,
+            rgba(201, 169, 110, 0.5) 45%,
+            rgba(201, 169, 110, 0.2) 75%,
             transparent 100%
           );
           -webkit-background-clip: text;
           background-clip: text;
-          filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.24));
+          filter: drop-shadow(0 0 6px rgba(201,169,110, 0.15));
         }
 
         .matrix-column:nth-child(odd)::before {

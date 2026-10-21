@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/components/boty/language-context"
-import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
+import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 
 type Testimonial = {
   id: number
@@ -13,7 +13,7 @@ type Testimonial = {
 }
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-  <div className="mb-4 flex-shrink-0 rounded-3xl border border-cyan-300/12 bg-[#0b1628]/92 p-6"
+  <div className="mb-4 flex-shrink-0 rounded-3xl border border-primary/12 bg-card/92 p-6"
     style={{
       boxShadow: "0 18px 40px rgba(2, 12, 27, 0.36)"
     }}
@@ -22,17 +22,17 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
     
 
     {/* Quote */}
-    <p className={`text-cyan-100/76 leading-relaxed mb-4 text-pretty font-medium text-xl tracking-wide ${spaceGrotesk.className}`}>
+    <p className={`text-foreground/80 leading-relaxed mb-4 text-pretty font-medium text-xl tracking-wide ${spaceGrotesk.className}`}>
       &ldquo;{testimonial.text}&rdquo;
     </p>
 
     {/* Author */}
     <div className="flex items-start justify-between gap-2">
       <div>
-        <p className={`text-white text-sm font-bold ${orbitron.className}`}>{testimonial.name}</p>
-        <p className={`text-xs text-cyan-100/48 ${spaceGrotesk.className}`}>{testimonial.location}</p>
+        <p className={`text-foreground text-sm font-bold ${playfair.className}`}>{testimonial.name}</p>
+        <p className={`text-xs text-muted-foreground ${spaceGrotesk.className}`}>{testimonial.location}</p>
       </div>
-      <span className={`text-xs tracking-wide text-cyan-300 bg-cyan-300/10 px-2 py-1 rounded-full whitespace-nowrap ${spaceGrotesk.className}`}>
+      <span className={`text-xs tracking-wide text-primary bg-primary/10 px-2 py-1 rounded-full whitespace-nowrap ${spaceGrotesk.className}`}>
         {testimonial.product}
       </span>
     </div>
@@ -155,15 +155,14 @@ export function Testimonials() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden bg-[#07111f] pb-24 pt-12 py-24">
-      <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
+    <section className="relative overflow-hidden bg-background pb-24 pt-12 py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
             {isEnglish ? "Tech Stack" : "Tech Stack"}
           </span>
-          <h2 className={`text-4xl leading-tight text-white text-balance md:text-7xl ${orbitron.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+          <h2 className={`text-4xl leading-tight text-foreground text-balance md:text-7xl ${playfair.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
             {isEnglish ? "Development Principles" : "Prinsip Pengembangan"}
           </h2>
         </div>
@@ -171,8 +170,8 @@ export function Testimonials() {
         {/* Scrolling Testimonials */}
         <div className="relative">
           {/* Gradient Overlays */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#07111f] to-transparent z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#07111f] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
           
           {/* Mobile - Single Column */}
           <div className="md:hidden h-[600px]">

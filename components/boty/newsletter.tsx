@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
-import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
+import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function Newsletter() {
   const { language } = useLanguage()
@@ -50,15 +50,15 @@ export function Newsletter() {
   }
 
   return (
-    <section className="relative overflow-hidden py-20 bg-[#06111f]">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-36">
+    <section className="relative overflow-hidden py-20 bg-background">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-25">
         <div className="jp-matrix" aria-hidden="true">
           {matrixItems.map((char, index) => (
             <span key={`${char}-${index}`}>{char}</span>
           ))}
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(6,17,31,0.28),transparent_30%),linear-gradient(to_bottom,rgba(6,17,31,0.66),rgba(6,17,31,0.72))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(13,13,15,0.28),transparent_30%),linear-gradient(to_bottom,rgba(13,13,15,0.66),rgba(13,13,15,0.72))]" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -67,17 +67,17 @@ export function Newsletter() {
           {/* LEFT SIDE */}
           <div className="relative z-10 pt-4">
             {/* pt-4 untuk menyamakan posisi dengan header card yang punya py-4 */}
-            <h2 className={`text-4xl md:text-6xl text-white mb-6 leading-tight ${orbitron.className}`}>
+            <h2 className={`text-4xl md:text-6xl text-foreground mb-6 leading-tight ${playfair.className}`}>
               {language === "en" ? "Let's Connect." : "Mari Terhubung."}
             </h2>
 
-            <p className={`text-cyan-100/72 mb-6 text-lg ${spaceGrotesk.className}`}>
+            <p className={`text-foreground/80 mb-6 text-lg ${spaceGrotesk.className}`}>
               {language === "en"
                 ? "I am open to job opportunities, collaborations, freelance work, or discussions about web development. Feel free to reach out if you'd like to talk or work together."
                 : "Saya terbuka untuk peluang kerja, kolaborasi, freelance, maupun diskusi mengenai pengembangan website. Jangan ragu untuk menghubungi saya jika ingin berdiskusi atau bekerja sama."}
             </p>
 
-            <p className={`text-sm text-cyan-100/52 ${spaceGrotesk.className}`}>
+            <p className={`text-sm text-muted-foreground ${spaceGrotesk.className}`}>
               {language === "en"
                 ? "Fast response • I am not a robot"
                 : "Respon cepat • Saya bukan robot"}
@@ -86,11 +86,11 @@ export function Newsletter() {
 
           {/* RIGHT SIDE (FORM) */}
           <div className="w-full flex justify-center">
-            <div className="relative z-10 w-full max-w-md overflow-hidden rounded-2xl border border-cyan-300/15 bg-[#0b1628] shadow-xl">
+            <div className="relative z-10 w-full max-w-md overflow-hidden rounded-2xl border border-primary/15 bg-card shadow-xl">
 
               {/* HEADER */}
-              <div className="bg-cyan-300 px-5 py-4">
-                <h3 className={`text-lg font-bold text-slate-950 ${orbitron.className}`}>
+              <div className="bg-primary px-5 py-4">
+                <h3 className={`text-lg font-bold text-primary-foreground ${playfair.className}`}>
                   {language === "en" ? "Send Message" : "Kirim Pesan"}
                 </h3>
               </div>
@@ -104,7 +104,7 @@ export function Newsletter() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={language === "en" ? "Name" : "Nama"}
-                  className={`w-full rounded-lg border border-cyan-300/14 bg-[#08111d] px-4 py-2.5 text-cyan-50 outline-none placeholder:text-cyan-100/28 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300 ${spaceGrotesk.className}`}
+                  className={`w-full rounded-lg border border-primary/14 bg-card px-4 py-2.5 text-foreground outline-none placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/40 ${spaceGrotesk.className}`}
                 />
 
                 <input
@@ -113,7 +113,7 @@ export function Newsletter() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className={`w-full rounded-lg border border-cyan-300/14 bg-[#08111d] px-4 py-2.5 text-cyan-50 outline-none placeholder:text-cyan-100/28 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300 ${spaceGrotesk.className}`}
+                  className={`w-full rounded-lg border border-primary/14 bg-card px-4 py-2.5 text-foreground outline-none placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/40 ${spaceGrotesk.className}`}
                 />
 
                 <input
@@ -122,7 +122,7 @@ export function Newsletter() {
                   value={formData.date}
                   onChange={handleChange}
                   placeholder={language === "en" ? "Event date" : "Tanggal acara"}
-                  className={`w-full rounded-lg border border-cyan-300/14 bg-[#08111d] px-4 py-2.5 text-cyan-50 outline-none placeholder:text-cyan-100/28 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300 ${spaceGrotesk.className}`}
+                  className={`w-full rounded-lg border border-primary/14 bg-card px-4 py-2.5 text-foreground outline-none placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/40 ${spaceGrotesk.className}`}
                 />
 
                 <textarea
@@ -131,28 +131,28 @@ export function Newsletter() {
                   onChange={handleChange}
                   rows={3}
                   placeholder={language === "en" ? "Message details..." : "Detail pesan..."}
-                  className={`w-full resize-none rounded-lg border border-cyan-300/14 bg-[#08111d] px-4 py-2.5 text-cyan-50 outline-none placeholder:text-cyan-100/28 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300 ${spaceGrotesk.className}`}
+                  className={`w-full resize-none rounded-lg border border-primary/14 bg-card px-4 py-2.5 text-foreground outline-none placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/40 ${spaceGrotesk.className}`}
                 />
 
-                <label className={`flex items-center gap-2 text-sm text-cyan-100/72 ${spaceGrotesk.className}`}>
+                <label className={`flex items-center gap-2 text-sm text-foreground/80 ${spaceGrotesk.className}`}>
                   <input
                     type="checkbox"
                     checked={isHuman}
                     onChange={(e) => setIsHuman(e.target.checked)}
-                    className="rounded border-cyan-300/20"
+                    className="rounded border-primary/20"
                   />
                   {language === "en" ? "I am not a robot" : "Saya bukan robot"}
                 </label>
 
                 <button
                   onClick={sendToWhatsApp}
-                  className={`w-full bg-cyan-300 text-slate-950 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-cyan-200 transition font-medium ${spaceGrotesk.className}`}
+                  className={`w-full bg-primary text-primary-foreground py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition font-medium ${spaceGrotesk.className}`}
                 >
                   {language === "en" ? "Send to WhatsApp" : "Kirim ke WhatsApp"}
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
-                <p className={`text-xs text-center text-cyan-100/42 ${spaceGrotesk.className}`}>
+                <p className={`text-xs text-center text-muted-foreground ${spaceGrotesk.className}`}>
                   {language === "en" ? "I will try to reply as soon as possible." : "Saya akan berusaha membalas pesan secepat mungkin."}
                 </p>
 
@@ -175,7 +175,7 @@ export function Newsletter() {
           justify-content: center;
           padding: 18px;
           font-size: 24px;
-          color: rgba(34, 211, 238, 0.22);
+          color: rgba(201,169,110, 0.22);
           font-family: "Courier New", Courier, monospace;
           transform: scale(1.08) translateY(-8%);
         }
@@ -186,7 +186,7 @@ export function Newsletter() {
           justify-content: center;
           line-height: 1;
           user-select: none;
-          text-shadow: 0 0 6px rgba(34, 211, 238, 0.22);
+          text-shadow: 0 0 6px rgba(201,169,110, 0.22);
           transition: color 0.5s ease, text-shadow 0.5s ease;
         }
 
@@ -207,27 +207,27 @@ export function Newsletter() {
         }
 
         .jp-matrix > span:nth-child(31n + 1) {
-          color: rgba(125, 211, 252, 0.5);
+          color: rgba(201, 169, 110, 0.5);
           animation: smooth-pulse 4.8s ease-in-out infinite 0.7s;
         }
 
         @keyframes smooth-pulse {
           0%,
           100% {
-            color: rgba(34, 211, 238, 0.2);
-            text-shadow: 0 0 6px rgba(34, 211, 238, 0.16);
+            color: rgba(201,169,110, 0.2);
+            text-shadow: 0 0 6px rgba(201,169,110, 0.16);
           }
           35% {
-            color: rgba(125, 211, 252, 0.92);
+            color: rgba(201, 169, 110, 0.92);
             text-shadow:
-              0 0 10px rgba(125, 211, 252, 0.85),
-              0 0 18px rgba(125, 211, 252, 0.5);
+              0 0 10px rgba(201, 169, 110, 0.85),
+              0 0 18px rgba(201, 169, 110, 0.5);
           }
           62% {
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(235, 231, 223, 0.8);
             text-shadow:
-              0 0 12px rgba(255, 255, 255, 0.9),
-              0 0 22px rgba(34, 211, 238, 0.4);
+              0 0 10px rgba(235, 231, 223, 0.5),
+              0 0 22px rgba(201,169,110, 0.4);
           }
         }
 

@@ -33,6 +33,8 @@ export function Header() {
     { name: language === "en" ? "About" : "Tentang", href: isHomePage ? "#story" : "/#story" },
     { name: language === "en" ? "Projects" : "Proyek", href: isHomePage ? "#portfolio" : "/#portfolio" },
     { name: language === "en" ? "Contact" : "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
+    { name: language === "en" ? "Services" : "Layanan", href: "/jasa-pembuatan-website-medan" },
+    { name: "Blog", href: "/blog" },
   ]
 
   return (

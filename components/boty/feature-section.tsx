@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Zap, Palette, Code, Users } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
-import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
+import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 
 export function FeatureSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -101,8 +101,7 @@ export function FeatureSection() {
   }, [])
 
   return (
-    <section className="relative overflow-hidden py-24 bg-[#07111f]" id="tentang">
-      <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:38px_38px]" />
+    <section className="relative overflow-hidden py-24 bg-background" id="tentang">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Bento Grid */}
         <div
@@ -125,16 +124,16 @@ export function FeatureSection() {
               <source src="https://www.pexels.com/download/video/38938701/" type="video/mp4" />
             </video>
             {/* Overlay Card */}
-            <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-cyan-300/14 bg-[#0b1628]/92 p-6 shadow-lg backdrop-blur-sm">
+            <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-primary/14 bg-card/92 p-6 shadow-lg backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className={`text-xl text-white mb-2 font-medium ${orbitron.className}`}>
+                  <h3 className={`text-xl text-foreground mb-2 font-medium ${playfair.className}`}>
                     {isEnglish ? "Fast" : "Pembelajar"} <span>{isEnglish ? "Learner" : "Cepat"}</span>
                   </h3>
-                  <p className={`text-sm text-cyan-100/62 leading-relaxed ${spaceGrotesk.className}`}>
+                  <p className={`text-sm text-muted-foreground leading-relaxed ${spaceGrotesk.className}`}>
                     {isEnglish
                       ? "I am always enthusiastic about learning new technologies and applying them in real projects."
                       : "Saya selalu antusias mempelajari teknologi baru dan menerapkannya dalam proyek nyata."}
@@ -160,23 +159,23 @@ export function FeatureSection() {
 
 
             <div className="relative z-10">
-              <h3 className={`text-3xl md:text-4xl text-white mb-2 ${orbitron.className}`}>
+              <h3 className={`text-3xl md:text-4xl text-foreground mb-2 ${playfair.className}`}>
                 {isEnglish ? "My Expertise" : "Keahlian Saya"}
               </h3>
-              <h3 className={`text-2xl md:text-3xl text-white/70 mb-4 ${orbitron.className}`}>
+              <h3 className={`text-2xl md:text-3xl text-foreground/70 mb-4 ${playfair.className}`}>
                 {isEnglish ? "Frontend Dev" : "Frontend Dev"}
               </h3>
 
               <div className={`space-y-2 ${spaceGrotesk.className}`}>
-                <div className="flex items-center gap-2 text-white/90 text-sm">
+                <div className="flex items-center gap-2 text-foreground/90 text-sm">
                   <Palette className="w-4 h-4 flex-shrink-0" />
                   <span>{isEnglish ? "Modern & Elegant" : "Modern & Elegan"}</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90 text-sm">
+                <div className="flex items-center gap-2 text-foreground/90 text-sm">
                   <Zap className="w-4 h-4 flex-shrink-0" />
                   <span>Responsive Design</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/90 text-sm">
+                <div className="flex items-center gap-2 text-foreground/90 text-sm">
                   <Code className="w-4 h-4 flex-shrink-0" />
                   <span>{isEnglish ? "Modern Technology" : "Teknologi Terkini"}</span>
                 </div>
@@ -210,7 +209,7 @@ export function FeatureSection() {
               <h3 className={`text-base mb-1 text-black ${spaceGrotesk.className}`}>
                 {isEnglish ? "Collaboration" : "Kolaborasi"}
               </h3>
-              <h3 className={`text-2xl md:text-3xl mb-2 text-black ${orbitron.className}`}>
+              <h3 className={`text-2xl md:text-3xl mb-2 text-black ${playfair.className}`}>
                 {isEnglish ? "Team Player" : "Terbuka"}
               </h3>
             </div>
@@ -244,13 +243,11 @@ export function FeatureSection() {
               }`}
             style={{ transitionDelay: '100ms' }}
           >
-            <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-              {isEnglish ? "About Me" : "Tentang Saya"}
-            </span>
-            <h2 className={`text-4xl leading-tight text-white mb-6 text-balance md:text-7xl ${orbitron.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+
+            <h2 className={`text-4xl leading-tight text-foreground mb-6 text-balance md:text-7xl ${playfair.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
               {isEnglish ? "My Journey." : "Perjalanan Saya."}
             </h2>
-            <p className={`text-lg text-cyan-100/62 leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
+            <p className={`text-lg text-muted-foreground leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
               {isEnglish
                 ? "I am a student and Frontend Developer passionate about building modern web interfaces. Every project is an opportunity for me to learn, grow, and deliver the best results."
                 : "Saya adalah seorang mahasiswa dan Frontend Developer yang bersemangat dalam membangun antarmuka web modern. Setiap proyek adalah kesempatan bagi saya untuk belajar dan berkembang memberikan hasil terbaik."}
@@ -261,13 +258,13 @@ export function FeatureSection() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group rounded-md border border-cyan-300/12 bg-[#0b1628]/90 p-5 boty-transition hover:scale-[1.02]"
+                  className="group rounded-md border border-primary/12 bg-card/90 p-5 boty-transition hover:scale-[1.02]"
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-cyan-300/20 boty-transition bg-cyan-300/10">
-                    <feature.icon className="w-5 h-5 text-cyan-300" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-primary/20 boty-transition bg-primary/10">
+                    <feature.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className={`font-medium text-white mb-1 ${orbitron.className}`}>{feature.title}</h3>
-                  <p className={`text-sm text-cyan-100/58 ${spaceGrotesk.className}`}>{feature.description}</p>
+                  <h3 className={`font-medium text-foreground mb-1 ${playfair.className}`}>{feature.title}</h3>
+                  <p className={`text-sm text-muted-foreground ${spaceGrotesk.className}`}>{feature.description}</p>
                 </div>
               ))}
             </div>

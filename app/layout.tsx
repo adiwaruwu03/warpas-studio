@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
+import { DM_Sans } from 'next/font/google'
+import { playfair } from '@/lib/tech-fonts'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from "@/components/boty/language-context"
 import { BottomNav } from "@/components/boty/bottom-nav"
@@ -11,20 +12,20 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans',
 });
 
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  variable: '--font-playfair',
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://adi-putra-waruwu.vercel.app'),
-  title: 'Adi Putra Waruwu | Web Developer, Frontend Developer & Full Stack Developer Indonesia',
-  description: 'Adi Putra Waruwu adalah Web Developer Indonesia yang membangun website modern, cepat, responsif, SEO Friendly, menggunakan Next.js, React, Laravel, TypeScript, dan teknologi web modern.',
+  title: 'Adi Putra Waruwu | Web Developer Medan, Jasa Pembuatan Website & Aplikasi',
+  description: 'Adi Putra Waruwu, web developer Medan, Sumatera Utara. Melayani Medan, Nias, dan seluruh Indonesia. Jasa pembuatan website company profile, landing page, toko online, dan aplikasi web kustom (kasir POS, sistem informasi) dengan Next.js, React, Laravel. Konsultasi gratis.',
   keywords: [
     'Adi Putra', 'Adi Putra Waruwu', 'Web Developer', 'Frontend Developer', 'Full Stack Developer', 
     'Software Developer', 'Web Developer Indonesia', 'Frontend Developer Indonesia', 'Next.js Developer', 
     'React Developer', 'Laravel Developer', 'TypeScript Developer', 'JavaScript Developer', 
-    'AI Developer', 'SEO Developer', 'Freelance Web Developer'
+    'AI Developer', 'SEO Developer', 'Freelance Web Developer',
+    'Adi Waruwu', 'Web Developer Medan', 'Jasa Pembuatan Website Medan', 'Jasa Pembuatan Website',
+    'Jasa Pembuatan Aplikasi Medan', 'Developer Aplikasi Medan', 'Jasa Web Developer', 'Pembuatan Aplikasi Web',
+    'Aplikasi Kasir POS', 'Sistem Informasi Apotek', 'Website Company Profile', 'Toko Online',
+    'Web Developer Sumatera Utara', 'Jasa Pembuatan Website Sumatera Utara', 'Web Developer Sumatra',
+    'Web Developer Nias', 'Jasa Pembuatan Website Nias', 'Jasa Pembuatan Website Indonesia'
   ],
   authors: [{ name: 'Adi Putra Waruwu', url: 'https://adi-putra-waruwu.vercel.app' }],
   creator: 'Adi Putra Waruwu',
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/fotohero.png'],
   },
   alternates: {
-    canonical: 'https://adi-putra-waruwu.vercel.app',
+    canonical: './',
   },
   icons: {
     icon: [
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#07111f',
+  themeColor: '#0d0d0f',
 }
 
 const jsonLd = {
@@ -76,6 +77,7 @@ const jsonLd = {
       "name": "Adi Putra Waruwu",
       "alternateName": "Adi Putra",
       "jobTitle": "Web Developer",
+      "workLocation": { "@type": "Place", "name": "Medan, Sumatera Utara, Indonesia" },
       "description": "Frontend Developer dan Full Stack Developer Indonesia yang berfokus pada pengembangan website modern menggunakan Next.js, React, Laravel, TypeScript, dan teknologi web terbaru.",
       "url": "https://adi-putra-waruwu.vercel.app",
       "sameAs": [
@@ -89,6 +91,37 @@ const jsonLd = {
         "React", "Laravel", "TypeScript", "JavaScript", "SEO", "Performance Optimization", 
         "Responsive Design", "UI UX"
       ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://adi-putra-waruwu.vercel.app/#business",
+      "name": "Adi Waruwu - Jasa Pembuatan Website & Web Developer Medan",
+      "description": "Jasa pembuatan website company profile, landing page, toko online, dan aplikasi web kustom di Medan. Melayani Medan, Nias, Sumatera Utara, dan seluruh Indonesia.",
+      "url": "https://adi-putra-waruwu.vercel.app",
+      "image": "https://adi-putra-waruwu.vercel.app/blog/jasa-pembuatan-website-medan.jpg",
+      "telephone": "+62-838-3609-8858",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Medan",
+        "addressRegion": "Sumatera Utara",
+        "addressCountry": "ID"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Medan" },
+        { "@type": "AdministrativeArea", "name": "Nias" },
+        { "@type": "AdministrativeArea", "name": "Sumatera Utara" },
+        { "@type": "Place", "name": "Sumatera" },
+        { "@type": "Country", "name": "Indonesia" }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "founder": { "@id": "https://adi-putra-waruwu.vercel.app/#person" },
+      "sameAs": ["https://share.google/aad78zjLzfPAKzKzf"],
+      "knowsAbout": ["Jasa Pembuatan Website", "Pembuatan Aplikasi Web", "Aplikasi Kasir POS", "Sistem Informasi", "SEO", "Next.js", "Laravel"]
     },
     {
       "@type": "WebSite",
@@ -110,7 +143,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased pb-24 lg:pb-0`}>
+      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased pb-24 lg:pb-0`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

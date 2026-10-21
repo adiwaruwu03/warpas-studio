@@ -14,7 +14,6 @@ export type Project = {
   story: string
   impact: string[]
   thumbnail: string
-  accent: string
   liveUrl?: string
 }
 
@@ -35,8 +34,7 @@ export const projects: Project[] = [
     },
     story: "Tantangan terbesar dalam projek ini adalah mengubah persepsi orang. Saya menghabiskan banyak waktu untuk menentukan tone warna dan tipografi yang tepat. \n\nHasilnya luar biasa: website ini berhasil membuat Blessing Store bukan sekadar toko jas biasa, melainkan destinasi fashion formal yang berkelas di mata pelanggannya. Ini membuktikan bahwa di dunia digital, cara Anda menyajikan cerita produk adalah segalanya.",
     impact: ["Transformasi Total Brand Image", "Peningkatan Conversion Rate", "Efisiensi Inventaris hingga 80%"],
-    thumbnail: "/tampilan-web/blesing-store.png",
-    accent: "from-blue-600 to-cyan-500"
+    thumbnail: "/tampilan-web/blesing-store.png"
   },
   {
     slug: "imelda-salon",
@@ -54,8 +52,7 @@ export const projects: Project[] = [
     },
     story: "Membangun website ini terasa seperti membangun sebuah butik fashion. Setiap detail, mulai dari jarak antar foto hingga kecepatan loading, sangat diperhatikan. \n\nMomentum terbaik adalah ketika pemilik salon melihat website ini untuk pertama kali dan merasa bahwa identitas salon mereka akhirnya terwakili dengan sempurna di internet.",
     impact: ["Kredibilitas Brand Meningkat Tajam", "Pertumbuhan Pelanggan Baru 40%", "Kemudahan Manajemen Konten"],
-    thumbnail: "/tampilan-web/imelda-salon.png",
-    accent: "from-indigo-600 to-purple-500"
+    thumbnail: "/tampilan-web/imelda-salon.png"
   },
   {
     slug: "clapham-event",
@@ -73,7 +70,6 @@ export const projects: Project[] = [
     },
     story: "Projek ini mengajarkan saya bahwa teknologi yang baik adalah teknologi yang mempermudah hidup manusia. Saya mendesain antarmuka yang sangat fungsional namun tetap modern. \n\nMelihat sistem ini berjalan lancar di tengah hiruk-pikuk sebuah event besar adalah kepuasan tersendiri bagi seorang developer.",
     impact: ["Efisiensi Operasional Meningkat 60%", "Reduksi Human-error Signifikan", "Transparansi Data Terjamin"],
-    thumbnail: "/tampilan-web/clapham-event.png",
-    accent: "from-purple-600 to-pink-500"
+    thumbnail: "/tampilan-web/clapham-event.png"
   }
 ]

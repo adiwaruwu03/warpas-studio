@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Layers, Layout, MessageSquare, Globe } from "lucide-react"
+import { Home, Layers, Layout, MessageSquare, Globe, BookOpen } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 
 export function BottomNav() {
@@ -30,13 +30,14 @@ export function BottomNav() {
     { 
       name: language === "en" ? "Contact" : "Kontak", 
       href: isHomePage ? "#kontak" : "/#kontak", 
-      icon: MessageSquare 
+      icon: MessageSquare
     },
+    { name: "Blog", href: "/blog", icon: BookOpen },
   ]
 
   return (
     <div className="fixed bottom-6 left-1/2 z-50 w-[92%] -translate-x-1/2 lg:hidden">
-      <nav className="flex items-center justify-around rounded-2xl border border-cyan-300/20 bg-[#08111d]/90 px-2 py-3 shadow-2xl backdrop-blur-xl">
+      <nav className="flex items-center justify-around rounded-2xl border border-primary/20 bg-card/90 px-2 py-3 shadow-2xl backdrop-blur-xl">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = pathname === item.href || (isHomePage && item.href.startsWith("#"))
