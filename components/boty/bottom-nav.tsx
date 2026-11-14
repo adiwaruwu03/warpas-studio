@@ -18,12 +18,12 @@ export function BottomNav() {
       icon: Home 
     },
     { 
-      name: language === "en" ? "Story" : "Story", 
+      name: language === "en" ? "Projects" : "Proyek", 
       href: isHomePage ? "#story" : "/#story", 
       icon: Layers 
     },
     { 
-      name: language === "en" ? "Portfolio" : "Portfolio", 
+      name: language === "en" ? "About" : "Tentang", 
       href: isHomePage ? "#portfolio" : "/#portfolio", 
       icon: Layout 
     },

@@ -158,12 +158,6 @@ export default function JasaWebsitePage() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/blog/sistem-informasi-apotek-kasir-pos-ai" className="group block rounded-2xl border border-primary/12 bg-card p-6 hover:border-primary/30 transition">
-                <span className="text-foreground group-hover:text-primary transition">Sistem Informasi Apotek</span>
-                <span className="mt-1 block text-sm text-muted-foreground">Kasir POS, inventori real-time, dan scan faktur supplier dengan AI</span>
-              </Link>
-            </li>
           </ul>
         </section>
 

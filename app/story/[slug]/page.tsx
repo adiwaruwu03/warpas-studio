@@ -182,8 +182,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           </div>
 
           {/* CTA: View Live Website */}
-          {project.liveUrl && (
-            <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
@@ -193,8 +193,17 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 Lihat Website Asli
                 <ExternalLink className="h-4 w-4" />
               </a>
-            </div>
-          )}
+            )}
+            {project.blogSlug && (
+              <Link
+                href={`/blog/${project.blogSlug}`}
+                className={`inline-flex items-center gap-3 rounded-2xl border border-primary/20 px-8 py-4 text-sm font-bold uppercase tracking-widest text-foreground transition-all hover:border-primary/50 hover:text-primary ${spaceGrotesk.className}`}
+              >
+                Baca Cerita di Blog
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+          </div>
         </section>
 
         {/* CONTENT SECTION */}

@@ -15,13 +15,34 @@ export type Project = {
   impact: string[]
   thumbnail: string
   liveUrl?: string
+  // Slug of the blog post that tells this project's story (lib/blog.ts)
+  blogSlug?: string
 }
 
 export const projects: Project[] = [
   {
+    slug: "lf-apotek",
+    name: "LF Apotek System",
+    blogSlug: "sistem-informasi-apotek-kasir-pos-ai",
+    hook: "Sistem informasi apotek dengan kasir POS, inventori real-time, dan scan faktur supplier berbasis AI",
+    problem: "Berawal dari permintaan sederhana teman saya yang baru membuka apotek: \"Buatkan aplikasi yang bisa scan barcode obat.\"\n\nNamun di balik permintaan itu ada kebutuhan operasional yang jauh lebih besar: stok obat harus terpantau agar tidak bocor atau selisih, obat yang mendekati kedaluwarsa harus terdeteksi, transaksi di kasir harus cepat agar antrean tidak menumpuk, dan data sensitif seperti harga modal serta laba bersih tidak boleh terlihat oleh semua karyawan.",
+    solution: "Saya merancang sistem menjadi dua bagian utama: Manajemen dan Kasir (POS). Kasir diintegrasikan langsung di dalam ekosistem manajemen, tetapi dengan batasan hak akses yang ketat.\n\nHalaman kasir dibuat terpisah dan terisolasi: kasir hanya bisa scan barang, memilih metode pembayaran (QRIS/Tunai), dan mencetak struk, tanpa akses ke dapur manajemen. Untuk input barang masuk, AI membaca foto faktur supplier dan mengisi form inventori secara otomatis.",
+    features: ["Kasir POS dengan QRIS & Tunai", "Inventori Real-Time", "Peringatan Stok Menipis & Kedaluwarsa", "Scan Faktur Supplier dengan AI", "Hak Akses Admin & Kasir Terpisah"],
+    tech: ["Next.js", "Artificial Intelligence", "Point of Sale"],
+    adminSystem: {
+      description: "Owner memantau pendapatan, estimasi laba bersih, volume transaksi, dan peringatan stok dari satu dashboard. Barang masuk dari supplier cukup difoto: AI mengekstrak item dari faktur dan mengisi form pembelian secara otomatis, sehingga tidak perlu mengetik ulang puluhan item.",
+      benefits: ["Dashboard Keuangan Owner", "Scan Faktur Otomatis (AI)", "Data Modal & Laba Terlindungi", "Pemantauan Stok Terpusat"],
+      image: "/blog/sistem-apotek-scan-faktur-ai.png"
+    },
+    story: "Berawal dari fitur scan barcode, berakhir menjadi asisten digital untuk operasional apotek. Proyek ini mengingatkan saya tentang empati: memahami masalah di lapangan, menerjemahkan keinginan owner, lalu mewujudkannya menjadi solusi nyata yang mempermudah pekerjaan orang lain.",
+    impact: ["Stok & Kedaluwarsa Terpantau Owner", "Transaksi Kasir Lebih Cepat", "Input Faktur Tanpa Mengetik Ulang"],
+    thumbnail: "/blog/sistem-apotek-dashboard.png",
+  },
+  {
     slug: "blessing-store",
     name: "Blessing Store System",
     liveUrl: "https://blessing-store-seven.vercel.app/",
+    blogSlug: "blessing-store-jas-second-terasa-premium",
     hook: "Sistem penjualan jas & blazer premium yang membantu bisnis tampil lebih profesional",
     problem: "Di kota sebesar Medan, kebutuhan akan pakaian formal seperti jas sangatlah tinggi, namun harga jas baru seringkali menjadi penghalang bagi banyak orang.\n\nDi sisi lain, terdapat stigma bahwa jas second-hand itu kusam atau tidak layak pakai. Masalah utamanya adalah penyajian visual yang buruk dan kurangnya kepercayaan pelanggan terhadap kualitas barang yang sudah pernah dipakai.\n\nBlessing Store memiliki produk jas premium, namun butuh wadah yang bisa membuktikan bahwa produk mereka setara dengan jas baru di butik mewah.",
     solution: "Saya membangun ekosistem digital Blessing Store dengan filosofi 'Digital Butik'. Website ini tidak hanya menjadi katalog, tapi juga menjadi platform branding yang menonjolkan setiap detail jahitan dan kualitas kain.\n\nDengan desain yang minimalis namun elegan, saya menciptakan pengalaman belanja yang membuat pelanggan lupa bahwa mereka sedang melihat produk second. Fokus utamanya adalah membangun kredibilitas melalui visual yang bercerita dan navigasi yang sangat lancar.",
@@ -40,6 +61,7 @@ export const projects: Project[] = [
     slug: "imelda-salon",
     name: "Imelda Salon System",
     liveUrl: "https://www.imeldasalon.com/",
+    blogSlug: "dari-domain-gratis-ke-seo-imelda-salon",
     hook: "Sistem branding digital untuk meningkatkan kepercayaan pelanggan salon",
     problem: "Imelda Salon memiliki reputasi yang sangat baik secara offline, namun di dunia digital, mereka hampir tidak memiliki jejak yang profesional. Di era sekarang, calon pelanggan seringkali 'mengecek' kualitas salon lewat website sebelum memutuskan untuk berkunjung.\n\nKurangnya portofolio digital yang terorganisir membuat mereka kesulitan menarik segmen pasar yang lebih luas dan profesional.",
     solution: "Saya merancang identitas digital yang memancarkan aura kemewahan dan keahlian profesional. Website ini dibangun sebagai 'Buku Portofolio Digital' yang dinamis, di mana setiap karya gaya rambut dan testimoni pelanggan disajikan dengan layout yang sangat estetik.\n\nFokus saya adalah menciptakan pengalaman visual yang membuat calon pelanggan merasa 'tenang' dan yakin bahwa mereka berada di tangan ahli yang tepat.",
@@ -58,6 +80,7 @@ export const projects: Project[] = [
     slug: "clapham-event",
     name: "Clapham Event System",
     liveUrl: "https://event.imeldasalon.com/",
+    blogSlug: "membangun-sistem-event-clapham",
     hook: "Sistem manajemen event untuk operasional yang lebih terstruktur dan efisien",
     problem: "Pengelolaan event besar seringkali menjadi mimpi buruk karena operasional yang masih mengandalkan dokumen fisik atau spreadsheet yang terfragmentasi. Kesulitan dalam memantau pendaftaran, jadwal, dan ketersediaan sumber daya membuat tim seringkali kewalahan di lapangan.",
     solution: "Saya menghadirkan 'Command Center' digital untuk pengelolaan event. Ini bukan sekadar website informasi, melainkan alat kerja operasional yang kuat.\n\nSistem ini menghubungkan semua titik data ke dalam satu dashboard yang intuitif, memungkinkan tim untuk mengambil keputusan berdasarkan data real-time, bukan sekadar asumsi.",

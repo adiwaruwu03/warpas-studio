@@ -5,6 +5,7 @@ import { Metadata } from "next"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 import { posts, formatDate, SEO_KEYWORDS } from "@/lib/blog"
+import { projects } from "@/lib/projects"
 import { Header } from "@/components/boty/header"
 import { Footer } from "@/components/boty/footer"
 import { PostCard, PostListItem } from "@/components/boty/blog-cards"
@@ -64,6 +65,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) notFound()
 
   const others = posts.filter((p) => p.slug !== post.slug)
+  const project = projects.find((p) => p.blogSlug === post.slug)
   const url = `${SITE}/blog/${post.slug}`
   const jsonLd = {
     "@context": "https://schema.org",
@@ -143,6 +145,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             return <p key={i} className="whitespace-pre-line">{linkify(paragraph)}</p>
           })}
         </article>
+
+        {project && (
+          <Link
+            href={`/story/${project.slug}`}
+            className="mt-12 flex items-center justify-between gap-4 rounded-2xl border border-primary/20 bg-card p-6 transition hover:border-primary/50"
+          >
+            <span>
+              <span className="block text-xs uppercase tracking-widest text-primary">Studi kasus proyek</span>
+              <span className={`mt-1 block text-xl text-foreground ${playfair.className}`}>{project.name}</span>
+            </span>
+            <ArrowRight className="h-5 w-5 shrink-0 text-primary" />
+          </Link>
+        )}
 
         <div className="mt-12 flex flex-wrap gap-2">
           {post.tags.map((tag) => (

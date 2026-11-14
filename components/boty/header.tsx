@@ -30,8 +30,8 @@ export function Header() {
   // Navigasi items - jika di halaman detail, link ke homepage dengan hash
   const navItems = [
     { name: language === "en" ? "Home" : "Beranda", href: isHomePage ? "#home" : "/" },
-    { name: language === "en" ? "About" : "Tentang", href: isHomePage ? "#story" : "/#story" },
-    { name: language === "en" ? "Projects" : "Proyek", href: isHomePage ? "#portfolio" : "/#portfolio" },
+    { name: language === "en" ? "About" : "Tentang", href: isHomePage ? "#portfolio" : "/#portfolio" },
+    { name: language === "en" ? "Projects" : "Proyek", href: isHomePage ? "#story" : "/#story" },
     { name: language === "en" ? "Contact" : "Kontak", href: isHomePage ? "#kontak" : "/#kontak" },
     { name: language === "en" ? "Services" : "Layanan", href: "/jasa-pembuatan-website-medan" },
     { name: "Blog", href: "/blog" },
