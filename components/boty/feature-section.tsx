@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { LazyVideo } from "@/components/boty/lazy-video"
 import { Zap, Palette, Code, Users } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
@@ -87,17 +88,9 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
               }`}
             style={{ transitionDelay: '0ms' }}
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="https://www.pexels.com/download/video/38938701/" type="video/mp4" />
-            </video>
+            <LazyVideo src="https://www.pexels.com/download/video/38938701/" className="absolute inset-0 w-full h-full object-cover" />
             {/* Overlay Card */}
-            <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-primary/14 bg-card/92 p-6 shadow-lg backdrop-blur-sm">
+            <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-primary/14 bg-card/95 p-6 shadow-lg">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
                   <Zap className="w-5 h-5 text-primary" />
@@ -163,15 +156,7 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
             style={{ transitionDelay: '200ms' }}
           >
             {/* Background Video */}
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover scale-[1.02]"
-            >
-              <source src="https://www.pexels.com/download/video/33315117/" type="video/mp4" />
-            </video>
+            <LazyVideo src="https://www.pexels.com/download/video/33315117/" className="absolute inset-0 w-full h-full object-cover scale-[1.02]" />
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-black/10" />
 
@@ -198,15 +183,7 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
             className={`relative aspect-[4/5] rounded-3xl overflow-hidden boty-shadow transition-all duration-700 ease-out ${isVideoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
           >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="https://www.pexels.com/download/video/34771077/" type="video/mp4" />
-            </video>
+            <LazyVideo src="https://www.pexels.com/download/video/34771077/" className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           {/* Content */}

@@ -46,3 +46,12 @@ Use the principles. Do not copy that brand's colors, fonts or content.
 - Images: keep their native aspect ratio, `sizes` must match the rendered width, the LCP image gets `priority`.
 - Each page has exactly one `h1`. Per-page metadata and JSON-LD stay in Indonesian.
 - After layout changes, check the page at 375, 1366 and 1920 widths.
+
+## Performance
+
+- Dependencies are kept minimal (next, react, lucide-react, next-themes, @vercel/analytics). The shadcn/ui template folder was removed; build UI with plain Tailwind and tokens, do not add a component library for one widget.
+- `next.config.mjs` is empty on purpose: image optimization is ON (do not set `images.unoptimized`), and TypeScript errors fail the build.
+- Background videos below the hero use `components/boty/lazy-video.tsx` (no download until near the viewport, paused off-screen). Never autoplay heavy videos eagerly.
+- Avoid `backdrop-blur` and CSS `filter` on large or repeated elements (cards, matrix columns): they make theme switching and scrolling slow. Keep blur for the navs only.
+- npm is the package manager (`package-lock.json`); there is no pnpm lockfile.
+

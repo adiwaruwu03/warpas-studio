@@ -11,7 +11,7 @@ export function Newsletter() {
     "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン" +
     "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ"
   ).split("")
-  const matrixItems = Array.from({ length: 1400 }, (_, index) => matrixChars[index % matrixChars.length])
+  const matrixItems = Array.from({ length: 1100 }, (_, index) => matrixChars[index % matrixChars.length])
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -186,8 +186,6 @@ export function Newsletter() {
           justify-content: center;
           line-height: 1;
           user-select: none;
-          text-shadow: 0 0 6px rgb(var(--primary-rgb) / 0.22);
-          transition: color 0.5s ease, text-shadow 0.5s ease;
         }
 
         .jp-matrix > span:nth-child(11n) {

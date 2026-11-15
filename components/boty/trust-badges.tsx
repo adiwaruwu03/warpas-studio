@@ -70,7 +70,7 @@ export function TrustBadges() {
           {badges.map((badge, index) => (
             <div
               key={badge.title}
-              className={`flex flex-col h-full justify-start items-center rounded-2xl border border-primary/12 bg-card/88 p-4 sm:p-6 text-center backdrop-blur-sm transition-all duration-700 ease-out lg:p-8 ${
+              className={`flex flex-col h-full justify-start items-center rounded-2xl border border-primary/12 bg-card p-4 sm:p-6 text-center transition-all duration-700 ease-out lg:p-8 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'

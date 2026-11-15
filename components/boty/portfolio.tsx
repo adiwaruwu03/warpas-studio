@@ -282,7 +282,6 @@ export function Portfolio() {
           );
           -webkit-background-clip: text;
           background-clip: text;
-          filter: drop-shadow(0 0 6px rgb(var(--primary-rgb) / 0.15));
         }
 
         .matrix-column:nth-child(odd)::before {

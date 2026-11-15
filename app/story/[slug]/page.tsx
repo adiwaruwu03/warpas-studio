@@ -306,7 +306,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {/* SIDEBAR: TECH, FEATURES, IMPACT */}
             <div className="space-y-12 lg:pt-20">
-              <section className="p-8 rounded-3xl bg-foreground/5 border border-foreground/10 backdrop-blur-sm">
+              <section className="p-8 rounded-3xl bg-foreground/5 border border-foreground/10">
                 <h3 className={`text-xs text-muted-foreground uppercase tracking-widest mb-8 ${playfair.className}`}>Fitur Utama</h3>
                 <div className="space-y-6">
                   {project.features.map(f => (
