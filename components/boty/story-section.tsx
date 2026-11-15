@@ -33,7 +33,7 @@ export function StorySection() {
             <Link
               key={project.slug}
               href={`/story/${project.slug}`}
-              className="group cursor-pointer relative overflow-hidden rounded-[32px] border border-white/5 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(201,169,110,0.1)]"
+              className="group cursor-pointer relative overflow-hidden rounded-[32px] border border-foreground/5 bg-card/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_20px_50px_rgb(var(--primary-rgb)/0.1)]"
             >
               {/* Thumbnail Container - Adjusted for 1885x901 ratio */}
               <div className="relative aspect-[1885/901] w-full overflow-hidden">
@@ -48,7 +48,7 @@ export function StorySection() {
                 {/* Tech Tags */}
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest text-foreground/80">
+                    <span key={t} className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-foreground/10 text-[10px] uppercase tracking-widest text-white/85">
                       {t}
                     </span>
                   ))}
@@ -85,7 +85,7 @@ export function StorySection() {
               </h3>
               <a
                 href="#kontak"
-                className={`inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(201,169,110,0.4)] ${spaceGrotesk.className}`}
+                className={`inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgb(var(--primary-rgb)/0.25)] ${spaceGrotesk.className}`}
               >
                 Hubungi Saya
                 <ArrowRight className="h-4 w-4" />

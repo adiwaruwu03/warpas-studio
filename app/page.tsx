@@ -7,6 +7,8 @@ import { FeatureSection } from "@/components/boty/feature-section"
 import { Testimonials } from "@/components/boty/testimonials"
 import { Newsletter } from "@/components/boty/newsletter"
 import { Footer } from "@/components/boty/footer"
+import { ServicesSection } from "@/components/boty/services-section"
+import { posts } from "@/lib/blog"
 
 export default function HomePage() {
   return (
@@ -21,18 +23,24 @@ export default function HomePage() {
 
       <TrustBadges />
 
-      {/* STORY PROJEK */}
+      {/* Order must match the nav, left to right: Tentang, Proyek, Layanan, Kontak */}
+
+      {/* TENTANG (about, journey, principles) */}
+      <section id="portfolio">
+        <Portfolio />
+        <FeatureSection journey={posts.map(({ slug, title, date }) => ({ slug, title, date }))} />
+        <Testimonials />
+      </section>
+
+      {/* PROYEK */}
       <section id="story">
         <StorySection />
       </section>
 
-      {/* PORTFOLIO */}
-      <section id="portfolio">
-        <Portfolio />
+      {/* LAYANAN */}
+      <section id="layanan">
+        <ServicesSection />
       </section>
-
-      <FeatureSection />
-      <Testimonials />
 
       {/* KONTAK (NEWSLETTER / FORM) */}
       <section id="kontak">

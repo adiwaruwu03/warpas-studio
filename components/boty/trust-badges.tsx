@@ -56,7 +56,7 @@ export function TrustBadges() {
 
   return (
     <section className="relative overflow-hidden bg-background py-20">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,169,110,0.16),transparent_32%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgb(var(--primary-rgb)/0.16),transparent_32%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-8 text-center">
           <p className={`text-xs font-semibold uppercase tracking-[0.34em] text-primary/80 ${spaceGrotesk.className}`}>

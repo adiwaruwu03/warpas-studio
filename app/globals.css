@@ -3,42 +3,97 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Portfolio theme: warm black, ivory text, champagne gold accent (dark only) */
-:root {
-  --background: #0d0d0f;
-  --foreground: #ebe7df;
+/* Two themes, documented in WARNA.md. Light = default (:root / .light), dark = .dark (next-themes sets the class on <html>) */
+:root,
+.light {
+  --background: #efe4d2;
+  --foreground: #2b1b13;
+  --card: #f7f0e4;
+  --card-foreground: #2b1b13;
+  --popover: #f7f0e4;
+  --popover-foreground: #2b1b13;
+  /* Pandan #2F9B45 darkened to #1E7434 so small green text on Krim passes WCAG AA (4.6:1) */
+  --primary: #1e7434;
+  --primary-foreground: #efe4d2;
+  --secondary: #e6d8c2;
+  --secondary-foreground: #2b1b13;
+  --muted: #e6d8c2;
+  --muted-foreground: #6e5a4b;
+  --accent: #e6d8c2;
+  --accent-foreground: #2b1b13;
+  --destructive: #b0402c;
+  --destructive-foreground: #efe4d2;
+  --border: #dccbb2;
+  --input: #dccbb2;
+  --ring: #2f9b45;
+  --chart-1: #2f9b45;
+  --chart-2: #6e5a4b;
+  --chart-3: #a8927a;
+  --chart-4: #2b1b13;
+  --chart-5: #dccbb2;
+  --sidebar: #f7f0e4;
+  --sidebar-foreground: #2b1b13;
+  --sidebar-primary: #1e7434;
+  --sidebar-primary-foreground: #efe4d2;
+  --sidebar-accent: #e6d8c2;
+  --sidebar-accent-foreground: #2b1b13;
+  --sidebar-border: #dccbb2;
+  --sidebar-ring: #2f9b45;
+  --brand: #2f9b45;
+  --primary-rgb: 47 155 69;
+  --foreground-rgb: 43 27 19;
+  --background-rgb: 239 228 210;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0e0e10;
+  --foreground: #ece6da;
   --card: #151518;
-  --card-foreground: #ebe7df;
+  --card-foreground: #ece6da;
   --popover: #151518;
-  --popover-foreground: #ebe7df;
-  --primary: #c9a96e;
-  --primary-foreground: #0d0d0f;
+  --popover-foreground: #ece6da;
+  --primary: #ff5b1a;
+  --primary-foreground: #0e0e10;
   --secondary: #1d1d21;
-  --secondary-foreground: #ebe7df;
+  --secondary-foreground: #ece6da;
   --muted: #1d1d21;
   --muted-foreground: #9d978d;
   --accent: #1d1d21;
-  --accent-foreground: #ebe7df;
+  --accent-foreground: #ece6da;
   --destructive: #c0614f;
-  --destructive-foreground: #ebe7df;
+  --destructive-foreground: #ece6da;
   --border: #2a2926;
   --input: #2a2926;
-  --ring: #c9a96e;
-  --chart-1: #c9a96e;
+  --ring: #ff5b1a;
+  --chart-1: #ff5b1a;
   --chart-2: #9d978d;
   --chart-3: #6f6a62;
   --chart-4: #595241;
   --chart-5: #b8ae9c;
   --radius: 1rem;
   --sidebar: #151518;
-  --sidebar-foreground: #ebe7df;
-  --sidebar-primary: #c9a96e;
-  --sidebar-primary-foreground: #0d0d0f;
+  --sidebar-foreground: #ece6da;
+  --sidebar-primary: #ff5b1a;
+  --sidebar-primary-foreground: #0e0e10;
   --sidebar-accent: #1d1d21;
-  --sidebar-accent-foreground: #ebe7df;
+  --sidebar-accent-foreground: #ece6da;
   --sidebar-border: #2a2926;
-  --sidebar-ring: #c9a96e;
+  --sidebar-ring: #ff5b1a;
+  /* RGB triples for glows and the CSS-only effects: rgb(var(--primary-rgb) / 0.2) */
+  --brand: #ff5b1a;
+  --primary-rgb: 255 91 26;
+  --foreground-rgb: 236 230 218;
+  --background-rgb: 14 14 16;
   color-scheme: dark;
+}
+
+/* Text sitting on the always-dark hero video: keep light ink in both themes */
+.on-media {
+  --foreground: #ece6da;
+  --foreground-rgb: 236 230 218;
+  --background: #0e0e10;
+  --background-rgb: 14 14 16;
 }
 
 @theme inline {
@@ -64,6 +119,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-brand: var(--brand);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);

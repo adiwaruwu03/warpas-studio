@@ -15,7 +15,7 @@ type Testimonial = {
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
   <div className="mb-4 flex-shrink-0 rounded-3xl border border-primary/12 bg-card/92 p-6"
     style={{
-      boxShadow: "0 18px 40px rgba(2, 12, 27, 0.36)"
+      boxShadow: "0 18px 40px rgba(0, 0, 0, 0.18)"
     }}
   >
     {/* Stars */}

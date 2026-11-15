@@ -5,6 +5,7 @@ import { playfair } from '@/lib/tech-fonts'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from "@/components/boty/language-context"
 import { BottomNav } from "@/components/boty/bottom-nav"
+import { ThemeProvider } from "@/components/theme-provider"
 import './globals.css'
 
 const dmSans = DM_Sans({
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0d0d0f',
+  themeColor: '#efe4d2',
 }
 
 const jsonLd = {
@@ -142,16 +143,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased pb-24 lg:pb-0`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LanguageProvider>
-          {children}
-          <BottomNav />
-        </LanguageProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+          <LanguageProvider>
+            {children}
+            <BottomNav />
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

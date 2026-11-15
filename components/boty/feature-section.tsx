@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Zap, Palette, Code, Users } from "lucide-react"
 import { useLanguage } from "@/components/boty/language-context"
 import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 
-export function FeatureSection() {
+export type JourneyItem = { slug: string; title: string; date: string }
+
+export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
   const [isVisible, setIsVisible] = useState(false)
   const [isVideoVisible, setIsVideoVisible] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(false)
@@ -16,36 +19,6 @@ export function FeatureSection() {
   const { language } = useLanguage()
   const isEnglish = language === "en"
 
-  const features = [
-    {
-      icon: Zap,
-      title: isEnglish ? "Performance" : "Performa",
-      description: isEnglish
-        ? "Optimizing speed and application performance"
-        : "Mengoptimalkan kecepatan dan performa aplikasi"
-    },
-    {
-      icon: Palette,
-      title: isEnglish ? "UI Development" : "UI Development",
-      description: isEnglish
-        ? "Building modern and interactive interfaces"
-        : "Membangun antarmuka yang modern dan interaktif"
-    },
-    {
-      icon: Code,
-      title: isEnglish ? "Clean Code" : "Kode Rapi",
-      description: isEnglish
-        ? "Writing readable and scalable code"
-        : "Menulis kode yang rapi, mudah dibaca, dan scalable"
-    },
-    {
-      icon: Users,
-      title: "Problem Solving",
-      description: isEnglish
-        ? "Solving technical challenges efficiently"
-        : "Menemukan solusi efisien untuk tantangan teknis"
-    }
-  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -145,7 +118,7 @@ export function FeatureSection() {
 
           {/* Top Right - 100% Natural */}
           <div
-            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center md:col-span-2 relative overflow-hidden transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            className={`on-media rounded-3xl p-6 md:p-8 flex flex-col justify-center md:col-span-2 relative overflow-hidden transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             style={{ transitionDelay: '100ms' }}
           >
@@ -249,25 +222,24 @@ export function FeatureSection() {
             </h2>
             <p className={`text-lg text-muted-foreground leading-relaxed mb-10 max-w-md ${spaceGrotesk.className} ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
               {isEnglish
-                ? "I am a student and Frontend Developer passionate about building modern web interfaces. Every project is an opportunity for me to learn, grow, and deliver the best results."
-                : "Saya adalah seorang mahasiswa dan Frontend Developer yang bersemangat dalam membangun antarmuka web modern. Setiap proyek adalah kesempatan bagi saya untuk belajar dan berkembang memberikan hasil terbaik."}
+                ? "Student and web developer in Medan. It started with campus projects; today I build websites and apps for real businesses: a suit store, a salon, an event organizer and a pharmacy. Every project is written up on my blog."
+                : "Mahasiswa dan web developer di Medan. Berawal dari proyek kampus, kini saya membangun website dan aplikasi untuk bisnis nyata: toko jas, salon, event, hingga apotek. Setiap proyek saya ceritakan di blog."}
             </p>
 
-            {/* Feature Cards */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="group rounded-md border border-primary/12 bg-card/90 p-5 boty-transition hover:scale-[1.02]"
-                >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-primary/20 boty-transition bg-primary/10">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className={`font-medium text-foreground mb-1 ${playfair.className}`}>{feature.title}</h3>
-                  <p className={`text-sm text-muted-foreground ${spaceGrotesk.className}`}>{feature.description}</p>
-                </div>
+            {/* Journey timeline, newest first, built from the blog posts */}
+            <ol className={`relative space-y-6 border-l border-primary/30 pl-6 ${spaceGrotesk.className}`}>
+              {journey.map((item) => (
+                <li key={item.slug} className="relative">
+                  <span aria-hidden="true" className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_10px_rgb(var(--primary-rgb)/0.25)]" />
+                  <time dateTime={item.date} className="text-xs uppercase tracking-widest text-primary">
+                    {new Date(item.date).toLocaleDateString(isEnglish ? "en-US" : "id-ID", { month: "long", year: "numeric" })}
+                  </time>
+                  <Link href={`/blog/${item.slug}`} className="mt-1 block text-foreground/90 leading-snug hover:text-primary transition">
+                    {item.title}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </div>

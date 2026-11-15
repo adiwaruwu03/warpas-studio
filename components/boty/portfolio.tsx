@@ -156,7 +156,7 @@ export function Portfolio() {
                         src={img.src}
                         alt={img.label}
                         fill
-                        className="object-contain object-bottom transition-all duration-500 drop-shadow-[0_10px_30px_rgba(201,169,110,0.25)]"
+                        className="object-contain object-bottom transition-all duration-500 drop-shadow-[0_10px_30px_rgb(var(--primary-rgb)/0.25)]"
                         sizes="(max-width: 768px) 70vw, 420px"
                         priority={offset === 0}
                       />
@@ -206,7 +206,7 @@ export function Portfolio() {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-card/80 text-muted-foreground backdrop-blur-md transition-all hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_rgba(201,169,110,0.2)]"
+                  className="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-card/80 text-muted-foreground backdrop-blur-md transition-all hover:border-primary/40 hover:text-primary hover:shadow-[0_0_20px_rgb(var(--primary-rgb)/0.2)]"
                   aria-label={social.label}
                 >
                   <social.icon size={18} className="transition-transform group-hover:scale-110" />
@@ -274,15 +274,15 @@ export function Portfolio() {
           color: transparent;
           background: linear-gradient(
             to bottom,
-            rgba(235, 231, 223, 0.9) 0%,
-            rgba(201, 169, 110, 0.85) 18%,
-            rgba(201, 169, 110, 0.5) 45%,
-            rgba(201, 169, 110, 0.2) 75%,
+            rgb(var(--foreground-rgb) / 0.9) 0%,
+            rgb(var(--primary-rgb) / 0.85) 18%,
+            rgb(var(--primary-rgb) / 0.5) 45%,
+            rgb(var(--primary-rgb) / 0.2) 75%,
             transparent 100%
           );
           -webkit-background-clip: text;
           background-clip: text;
-          filter: drop-shadow(0 0 6px rgba(201,169,110, 0.15));
+          filter: drop-shadow(0 0 6px rgb(var(--primary-rgb) / 0.15));
         }
 
         .matrix-column:nth-child(odd)::before {

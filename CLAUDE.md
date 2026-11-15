@@ -9,24 +9,13 @@ Personal portfolio of Adi Putra Waruwu (frontend developer, Medan). Next.js 16 +
 
 ## Colors
 
-Tokens live in `app/globals.css` (`:root`, dark only). Use token classes. Do not hardcode hex, and do not use Tailwind palette colors (cyan, blue, purple, slate...) in components.
+Two themes via `next-themes` (class on `<html>`): light is the default (`:root, .light`, must stay above `.dark` in the file), dark is `.dark`. Full palette, rules and reasons are in `WARNA.md`. Read it before any color work.
 
-| Role | Value | Class |
-|---|---|---|
-| Page background | `#0d0d0f` warm black | `bg-background` |
-| Card / raised surface | `#151518` | `bg-card` |
-| Subtle fill | `#1d1d21` | `bg-secondary` |
-| Text | `#ebe7df` ivory | `text-foreground` (body paragraphs `text-foreground/80`) |
-| Muted text | `#9d978d` | `text-muted-foreground` |
-| Accent (champagne gold) | `#c9a96e` | `text-primary`, `bg-primary` (dark text on it: `text-primary-foreground`) |
-| Border | `#2a2926` | `border-border`, or `border-primary/10..20` for accented cards |
-
-Rules:
-- Gold is an accent: links, small labels, active states, one CTA per section, thin divider lines. Not for long body text.
-- Never white text on a gold button; use `text-primary-foreground`.
-- Glows use `rgba(201,169,110, <=0.25)`.
-- Every section uses `bg-background` so the page reads as one surface. No grid-line overlay backgrounds (removed as visual noise).
-- Exception: the bento card in `feature-section.tsx` sits on a light video, so its text stays `text-black`.
+- Dark: black `#0E0E10`, warm white `#ECE6DA`, vibrant orange `#FF5B1A`. Light: Krim `#EFE4D2`, Espresso `#2B1B13`, Pandan `#1E7434` (darkened from `#2F9B45` so small text passes AA).
+- Components use token classes only (`bg-background`, `text-primary`...). No hex, no Tailwind palette colors, no `bg-white/..` tints (use `bg-foreground/..`).
+- Glows/effects: `rgb(var(--primary-rgb) / <=0.25)`. Every token change goes into BOTH theme blocks.
+- Text over photos/video: class `on-media`. The hero is always dark. Navs: transparent with light text over the hero (`on-media`), otherwise a bar in `bg-background` with theme text. The active item gets a sliding SOLID pill in the exact brand color (`bg-brand`: #2F9B45 light, #FF5B1A dark) with white text (`components/boty/use-active-nav.ts`).
+- Every section uses `bg-background`. No grid-line overlays.
 
 ## Typography
 
@@ -43,6 +32,9 @@ Rules:
 - Hero photos: the `heroPhotos` array in `components/boty/hero.tsx`. They are transparent PNGs in `public/images/profile/`.
 - Blog content syntax (`lib/blog.ts`): paragraphs split by a blank line, a paragraph of only `![alt](/path)` renders an image, bare URLs become links. Images go in `public/blog/`.
 - SEO: the root layout sets `canonical: './'`, so every page gets its own canonical. Never hardcode the home URL there, or every page would point to home. Local keywords ("web developer Medan", "jasa pembuatan website/aplikasi Medan") live in `SEO_KEYWORDS` (`lib/blog.ts`) and in the layout metadata. The `ProfessionalService` JSON-LD in `app/layout.tsx` must match the Google Business Profile (name, phone, hours).
+- Home page order must match the nav left to right: hero (#home) → Tentang (#portfolio: about, journey, principles) → Proyek (#story) → Layanan (#layanan) → Kontak (#kontak). Blog is a separate page. Section ids are listed in `SECTIONS` in `components/boty/use-active-nav.ts`, in the same order.
+- Services: `lib/services.ts` is the single source for the home "Layanan" section and `/jasa-pembuatan-website-medan`. Bilingual fields; no prices or invented results.
+- "Perjalanan Saya" timeline (`feature-section.tsx`) is built from the blog posts (passed in from `app/page.tsx`), so a new post updates it automatically.
 - Projects: `lib/projects.ts`, detail pages at `/story/[slug]`. Blog: `lib/blog.ts`, pages at `/blog`, `/blog/[slug]`. Both are in `app/sitemap.ts`.
 
 ## Ideas borrowed from the CLAPHAM.CO guide (another project of the owner; principles only)

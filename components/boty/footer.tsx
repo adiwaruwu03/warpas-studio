@@ -69,7 +69,7 @@ export function Footer() {
                 href="https://www.instagram.com/adi_waruwwu/"
                 target="_blank"
                 rel="noopener noreferrer me"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-foreground" />
@@ -79,7 +79,7 @@ export function Footer() {
                 href="https://www.tiktok.com/@halo_aku_adi"
                 target="_blank"
                 rel="noopener noreferrer me"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
                 aria-label="TikTok"
               >
                 <span className="text-sm font-bold text-foreground">TT</span>
@@ -89,7 +89,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/adi-putra-waruwu-554391288/"
                 target="_blank"
                 rel="noopener noreferrer me"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5 text-foreground" />
@@ -99,7 +99,7 @@ export function Footer() {
                 href="https://github.com/adiwaruwu03"
                 target="_blank"
                 rel="noopener noreferrer me"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5 text-foreground" />
@@ -118,14 +118,14 @@ export function Footer() {
                 href="https://wa.me/6283836098858"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
               >
                 <Phone className="w-5 h-5 text-foreground" />
               </a>
 
               <a
                 href="mailto:adiputrawaruwu030303@gmail.com"
-                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-white/10 hover:bg-white/20"}`}
+                className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
               >
                 <Mail className="w-5 h-5 text-foreground" />
               </a>
@@ -135,7 +135,7 @@ export function Footer() {
         </div>
 
         {/* BOTTOM CENTER TEXT */}
-        <div className={`pt-10 text-center ${isTechHome ? "border-t border-primary/12" : "border-t border-white/10"}`}>
+        <div className={`pt-10 text-center ${isTechHome ? "border-t border-primary/12" : "border-t border-foreground/10"}`}>
           <p className={`${isTechHome ? `${spaceGrotesk.className} text-muted-foreground` : "text-foreground/50"} text-sm`}>
             © {new Date().getFullYear()} Adi Putra Waruwu. Seluruh hak cipta dilindungi. •{" "}
             <Link href="/" className="hover:text-foreground/70 transition">

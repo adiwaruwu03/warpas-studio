@@ -58,7 +58,7 @@ export function Newsletter() {
           ))}
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgba(13,13,15,0.28),transparent_30%),linear-gradient(to_bottom,rgba(13,13,15,0.66),rgba(13,13,15,0.72))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_left_center,rgb(var(--background-rgb)/0.28),transparent_30%),linear-gradient(to_bottom,rgb(var(--background-rgb)/0.66),rgb(var(--background-rgb)/0.72))]" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -175,7 +175,7 @@ export function Newsletter() {
           justify-content: center;
           padding: 18px;
           font-size: 24px;
-          color: rgba(201,169,110, 0.22);
+          color: rgb(var(--primary-rgb) / 0.22);
           font-family: "Courier New", Courier, monospace;
           transform: scale(1.08) translateY(-8%);
         }
@@ -186,7 +186,7 @@ export function Newsletter() {
           justify-content: center;
           line-height: 1;
           user-select: none;
-          text-shadow: 0 0 6px rgba(201,169,110, 0.22);
+          text-shadow: 0 0 6px rgb(var(--primary-rgb) / 0.22);
           transition: color 0.5s ease, text-shadow 0.5s ease;
         }
 
@@ -207,27 +207,27 @@ export function Newsletter() {
         }
 
         .jp-matrix > span:nth-child(31n + 1) {
-          color: rgba(201, 169, 110, 0.5);
+          color: rgb(var(--primary-rgb) / 0.5);
           animation: smooth-pulse 4.8s ease-in-out infinite 0.7s;
         }
 
         @keyframes smooth-pulse {
           0%,
           100% {
-            color: rgba(201,169,110, 0.2);
-            text-shadow: 0 0 6px rgba(201,169,110, 0.16);
+            color: rgb(var(--primary-rgb) / 0.2);
+            text-shadow: 0 0 6px rgb(var(--primary-rgb) / 0.16);
           }
           35% {
-            color: rgba(201, 169, 110, 0.92);
+            color: rgb(var(--primary-rgb) / 0.92);
             text-shadow:
-              0 0 10px rgba(201, 169, 110, 0.85),
-              0 0 18px rgba(201, 169, 110, 0.5);
+              0 0 10px rgb(var(--primary-rgb) / 0.85),
+              0 0 18px rgb(var(--primary-rgb) / 0.5);
           }
           62% {
-            color: rgba(235, 231, 223, 0.8);
+            color: rgb(var(--foreground-rgb) / 0.8);
             text-shadow:
-              0 0 10px rgba(235, 231, 223, 0.5),
-              0 0 22px rgba(201,169,110, 0.4);
+              0 0 10px rgb(var(--foreground-rgb) / 0.5),
+              0 0 22px rgb(var(--primary-rgb) / 0.4);
           }
         }
 

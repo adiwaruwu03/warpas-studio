@@ -156,15 +156,15 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           {/* Premium Browser Frame Hero */}
           <div className="relative group">
             <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-primary/40 via-primary/15 to-primary/20 blur opacity-75" />
-            <div className="relative rounded-[24px] border border-white/10 bg-card overflow-hidden shadow-2xl">
+            <div className="relative rounded-[24px] border border-foreground/10 bg-card overflow-hidden shadow-2xl">
               {/* Browser Header */}
-              <div className="h-10 bg-white/5 border-b border-white/10 flex items-center px-4 gap-2">
+              <div className="h-10 bg-foreground/5 border-b border-foreground/10 flex items-center px-4 gap-2">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
                 </div>
-                <div className="mx-auto bg-white/5 rounded-md px-3 py-1 text-[10px] text-muted-foreground font-mono tracking-wider">
+                <div className="mx-auto bg-foreground/5 rounded-md px-3 py-1 text-[10px] text-muted-foreground font-mono tracking-wider">
                   warpas.studio/{project.slug}
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-3 rounded-2xl bg-primary/10 border border-primary/20 px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary/90 hover:text-foreground hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(201,169,110,0.15)] ${spaceGrotesk.className}`}
+                className={`inline-flex items-center gap-3 rounded-2xl bg-primary/10 border border-primary/20 px-8 py-4 text-sm font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-primary-foreground hover:scale-105 active:scale-95 shadow-[0_0_20px_rgb(var(--primary-rgb)/0.15)] ${spaceGrotesk.className}`}
               >
                 Lihat Website Asli
                 <ExternalLink className="h-4 w-4" />
@@ -276,9 +276,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
                   {/* Large Dashboard Preview */}
                   <div className="relative group p-[2px] rounded-[32px] bg-gradient-to-br from-primary/40 via-primary/15 to-transparent">
-                    <div className="relative rounded-[30px] border border-white/5 bg-card overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+                    <div className="relative rounded-[30px] border border-foreground/5 bg-card overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
                       {/* Dashboard Title Bar */}
-                      <div className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                      <div className="px-6 py-4 border-b border-foreground/5 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <Lock size={14} className="text-primary" />
                           <span className={`text-[10px] uppercase tracking-widest text-muted-foreground ${playfair.className}`}>Administrator Control Panel</span>
@@ -289,7 +289,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                       </div>
 
                       {/* Dashboard Image */}
-                      <div className="relative aspect-[1885/901] w-full bg-black/40">
+                      <div className="relative aspect-[1885/901] w-full bg-secondary">
                         <Image
                           src={project.adminSystem.image}
                           alt="Dashboard Preview"
@@ -306,7 +306,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {/* SIDEBAR: TECH, FEATURES, IMPACT */}
             <div className="space-y-12 lg:pt-20">
-              <section className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <section className="p-8 rounded-3xl bg-foreground/5 border border-foreground/10 backdrop-blur-sm">
                 <h3 className={`text-xs text-muted-foreground uppercase tracking-widest mb-8 ${playfair.className}`}>Fitur Utama</h3>
                 <div className="space-y-6">
                   {project.features.map(f => (
@@ -320,11 +320,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 </div>
               </section>
 
-              <section className="p-8 rounded-3xl bg-white/5 border border-white/10">
+              <section className="p-8 rounded-3xl bg-foreground/5 border border-foreground/10">
                 <h3 className={`text-xs text-muted-foreground uppercase tracking-widest mb-6 ${playfair.className}`}>Teknologi</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map(t => (
-                    <span key={t} className={`px-3 py-1 rounded-lg bg-black/40 border border-white/10 text-[10px] text-foreground uppercase tracking-widest ${spaceGrotesk.className}`}>
+                    <span key={t} className={`px-3 py-1 rounded-lg bg-foreground/5 border border-foreground/10 text-[10px] text-foreground uppercase tracking-widest ${spaceGrotesk.className}`}>
                       {t}
                     </span>
                   ))}
@@ -348,7 +348,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
 
         {/* CTA SECTION */}
-        <section className="max-w-screen-2xl mx-auto px-6 lg:px-8 py-32 border-t border-white/5">
+        <section className="max-w-screen-2xl mx-auto px-6 lg:px-8 py-32 border-t border-foreground/5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12 bg-card p-12 rounded-[40px] border border-primary/20 relative overflow-hidden">
             <div className="relative z-10 space-y-4">
               <h2 className={`text-3xl md:text-5xl text-foreground ${playfair.className}`}>
@@ -363,7 +363,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               href="https://wa.me/6283836098858"
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative z-10 inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(201,169,110,0.4)] ${spaceGrotesk.className}`}
+              className={`relative z-10 inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-sm font-bold uppercase tracking-widest text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgb(var(--primary-rgb)/0.25)] ${spaceGrotesk.className}`}
             >
               Yuk ngobrol
               <ArrowRight className="h-5 w-5" />

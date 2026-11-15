@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { Metadata } from "next"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 import { playfair, spaceGrotesk } from "@/lib/tech-fonts"
 import { projects } from "@/lib/projects"
 import { SEO_KEYWORDS } from "@/lib/blog"
+import { services } from "@/lib/services"
 import { Header } from "@/components/boty/header"
 import { Footer } from "@/components/boty/footer"
 
@@ -24,25 +25,6 @@ export const metadata: Metadata = {
     images: ["/blog/jasa-pembuatan-website-medan.jpg"],
   },
 }
-
-const services = [
-  {
-    title: "Website Company Profile",
-    desc: "Website profesional untuk perusahaan, toko, salon, klinik, atau UMKM di Medan dan sekitarnya. Tampil meyakinkan, cepat, dan mudah ditemukan di Google.",
-  },
-  {
-    title: "Landing Page",
-    desc: "Satu halaman fokus untuk promosi produk, event, atau kampanye iklan, dirancang agar pengunjung langsung menghubungi Anda.",
-  },
-  {
-    title: "Toko Online (E-Commerce)",
-    desc: "Katalog dan toko online dengan tampilan rapi, seperti website Blessing Store, agar produk Anda terlihat profesional.",
-  },
-  {
-    title: "Aplikasi Web Kustom",
-    desc: "Sistem sesuai alur bisnis Anda: aplikasi kasir (POS), sistem informasi apotek dan klinik, manajemen stok, booking ruangan, dan dashboard admin.",
-  },
-]
 
 const steps = [
   { title: "Konsultasi gratis", desc: "Ceritakan kebutuhan bisnis Anda lewat WhatsApp. Kita bahas tujuan, fitur, dan alur kerjanya." },
@@ -135,12 +117,29 @@ export default function JasaWebsitePage() {
         <section className="mt-24">
           <h2 className={`text-3xl md:text-4xl text-foreground ${playfair.className}`}>Layanan pembuatan website dan aplikasi</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {services.map((s) => (
-              <div key={s.title} className="rounded-3xl border border-primary/12 bg-card p-8 transition hover:-translate-y-1 hover:border-primary/30">
-                <h3 className={`text-xl text-foreground ${playfair.className}`}>{s.title}</h3>
-                <p className="mt-3 leading-7 text-muted-foreground">{s.desc}</p>
-              </div>
-            ))}
+            {services.map((s, i) => {
+              const example = projects.find((p) => p.slug === s.example)
+              return (
+                <div key={s.title} className="group relative flex flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card p-8 transition hover:-translate-y-1 hover:border-primary/50">
+                  <span aria-hidden="true" className={`absolute -right-2 -top-6 text-8xl text-primary/10 transition group-hover:text-primary/20 ${playfair.className}`}>0{i + 1}</span>
+                  <h3 className={`relative text-2xl text-foreground ${playfair.className}`}>{s.title}</h3>
+                  <p className="relative mt-3 leading-7 text-muted-foreground">{s.desc}</p>
+                  <ul className="relative mt-5 space-y-2">
+                    {s.points.map((pt) => (
+                      <li key={pt} className="flex gap-2 text-foreground/85">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                  {example && (
+                    <Link href={`/story/${example.slug}`} className="relative mt-auto pt-6 text-sm text-primary hover:underline underline-offset-4">
+                      Contoh proyek: {example.name} →
+                    </Link>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </section>
 
