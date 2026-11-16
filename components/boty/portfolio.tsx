@@ -26,7 +26,7 @@ export function Portfolio() {
   ]
 
   const socialLinks = [
-    { icon: Instagram, link: "https://www.instagram.com/adi_waruwwu/?hl=id", label: "Instagram" },
+    { icon: Instagram, link: "https://www.instagram.com/adi_putra_waruwu/", label: "Instagram" },
     { icon: Linkedin, link: "https://www.linkedin.com/in/adi-putra-waruwu-554391288/", label: "LinkedIn" },
     { icon: Github, link: "https://github.com/adiwaruwu03", label: "GitHub" },
   ]

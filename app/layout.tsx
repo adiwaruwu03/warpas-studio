@@ -25,37 +25,25 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Adi Putra Waruwu', url: 'https://adi-putra-waruwu.vercel.app' }],
   creator: 'Adi Putra Waruwu',
+  // og:image + twitter:image come from app/opengraph-image.tsx (1200x630, generated at build)
   openGraph: {
     type: 'website',
     locale: 'id_ID',
     url: 'https://adi-putra-waruwu.vercel.app',
-    title: 'Adi Putra Waruwu | Web Developer Indonesia',
-    description: 'Web Developer Indonesia yang membangun website modern, cepat, responsif, SEO Friendly.',
+    title: 'Web Developer Medan & Jasa Pembuatan Website | Adi Waruwu',
+    description: 'Jasa pembuatan website & aplikasi di Medan, Sumatera Utara: company profile, toko online, kasir POS, sistem informasi. Melayani Medan, Nias & seluruh Indonesia.',
     siteName: 'Adi Putra Waruwu Portfolio',
-    images: [
-      {
-        url: '/fotohero.png',
-        width: 1200,
-        height: 630,
-        alt: 'Adi Putra Waruwu',
-      }
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adi Putra Waruwu | Web Developer Indonesia',
-    description: 'Web Developer Indonesia yang membangun website modern, cepat, responsif, SEO Friendly.',
-    images: ['/fotohero.png'],
+    title: 'Web Developer Medan & Jasa Pembuatan Website | Adi Waruwu',
+    description: 'Jasa pembuatan website & aplikasi di Medan, Sumatera Utara: company profile, toko online, kasir POS, sistem informasi. Melayani Medan, Nias & seluruh Indonesia.',
   },
   alternates: {
     canonical: './',
   },
   icons: {
-    icon: [
-      { url: '/logo.png', media: '(prefers-color-scheme: light)' },
-      { url: '/logo.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/logo.png', type: 'image/svg+xml' },
-    ],
+    icon: '/logo.png',
     apple: '/logo.png',
   },
 }
@@ -77,9 +65,9 @@ const jsonLd = {
       "description": "Frontend Developer dan Full Stack Developer Indonesia yang berfokus pada pengembangan website modern menggunakan Next.js, React, Laravel, TypeScript, dan teknologi web terbaru.",
       "url": "https://adi-putra-waruwu.vercel.app",
       "sameAs": [
-        "https://www.instagram.com/adi_waruwwu/",
+        "https://www.instagram.com/adi_putra_waruwu/",
         "https://www.linkedin.com/in/adi-putra-waruwu-554391288/",
-        "https://www.tiktok.com/@halo_aku_adi?is_from_webapp=1&sender_device=pc",
+        "https://www.tiktok.com/@waruwu_gido",
         "https://github.com/adiwaruwu03"
       ],
       "knowsAbout": [

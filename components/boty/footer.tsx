@@ -66,7 +66,7 @@ export function Footer() {
 
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/adi_waruwwu/"
+                href="https://www.instagram.com/adi_putra_waruwu/"
                 target="_blank"
                 rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
@@ -76,7 +76,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.tiktok.com/@halo_aku_adi"
+                href="https://www.tiktok.com/@waruwu_gido"
                 target="_blank"
                 rel="noopener noreferrer me"
                 className={`w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 transition ${isTechHome ? "border border-primary/20 bg-primary/10 hover:bg-primary/20" : "bg-foreground/10 hover:bg-foreground/20"}`}
