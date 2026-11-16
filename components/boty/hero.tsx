@@ -14,9 +14,13 @@ const heroPhotos = [
 export function Hero() {
   const { language } = useLanguage()
   const isEnglish = language === "en"
+  const ringText = isEnglish
+    ? ["Need a website for your business? Contact me", "Need a system for your business? Contact me"]
+    : ["Butuh web untuk bisnis Anda? Hubungi saya", "Butuh sistem untuk usaha Anda? Hubungi saya"]
   
   return (
-    <section className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-background pt-[80px]">
+    // on-media: the hero stays dark in both themes, including the bottom fade
+    <section className="on-media relative w-full h-[100dvh] flex flex-col overflow-hidden bg-background pt-[80px]">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -46,8 +50,30 @@ export function Hero() {
                filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.08))',
                opacity: 0
              }}>
+          {/* Rotating text rings, laid out exactly like the photo columns but outside the mask (never clipped) and behind the photos */}
+          <div className="pointer-events-none absolute inset-0 z-0 flex items-end justify-center">
+            {heroPhotos.map((src, i) => (
+              <div key={src} className={`relative h-full flex-1 ${i === 1 ? "" : "-mx-[6%] scale-90 origin-bottom"}`}>
+                {i !== 1 && (
+                  <svg
+                    viewBox="0 0 200 200"
+                    className={`absolute bottom-[10%] left-1/2 aspect-square w-[78%] -translate-x-1/2 overflow-visible scale-[1.26] animate-[spin_28s_linear_infinite] ${i === 2 ? "[animation-direction:reverse]" : ""}`}
+                  >
+                    <title>{ringText[i === 0 ? 0 : 1]}</title>
+                    <path id={`hero-ring-${i}`} d="M100,100 m-90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0" fill="none" />
+                    <text className={`fill-brand text-[10.5px] font-semibold uppercase tracking-[0.18em] ${spaceGrotesk.className}`}>
+                      <textPath href={`#hero-ring-${i}`} textLength="560" lengthAdjust="spacing">
+                        {`${ringText[i === 0 ? 0 : 1]} • ${ringText[i === 0 ? 0 : 1]} • `}
+                      </textPath>
+                    </text>
+                  </svg>
+                )}
+              </div>
+            ))}
+          </div>
+
           {/* Mask container to fade out the bottom of the photo */}
-          <div className="relative w-full h-full flex items-end justify-center"
+          <div className="relative z-10 w-full h-full flex items-end justify-center"
                style={{
                  maskImage: 'linear-gradient(to bottom, black 70%, transparent 98%)',
                  WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 98%)'
@@ -71,7 +97,6 @@ export function Hero() {
               </div>
             ))}
           </div>
-
 
         </div>
 
