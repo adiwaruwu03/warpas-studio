@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Post Not Found | Adi Putra Waruwu" }
 
   return {
-    // Search snippets: suffix only when it fits ~60 chars, description cut at 160 on a word boundary
-    title: post.title.length <= 42 ? `${post.title} | Adi Putra Waruwu` : post.title,
+    // Search snippets: title <= 60 chars (seoTitle), description cut at 160 on a word boundary
+    title: post.seoTitle ?? `${post.title} | Adi Waruwu`,
     description: post.excerpt.length <= 160 ? post.excerpt : `${post.excerpt.slice(0, 157).replace(/\s+\S*$/, "")}...`,
     keywords: [...post.tags, ...SEO_KEYWORDS],
     authors: [{ name: "Adi Putra Waruwu", url: SITE }],

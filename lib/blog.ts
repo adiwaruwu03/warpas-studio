@@ -1,6 +1,8 @@
 export type BlogPost = {
   slug: string
   title: string
+  // Search result title (<= 60 chars, differs from the on-page H1). Falls back to title.
+  seoTitle?: string
   date: string
   excerpt: string
   cover?: string
@@ -36,6 +38,7 @@ export function formatDate(date: string) {
 export const posts: BlogPost[] = [
   {
     slug: "cerita-membuka-jasa-pembuatan-website",
+    seoTitle: "Jasa Pembuatan Website Medan untuk UMKM | Adi Waruwu",
     title: "Dari Proyek Kampus ke Jasa Website: Kenapa Saya Membantu UMKM Go Digital",
     date: "2026-10-21",
     excerpt: "Butuh website company profile, landing page, toko online, atau aplikasi web kustom di Medan? Ini layanan yang saya tawarkan dan cara saya mengerjakannya.",
@@ -64,6 +67,7 @@ Punya ide atau kebutuhan website untuk bisnismu? Konsultasi gratis. Hubungi saya
   },
   {
     slug: "sistem-informasi-apotek-kasir-pos-ai",
+    seoTitle: "Sistem Informasi Apotek & Kasir POS dengan AI | Adi Waruwu",
     title: "Membangun Sistem Informasi Apotek: Kasir POS, Inventori Real-Time, dan Scan Faktur dengan AI",
     date: "2026-10-18",
     excerpt: "Dari permintaan sederhana \"aplikasi scan barcode obat\" menjadi sistem informasi apotek lengkap: kasir POS, inventori real-time, peringatan kedaluwarsa, dan input faktur otomatis dengan AI.",
@@ -102,6 +106,7 @@ Berawal dari fitur scan barcode, berakhir menjadi asisten digital untuk operasio
   },
   {
     slug: "plot-twist-proyek-kerja-praktik",
+    seoTitle: "Cerita Proyek Kerja Praktik Aplikasi Web | Adi Waruwu",
     title: "Plot Twist dari Proyek Kerja Praktik Saya: Aplikasinya Selesai, Tapi...",
     date: "2026-06-30",
     excerpt: "Cerita membangun aplikasi mobile booking ruangan coworking space dengan Flutter untuk Kerja Praktik: dari kalender sederhana jadi sistem dengan logika bisnis nyata.",
@@ -141,6 +146,7 @@ Ini adalah pengalaman pertama saya membangun aplikasi yang lahir dari masalah ny
   },
   {
     slug: "dari-domain-gratis-ke-seo-imelda-salon",
+    seoTitle: "SEO Website Imelda Salon Medan | Adi Waruwu",
     title: "Dari Domain Gratis ke SEO: Cerita Website Imelda Salon di Medan",
     date: "2026-02-16",
     excerpt: "Pengalaman membangun website salon di Medan, upgrade ke domain sendiri, lalu belajar SEO dari nol: riset keyword, Google Search Console, dan Google Business Profile.",
@@ -182,6 +188,7 @@ Learning never stops 🚀`,
   },
   {
     slug: "membangun-sistem-event-clapham",
+    seoTitle: "Sistem Manajemen Event dengan Next.js | Adi Waruwu",
     title: "Membangun Sistem Manajemen Event Clapham dengan Next.js",
     date: "2025-11-01",
     excerpt: "Dari spreadsheet yang berserakan ke satu dashboard terpusat: cerita membangun aplikasi web manajemen event dengan Next.js dan PostgreSQL.",
@@ -203,6 +210,7 @@ Project ini mengajarkanku satu hal: teknologi yang baik adalah teknologi yang me
   },
   {
     slug: "blessing-store-jas-second-terasa-premium",
+    seoTitle: "Website Toko Jas Blessing Store | Adi Waruwu",
     title: "Blessing Store: Website Toko Jas yang Terasa Seperti Butik",
     date: "2025-06-01",
     excerpt: "Membangun website toko online jas dan blazer di Medan: bagaimana desain UI/UX dan cara bercerita mengubah persepsi pelanggan terhadap produk second-hand.",

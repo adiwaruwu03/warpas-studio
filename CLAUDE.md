@@ -35,7 +35,7 @@ Two themes via `next-themes` (class on `<html>`): light is the default (`:root, 
 - Home page order must match the nav left to right: hero (#home) → Tentang (#portfolio: about, journey, principles) → Proyek (#story) → Layanan (#layanan) → Kontak (#kontak). Blog is a separate page. Section ids are listed in `SECTIONS` in `components/boty/use-active-nav.ts`, in the same order.
 - Services: `lib/services.ts` is the single source for the home "Layanan" section and `/jasa-pembuatan-website-medan`. Bilingual fields; no prices or invented results.
 - "Perjalanan Saya" timeline (`feature-section.tsx`) is built from the blog posts (passed in from `app/page.tsx`), so a new post updates it automatically.
-- `public/llms.txt` lists the main pages and blog posts by hand: add every new post there too. Root title stays 50-60 chars, description 120-160 chars.
+- `public/llms.txt` lists the main pages and blog posts by hand: add every new post there too. Root title stays 50-60 chars, description 120-160 chars. Every blog post gets a `seoTitle` (<= 60 chars, different from its H1 `title`).
 - Projects: `lib/projects.ts`, detail pages at `/story/[slug]`. Blog: `lib/blog.ts`, pages at `/blog`, `/blog/[slug]`. Both are in `app/sitemap.ts`.
 
 ## Ideas borrowed from the CLAPHAM.CO guide (another project of the owner; principles only)

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
   }
 
-  const title = `${project.name} | Portfolio Adi Putra Waruwu - Web Developer`
+  const title = `${project.name} | Studi Kasus Web Developer Medan` // <= 60 chars, differs from H1
   // We take a clean snippet from the problem description
   const description = (project.problem || "").substring(0, 150).replace(/\n/g, ' ') + '...'
 
