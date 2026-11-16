@@ -9,8 +9,9 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://adi-putra-waruwu.vercel.app'),
-  title: 'Adi Putra Waruwu | Web Developer Medan, Jasa Pembuatan Website & Aplikasi',
-  description: 'Adi Putra Waruwu, web developer Medan, Sumatera Utara. Melayani Medan, Nias, dan seluruh Indonesia. Jasa pembuatan website company profile, landing page, toko online, dan aplikasi web kustom (kasir POS, sistem informasi) dengan Next.js, React, Laravel. Konsultasi gratis.',
+  // SEO audit limits: title 50-60 chars, description 120-160 chars
+  title: 'Web Developer Medan & Jasa Pembuatan Website | Adi Waruwu',
+  description: 'Jasa pembuatan website & aplikasi di Medan, Sumatera Utara: company profile, toko online, kasir POS. Melayani Medan, Nias, dan seluruh Indonesia.',
   keywords: [
     'Adi Putra', 'Adi Putra Waruwu', 'Web Developer', 'Frontend Developer', 'Full Stack Developer', 
     'Software Developer', 'Web Developer Indonesia', 'Frontend Developer Indonesia', 'Next.js Developer', 

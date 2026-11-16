@@ -13,9 +13,9 @@ const PATH = "/jasa-pembuatan-website-medan"
 const WA = "https://wa.me/6283836098858"
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website & Aplikasi Medan, Nias, Sumatera Utara | Adi Waruwu",
+  title: "Jasa Pembuatan Website Medan, Nias & Sumut | Adi Waruwu",
   description:
-    "Jasa pembuatan website dan aplikasi di Medan, Nias, dan Sumatera Utara: company profile, landing page, toko online, kasir POS, sistem informasi. Web developer Medan, konsultasi gratis.",
+    "Jasa pembuatan website & aplikasi di Medan, Nias, Sumatera Utara: company profile, landing page, toko online, kasir POS. Konsultasi gratis via WhatsApp.",
   keywords: SEO_KEYWORDS,
   alternates: { canonical: PATH },
   openGraph: {

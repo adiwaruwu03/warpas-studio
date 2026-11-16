@@ -88,7 +88,7 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
               }`}
             style={{ transitionDelay: '0ms' }}
           >
-            <LazyVideo src="https://www.pexels.com/download/video/38938701/" className="absolute inset-0 w-full h-full object-cover" />
+            <LazyVideo src="/videos/38938701.mp4" className="absolute inset-0 w-full h-full object-cover" />
             {/* Overlay Card */}
             <div className="absolute bottom-8 left-8 right-8 rounded-xl border border-primary/14 bg-card/95 p-6 shadow-lg">
               <div className="flex items-start gap-3">
@@ -151,23 +151,23 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
 
           {/* Bottom Right - Eco-Friendly Packaging */}
           <div
-            className={`rounded-3xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden md:col-span-2 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            className={`on-media rounded-3xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden md:col-span-2 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             style={{ transitionDelay: '200ms' }}
           >
             {/* Background Video */}
-            <LazyVideo src="https://www.pexels.com/download/video/33315117/" className="absolute inset-0 w-full h-full object-cover scale-[1.02]" />
+            <LazyVideo src="/videos/33315117.mp4" className="absolute inset-0 w-full h-full object-cover scale-[1.02]" />
             {/* Overlay for text readability */}
-            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
             <div className="relative z-10 flex flex-col justify-center h-full text-left items-start">
               <div className="inline-flex items-center justify-center w-10 h-10 mb-3">
-                <Users className="w-8 h-8 text-black" />
+                <Users className="w-8 h-8 text-foreground" />
               </div>
-              <h3 className={`text-base mb-1 text-black ${spaceGrotesk.className}`}>
+              <h3 className={`text-base mb-1 text-foreground/80 ${spaceGrotesk.className}`}>
                 {isEnglish ? "Collaboration" : "Kolaborasi"}
               </h3>
-              <h3 className={`text-2xl md:text-3xl mb-2 text-black ${playfair.className}`}>
+              <h3 className={`text-2xl md:text-3xl mb-2 text-foreground ${playfair.className}`}>
                 {isEnglish ? "Team Player" : "Terbuka"}
               </h3>
             </div>
@@ -183,7 +183,7 @@ export function FeatureSection({ journey }: { journey: JourneyItem[] }) {
             className={`relative aspect-[4/5] rounded-3xl overflow-hidden boty-shadow transition-all duration-700 ease-out ${isVideoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
           >
-            <LazyVideo src="https://www.pexels.com/download/video/34771077/" className="absolute inset-0 w-full h-full object-cover" />
+            <LazyVideo src="/videos/34771077.mp4" className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           {/* Content */}

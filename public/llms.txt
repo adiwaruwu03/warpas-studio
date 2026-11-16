@@ -1,0 +1,18 @@
+# Adi Putra Waruwu
+
+> Web developer based in Medan, Sumatera Utara, Indonesia. Builds websites and web applications (company profiles, landing pages, online stores, custom systems such as pharmacy POS) with Next.js, React and Laravel. Serves Medan, Nias, Sumatera and all of Indonesia. Contact: WhatsApp +62 838-3609-8858.
+
+## Main pages
+
+- [Home / portfolio](https://adi-putra-waruwu.vercel.app/): about, projects, services, contact
+- [Jasa pembuatan website Medan](https://adi-putra-waruwu.vercel.app/jasa-pembuatan-website-medan): services, process, service area, FAQ
+- [Blog](https://adi-putra-waruwu.vercel.app/blog): project stories
+
+## Blog posts
+
+- [Dari Proyek Kampus ke Jasa Website](https://adi-putra-waruwu.vercel.app/blog/cerita-membuka-jasa-pembuatan-website)
+- [Membangun Sistem Informasi Apotek: Kasir POS, Inventori, Scan Faktur dengan AI](https://adi-putra-waruwu.vercel.app/blog/sistem-informasi-apotek-kasir-pos-ai)
+- [Plot Twist dari Proyek Kerja Praktik](https://adi-putra-waruwu.vercel.app/blog/plot-twist-proyek-kerja-praktik)
+- [Dari Domain Gratis ke SEO: Website Imelda Salon di Medan](https://adi-putra-waruwu.vercel.app/blog/dari-domain-gratis-ke-seo-imelda-salon)
+- [Sistem Manajemen Event Clapham dengan Next.js](https://adi-putra-waruwu.vercel.app/blog/membangun-sistem-event-clapham)
+- [Blessing Store: Website Toko Jas](https://adi-putra-waruwu.vercel.app/blog/blessing-store-jas-second-terasa-premium)

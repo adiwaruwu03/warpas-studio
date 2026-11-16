@@ -91,7 +91,7 @@ export function Portfolio() {
 
 
 
-            <div className={`mt-8 space-y-4 text-base leading-7 text-foreground/80 text-justify max-w-3xl ${spaceGrotesk.className}`}>
+            <div className={`mt-8 space-y-4 text-base leading-7 text-foreground/80 md:text-justify max-w-3xl ${spaceGrotesk.className}`}>
               <p>
                 {isEnglish
                   ? "I am Adi Putra Waruwu, a university student and frontend developer focused on building professional and refined digital identities. I believe every individual and brand has strong potential to stand out in the digital world, but not everyone has the right direction, strategy, and approach to bring it to life."

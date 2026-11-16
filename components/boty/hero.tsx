@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/components/boty/language-context"
 import { orbitron, spaceGrotesk } from "@/lib/tech-fonts"
 
@@ -17,6 +18,22 @@ export function Hero() {
   const ringText = isEnglish
     ? ["Need a website for your business? Contact me", "Need a system for your business? Contact me"]
     : ["Butuh web untuk bisnis Anda? Hubungi saya", "Butuh sistem untuk usaha Anda? Hubungi saya"]
+
+  // Mobile and tablet (< lg) shows one photo at a time: auto-advance + swipe. Desktop shows all three, untouched.
+  const [active, setActive] = useState(1)
+  const touchX = useRef<number | null>(null)
+  const go = (step: number) => setActive((a) => (a + step + heroPhotos.length) % heroPhotos.length)
+
+  useEffect(() => {
+    if (!window.matchMedia("(max-width: 1023px)").matches) return
+    const id = setTimeout(() => go(1), 4000) // restarts after every change, so a swipe resets the timer
+    return () => clearTimeout(id)
+  }, [active])
+
+  const column = (i: number) =>
+    `relative h-full flex-1 ${i === 1 ? "" : "lg:-mx-[6%] lg:scale-90 origin-bottom"} ${
+      i === active ? "max-lg:animate-[hero-slide_0.6s_ease-out]" : "max-lg:hidden"
+    }`
   
   return (
     // on-media: the hero stays dark in both themes, including the bottom fade
@@ -31,7 +48,7 @@ export function Hero() {
           preload="none"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/images/hero3.mp4" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay - Luxury Dark */}
@@ -41,19 +58,25 @@ export function Hero() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 flex-1 w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center justify-end pb-8 lg:pb-12">
+      <div className="relative z-10 flex-1 w-full max-w-[1400px] mx-auto px-4 flex flex-col items-center justify-end pb-28 lg:pb-12">
         
         {/* Photo Container (Takes remaining space) */}
-        <div className="relative z-10 w-full max-w-[420px] sm:max-w-[620px] md:max-w-[860px] lg:max-w-[1100px] flex-1 min-h-0"
+        <div className="relative z-10 w-full max-w-[420px] sm:max-w-[520px] lg:max-w-[1100px] flex-1 min-h-0"
+             onTouchStart={(e) => { touchX.current = e.touches[0].clientX }}
+             onTouchEnd={(e) => {
+               if (touchX.current === null) return
+               const dx = e.changedTouches[0].clientX - touchX.current
+               if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1)
+               touchX.current = null
+             }}
              style={{
                animation: 'float 6s ease-in-out infinite, fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-               filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.08))',
                opacity: 0
              }}>
           {/* Rotating text rings, laid out exactly like the photo columns but outside the mask (never clipped) and behind the photos */}
           <div className="pointer-events-none absolute inset-0 z-0 flex items-end justify-center">
             {heroPhotos.map((src, i) => (
-              <div key={src} className={`relative h-full flex-1 ${i === 1 ? "" : "-mx-[6%] scale-90 origin-bottom"}`}>
+              <div key={src} className={column(i)}>
                 {i !== 1 && (
                   <svg
                     viewBox="0 0 200 200"
@@ -79,7 +102,7 @@ export function Hero() {
                  WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 98%)'
                }}>
             {heroPhotos.map((src, i) => (
-              <div key={src} className={`relative h-full flex-1 ${i === 1 ? "z-10" : "-mx-[6%] scale-90 origin-bottom opacity-90"}`}>
+              <div key={src} className={`${column(i)} ${i === 1 ? "z-10" : "opacity-90"}`}>
                 {/* Side photos: brand circle behind (Pandan light, orange dark). Middle photo: brand rim light instead */}
                 {i !== 1 && (
                   <div aria-hidden="true" className="absolute bottom-[10%] left-1/2 aspect-square w-[78%] -translate-x-1/2 rounded-full bg-brand" />
@@ -88,7 +111,7 @@ export function Hero() {
                   src={src}
                   alt="Adi Putra Waruwu"
                   fill
-                  sizes="(max-width: 768px) 33vw, 380px"
+                  sizes="(max-width: 1023px) 520px, 380px"
                   className={`object-contain object-bottom ${
                     i === 1 ? "[filter:drop-shadow(0_0_1.5px_var(--brand))_drop-shadow(0_0_16px_rgb(var(--primary-rgb)/0.55))]" : ""
                   }`}
@@ -102,7 +125,7 @@ export function Hero() {
 
         {/* SEO Hidden Text */}
         <div className="sr-only">
-          <h2>Adi Putra Waruwu - Web Developer & Frontend Developer Indonesia</h2>
+          <p>Adi Putra Waruwu - Web Developer & Frontend Developer Indonesia</p>
           <p>
             Adi Putra Waruwu adalah Web Developer Indonesia yang membangun website modern, cepat, responsif, SEO Friendly, menggunakan Next.js, React, Laravel, TypeScript, dan teknologi web modern lainnya.
           </p>
@@ -116,6 +139,7 @@ export function Hero() {
                 textShadow: '0 0 50px rgba(255, 255, 255, 0.1)'
               }}>
             PORTOFOLIO
+            <span className="sr-only"> Adi Putra Waruwu, Web Developer Medan &amp; Jasa Pembuatan Website</span>
           </h1>
         </div>
 
@@ -131,14 +155,6 @@ export function Hero() {
         @keyframes fade-up {
           0% { opacity: 0; transform: translateY(40px); }
           100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fade-in-left {
-          0% { opacity: 0; transform: translate(-40px, -50%); }
-          100% { opacity: 1; transform: translate(0, -50%); }
-        }
-        @keyframes fade-in-right {
-          0% { opacity: 0; transform: translate(40px, -50%); }
-          100% { opacity: 1; transform: translate(0, -50%); }
         }
       `}</style>
     </section>

@@ -78,7 +78,7 @@ export function TrustBadges() {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <badge.icon className="text-primary mb-3 sm:mb-4 mx-auto size-10 sm:size-12" strokeWidth={1} />
-              <h3 className={`text-foreground mb-2 text-lg sm:text-xl leading-tight ${playfair.className}`}>{badge.title}</h3>
+              <h2 className={`text-foreground mb-2 text-lg sm:text-xl leading-tight ${playfair.className}`}>{badge.title}</h2>
               <p className={`text-xs sm:text-sm text-muted-foreground ${spaceGrotesk.className}`}>{badge.description}</p>
             </div>
           ))}

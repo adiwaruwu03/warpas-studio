@@ -130,6 +130,12 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-foreground" />
               </a>
             </div>
+            {/* NAP text: must match the Google Business Profile and the JSON-LD in app/layout.tsx */}
+            <address className={`${spaceGrotesk.className} not-italic mt-4 text-sm text-muted-foreground leading-relaxed`}>
+              Medan, Sumatera Utara, Indonesia
+              <br />
+              <a href="tel:+6283836098858" className="hover:text-foreground transition">0838-3609-8858</a>
+            </address>
           </div>
 
         </div>

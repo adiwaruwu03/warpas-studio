@@ -186,6 +186,18 @@
   animation: blur-in 0.8s ease-out;
 }
 
+/* Mobile hero slider: next photo slides in from the right */
+@keyframes hero-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Scale fade in animation */
 @keyframes scale-fade-in {
   0% {
