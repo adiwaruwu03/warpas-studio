@@ -53,5 +53,6 @@ Use the principles. Do not copy that brand's colors, fonts or content.
 - `next.config.mjs` is empty on purpose: image optimization is ON (do not set `images.unoptimized`), and TypeScript errors fail the build.
 - Background videos below the hero use `components/boty/lazy-video.tsx` (no download until near the viewport, paused off-screen). Never autoplay heavy videos eagerly.
 - Avoid `backdrop-blur` and CSS `filter` on large or repeated elements (cards, matrix columns): they make theme switching and scrolling slow. Keep blur for the navs only.
+- Fonts are self-hosted variable woff2 files in `app/fonts/`, loaded with `next/font/local` in `lib/tech-fonts.ts`. Do not switch back to `next/font/google`: in Next 16.0.x Turbopack it randomly breaks builds ("next/font/google queries have exactly one entry"), on Vercel too.
 - npm is the package manager (`package-lock.json`); there is no pnpm lockfile.
 

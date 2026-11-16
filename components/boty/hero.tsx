@@ -54,12 +54,18 @@ export function Hero() {
                }}>
             {heroPhotos.map((src, i) => (
               <div key={src} className={`relative h-full flex-1 ${i === 1 ? "z-10" : "-mx-[6%] scale-90 origin-bottom opacity-90"}`}>
+                {/* Side photos: brand circle behind (Pandan light, orange dark). Middle photo: brand rim light instead */}
+                {i !== 1 && (
+                  <div aria-hidden="true" className="absolute bottom-[10%] left-1/2 aspect-square w-[78%] -translate-x-1/2 rounded-full bg-brand" />
+                )}
                 <Image
                   src={src}
                   alt="Adi Putra Waruwu"
                   fill
                   sizes="(max-width: 768px) 33vw, 380px"
-                  className="object-contain object-bottom"
+                  className={`object-contain object-bottom ${
+                    i === 1 ? "[filter:drop-shadow(0_0_1.5px_var(--brand))_drop-shadow(0_0_16px_rgb(var(--primary-rgb)/0.55))]" : ""
+                  }`}
                   priority
                 />
               </div>

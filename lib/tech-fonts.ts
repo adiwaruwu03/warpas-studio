@@ -1,20 +1,34 @@
-import { Orbitron, Playfair_Display, Space_Grotesk } from "next/font/google"
+import localFont from "next/font/local"
 
-export const orbitron = Orbitron({
-  subsets: ["latin"],
+// Self-hosted variable fonts (latin subset) in app/fonts/, so builds never fetch from Google Fonts.
+// next/font/google in Next 16.0.x Turbopack randomly failed with
+// "next/font/google queries have exactly one entry" (locally and on Vercel).
+
+export const orbitron = localFont({
+  src: "../app/fonts/orbitron.woff2",
   variable: "--font-orbitron",
-  weight: ["500", "600", "700", "800"],
+  weight: "400 900",
+  display: "swap",
 })
 
-export const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+export const spaceGrotesk = localFont({
+  src: "../app/fonts/space-grotesk.woff2",
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
+  weight: "300 700",
+  display: "swap",
 })
 
 // Serif headings for sections; orbitron stays only in the hero
-export const playfair = Playfair_Display({
-  subsets: ["latin"],
+export const playfair = localFont({
+  src: "../app/fonts/playfair-display.woff2",
   variable: "--font-playfair",
-  weight: ["400", "500", "600", "700"],
+  weight: "400 900",
+  display: "swap",
+})
+
+export const dmSans = localFont({
+  src: "../app/fonts/dm-sans.woff2",
+  variable: "--font-dm-sans",
+  weight: "100 1000",
+  display: "swap",
 })

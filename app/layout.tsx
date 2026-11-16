@@ -1,17 +1,11 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans } from 'next/font/google'
-import { playfair } from '@/lib/tech-fonts'
+import { playfair, dmSans } from '@/lib/tech-fonts'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from "@/components/boty/language-context"
 import { BottomNav } from "@/components/boty/bottom-nav"
 import { ThemeProvider } from "@/components/theme-provider"
 import './globals.css'
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: '--font-dm-sans',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://adi-putra-waruwu.vercel.app'),
